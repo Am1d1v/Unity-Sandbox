@@ -4,6 +4,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float movespeed = 1f;
 
+    public float speedMod = 1f;
+
     private PlayerControls playerControls;
 
     private Vector3 movement;
@@ -45,6 +47,6 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        rb.MovePosition(rb.position + movement * movespeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * movespeed * Time.fixedDeltaTime * speedMod);
     }
 }
