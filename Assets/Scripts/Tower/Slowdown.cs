@@ -19,7 +19,7 @@ public class Slowdown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        collidersInRange = Physics.OverlapSphere(transform.position, range);
+        collidersInRange = Physics.OverlapSphere(transform.position, range, whatToSlow);
         
         Debug.Log(collidersInRange.Length);
     }
