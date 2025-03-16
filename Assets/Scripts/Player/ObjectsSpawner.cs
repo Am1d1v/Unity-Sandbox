@@ -20,7 +20,16 @@ public class ObjectsSpawner : MonoBehaviour
         {
             for (int j = 0; j < y; j++)
             {
-                Instantiate(objectToSpawn, transform.position += new Vector3(0f, 0f, 1.5f), Quaternion.identity);
+                if(Random.value > 0.5)
+                {
+                    Instantiate(objectToSpawn, transform.position += new Vector3(0f, 0f, 1.5f), Quaternion.identity);
+                }
+                else
+                {
+                    transform.position += new Vector3(0f, 0f, 1.5f);
+                    j++;
+                }
+                
             }
 
             spawnPoint.position = new Vector3(i * 1.5f, 0f, 0f);

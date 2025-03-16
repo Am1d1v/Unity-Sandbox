@@ -1419,8 +1419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2652ed92357c4a2448a49399a9e4583c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 10
-  y: 10
+  x: 15
+  y: 15
   objectToSpawn: {fileID: 1070981086}
   spawnPoint: {fileID: 2013296348}
 --- !u!1660057539 &9223372036854775807
