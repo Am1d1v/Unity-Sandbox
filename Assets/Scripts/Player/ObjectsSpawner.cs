@@ -78,6 +78,12 @@ public class ObjectsSpawner : MonoBehaviour
         foreach(GameObject obstacle in spawnedObstacles)
         {
             obstacle.transform.position -= new Vector3(0f, 0f, obstaclesMovespeed * Time.deltaTime);
+
+            if(obstacle.transform.position.z <= -6f)
+            {
+                spawnedObstacles.Remove(obstacle);
+                Destroy(obstacle);
+            }
         }
     }
 
