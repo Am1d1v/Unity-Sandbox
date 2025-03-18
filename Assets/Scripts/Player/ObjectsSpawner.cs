@@ -1,19 +1,31 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectsSpawner : MonoBehaviour
 {
-    public int x, y;
-
     public GameObject objectToSpawn;
 
     public Transform spawnPoint;
 
+    public Transform obstaclesContainer;
+
+    public int x, y;
+
     public int amountOfObstacles;
+
+    public float obstaclesMovespeed;
+
+    public List<GameObject> spawnedObstacles = new List<GameObject>();
 
     private void Start()
     {
         //Spawn();
         GenerateObstacles();
+    }
+
+    private void Update()
+    {
+        MoveObstacles();
     }
 
     //private void Spawn()
@@ -35,7 +47,7 @@ public class ObjectsSpawner : MonoBehaviour
     //            }
 
 
-                
+
     //        }
 
     //        spawnPoint.position = new Vector3(i * 1.5f, 0f, 0f);
@@ -47,11 +59,26 @@ public class ObjectsSpawner : MonoBehaviour
     {
         for (int i = 0; i < amountOfObstacles; i++)
         {
+            GameObject newObstacles;
+
             if (i == 0)
             {
-                Instantiate(objectToSpawn, transform.position += Vector3.zero, Quaternion.identity);
+                newObstacles = Instantiate(objectToSpawn, transform.position += Vector3.zero, Quaternion.identity);
             }
-            Instantiate(objectToSpawn, transform.position += new Vector3(0f, 0f, 6f), Quaternion.identity);
+            else
+            {
+                newObstacles = Instantiate(objectToSpawn, transform.position += new Vector3(0f, 0f, 6f), Quaternion.identity);
+            }
+            
+            spawnedObstacles.Add(newObstacles);
         }
     }
+    private void MoveObstacles()
+    {
+        foreach(GameObject obstacle in spawnedObstacles)
+        {
+            obstacle.transform.position -= new Vector3(0f, 0f, obstaclesMovespeed * Time.deltaTime);
+        }
+    }
+
 }

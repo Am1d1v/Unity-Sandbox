@@ -1387,11 +1387,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2652ed92357c4a2448a49399a9e4583c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 15
-  y: 15
   objectToSpawn: {fileID: 5127338140882389537, guid: b25d85340b4656a4580972a7c457531b, type: 3}
   spawnPoint: {fileID: 2013296348}
+  obstaclesContainer: {fileID: 0}
+  x: 15
+  y: 15
   amountOfObstacles: 6
+  obstaclesMovespeed: 3
+  spawnedObstacles: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
