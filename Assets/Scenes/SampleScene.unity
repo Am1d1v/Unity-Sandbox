@@ -480,7 +480,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   rangeModel: {fileID: 347887957}
-  thePlayer: {fileID: 1070981092}
+  thePlayer: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,7 +1359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2013296348
 Transform:
   m_ObjectHideFlags: 0
