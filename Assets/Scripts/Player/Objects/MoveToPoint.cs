@@ -27,7 +27,8 @@ public class MoveToPoint : MonoBehaviour
     void Update()
     {
         ShipMove();
-      
+
+        DistanceCheck();
     }
 
     void SelectSpawnPoint()
@@ -56,5 +57,13 @@ public class MoveToPoint : MonoBehaviour
         //ship.transform.position = Vector3.MoveTowards(selectedStartPoint.position, selectedEndPoint.position, moveSpeed * Time.deltaTime);
 
         ship.transform.position = Vector3.MoveTowards(ship.transform.position, selectedEndPoint.position, moveSpeed * Time.deltaTime);
+    }
+
+    void DistanceCheck()
+    {
+        if (Vector3.Distance(ship.transform.position, selectedEndPoint.position) < 0.1f)
+        {
+            Destroy(ship);
+        }
     }
 }
