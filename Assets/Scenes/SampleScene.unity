@@ -1330,6 +1330,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1220929208}
+  - component: {fileID: 1220929209}
   m_Layer: 0
   m_Name: MovePointsHolder
   m_TagString: Untagged
@@ -1354,6 +1355,26 @@ Transform:
   - {fileID: 980284797}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1220929209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220929207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6def999fbab3e8e4ab55c4d3602f960d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToMove: {fileID: 887421812785767921, guid: 07d6f6962dc24564bb377821189ea96b, type: 3}
+  moveSpeed: 10
+  startPoints:
+  - {fileID: 1522937803}
+  - {fileID: 1719228902}
+  endPoints:
+  - {fileID: 509001931}
+  - {fileID: 111264012}
 --- !u!1 &1522937802
 GameObject:
   m_ObjectHideFlags: 0
