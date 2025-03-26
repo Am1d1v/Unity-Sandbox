@@ -3,11 +3,11 @@ using UnityEngine;
 public class MoveToPoint : MonoBehaviour
 {
     public GameObject objectToMove;
+    public GameObject ship;
 
     public float moveSpeed;
 
-    public float ObjectSpawnTimer;
-    private float ObjectSpawnTimerCounter;
+    public bool isCreated;
 
     public Transform[] startPoints;
     public Transform[] endPoints;
@@ -18,8 +18,6 @@ public class MoveToPoint : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ObjectSpawnTimerCounter = ObjectSpawnTimer;
-
         SelectSpawnPoint();
         SelectEndPoint();
         SpawnObject();
@@ -28,7 +26,8 @@ public class MoveToPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ShipMove();
+      
     }
 
     void SelectSpawnPoint()
@@ -43,6 +42,19 @@ public class MoveToPoint : MonoBehaviour
 
     void SpawnObject()
     {
-        Instantiate(objectToMove, selectedStartPoint.position, Quaternion.identity);
+        GameObject newShip = Instantiate(objectToMove, selectedStartPoint.position, Quaternion.identity);
+
+        ship = newShip;
+
+        isCreated = true;
+    }
+
+    void ShipMove()
+    {
+        //ship.transform.position += new Vector3(0f, 0f, moveSpeed * Time.deltaTime);
+
+        //ship.transform.position = Vector3.MoveTowards(selectedStartPoint.position, selectedEndPoint.position, moveSpeed * Time.deltaTime);
+
+        ship.transform.position = Vector3.MoveTowards(ship.transform.position, selectedEndPoint.position, moveSpeed * Time.deltaTime);
     }
 }
