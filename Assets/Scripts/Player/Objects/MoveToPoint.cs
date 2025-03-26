@@ -18,9 +18,7 @@ public class MoveToPoint : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SelectSpawnPoint();
-        SelectEndPoint();
-        SpawnObject();
+        SelectPointsAndSpawn();
     }
 
     // Update is called once per frame
@@ -29,6 +27,11 @@ public class MoveToPoint : MonoBehaviour
         ShipMove();
 
         DistanceCheck();
+
+        if (!isCreated)
+        {
+            SelectPointsAndSpawn();
+        }
     }
 
     void SelectSpawnPoint()
@@ -43,7 +46,7 @@ public class MoveToPoint : MonoBehaviour
 
     void SpawnObject()
     {
-        GameObject newShip = Instantiate(objectToMove, selectedStartPoint.position, Quaternion.identity);
+        GameObject newShip = Instantiate(objectToMove, selectedStartPoint.position, Quaternion.Euler(0f, 90f, 0f));
 
         ship = newShip;
 
@@ -64,6 +67,15 @@ public class MoveToPoint : MonoBehaviour
         if (Vector3.Distance(ship.transform.position, selectedEndPoint.position) < 0.1f)
         {
             Destroy(ship);
+
+            isCreated = false;
         }
+    }
+
+    void SelectPointsAndSpawn()
+    {
+        SelectSpawnPoint();
+        SelectEndPoint();
+        SpawnObject();
     }
 }

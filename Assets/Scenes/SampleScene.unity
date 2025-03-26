@@ -1369,7 +1369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToMove: {fileID: 887421812785767921, guid: 07d6f6962dc24564bb377821189ea96b, type: 3}
   ship: {fileID: 0}
-  moveSpeed: 10
+  moveSpeed: 3
   isCreated: 0
   startPoints:
   - {fileID: 1522937803}
