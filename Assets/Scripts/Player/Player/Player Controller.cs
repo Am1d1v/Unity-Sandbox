@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
     {
         PlayerInput();
 
-        EulerAngleRotationX();
     }
 
     private void FixedUpdate()
@@ -52,8 +51,4 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + movement * movespeed * Time.fixedDeltaTime * speedMod);
     }
 
-    void EulerAngleRotationX()
-    {
-        transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y + 1f, 0f);
-    }
 }
