@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 330585545}
-  objectToFollow: {fileID: 26777735}
+  objectToFollow: {fileID: 1070981086}
 --- !u!1 &347887957
 GameObject:
   m_ObjectHideFlags: 0

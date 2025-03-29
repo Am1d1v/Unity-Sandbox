@@ -15,6 +15,6 @@ public class CameraRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Input.GetAxisRaw("Mouse X"));
+        transform.position = objectToFollow.transform.position + new Vector3(0f, 3.6f, -6f);
     }
 }
