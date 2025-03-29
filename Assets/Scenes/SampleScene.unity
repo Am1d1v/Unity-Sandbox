@@ -474,6 +474,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 330585545}
   objectToFollow: {fileID: 1070981086}
+  currentAngle: 0
+  targetRotation: 0
+  rotateSpeed: 3
 --- !u!1 &347887957
 GameObject:
   m_ObjectHideFlags: 0
