@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraRotation : MonoBehaviour
 {
@@ -16,5 +17,13 @@ public class CameraRotation : MonoBehaviour
     void Update()
     {
         transform.position = objectToFollow.transform.position + new Vector3(0f, 3.6f, -6f);
+
+        if (Keyboard.current.qKey.wasPressedThisFrame)
+        {
+            mainCamera.transform.eulerAngles += new Vector3(0f, 30f, 0f);
+        } else if (Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            mainCamera.transform.eulerAngles += new Vector3(0f, -30f, 0f);
+        }
     }
 }
