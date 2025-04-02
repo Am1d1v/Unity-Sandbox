@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 
     public float speedMod = 1f;
 
+    public float checkRadius;
+
     public Material color;
 
     private PlayerControls playerControls;
@@ -13,6 +15,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 movement;
 
     private Rigidbody rb;
+
+    public Collider[] colliders;
+
+    public LayerMask colorBoxesLayer;
 
     private void Awake()
     {
@@ -36,6 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         PlayerInput();
 
+        CheckDistance();
     }
 
     private void FixedUpdate()
@@ -53,11 +60,16 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + movement * movespeed * Time.fixedDeltaTime * speedMod);
     }
 
+    void CheckDistance()
+    {
+        colliders = Physics.OverlapSphere(transform.position, checkRadius, colorBoxesLayer);       
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "ColorBoxes")
         {
-            color.color = Color.black;
+            GetComponent<MeshRenderer>().material.color = Color.black;
         }
     }
 }

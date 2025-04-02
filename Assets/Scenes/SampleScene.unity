@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 188384259}
   - component: {fileID: 188384258}
   - component: {fileID: 188384261}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: ColorBoxes
   m_Icon: {fileID: 0}
@@ -1509,7 +1509,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 15
   speedMod: 1
+  checkRadius: 3
   color: {fileID: 2100000, guid: 6ca4a0116fb87a4429c3bfa3e2a1f8e5, type: 2}
+  colliders: []
+  colorBoxesLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1220929207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,7 +1850,7 @@ GameObject:
   - component: {fileID: 2047005273}
   - component: {fileID: 2047005272}
   - component: {fileID: 2047005275}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: ColorBoxes
   m_Icon: {fileID: 0}
