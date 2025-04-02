@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 
     public float speedMod = 1f;
 
+    public Material color;
+
     private PlayerControls playerControls;
 
     private Vector3 movement;
@@ -51,4 +53,11 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + movement * movespeed * Time.fixedDeltaTime * speedMod);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "ColorBoxes")
+        {
+            color.color = Color.black;
+        }
+    }
 }
