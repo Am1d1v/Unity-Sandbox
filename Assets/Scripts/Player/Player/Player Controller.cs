@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask colorBoxesLayer;
 
+    public GameObject nearestBox;
+
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         PlayerInput();
 
-        CheckDistance();
+        GetNearestBox();
     }
 
     private void FixedUpdate()
@@ -60,9 +62,21 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + movement * movespeed * Time.fixedDeltaTime * speedMod);
     }
 
-    void CheckDistance()
+    void GetNearestBox()
     {
-        colliders = Physics.OverlapSphere(transform.position, checkRadius, colorBoxesLayer);       
+        colliders = Physics.OverlapSphere(transform.position, checkRadius, colorBoxesLayer);
+
+        foreach (Collider collider in colliders)
+        {
+            if(Vector3.Distance(transform.position, collider.transform.position) < checkRadius)
+            {
+                nearestBox = collider.gameObject;
+            }
+            else
+            {
+                nearestBox = null;
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
