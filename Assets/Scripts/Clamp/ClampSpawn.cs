@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ClampSpawn : MonoBehaviour
@@ -5,6 +6,8 @@ public class ClampSpawn : MonoBehaviour
     public GameObject objectToSpawn;
 
     public Transform minSpawnPoint, maxSpawnPoint;
+
+    public List<Vector3> spawnPoints = new List<Vector3>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,6 +31,10 @@ public class ClampSpawn : MonoBehaviour
 
     void SpawnObject()
     {
-        GameObject newObject = Instantiate(objectToSpawn, SelectSpawnPoint(), Quaternion.identity);
+        Vector3 spawnPoint = SelectSpawnPoint();
+
+        spawnPoints.Add(spawnPoint);
+
+        GameObject newObject = Instantiate(objectToSpawn, spawnPoint, Quaternion.identity);
     }
 }
