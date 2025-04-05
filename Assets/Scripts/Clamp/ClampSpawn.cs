@@ -5,9 +5,15 @@ public class ClampSpawn : MonoBehaviour
 {
     public GameObject objectToSpawn;
 
+    public GameObject objectToChase;
+
     public Transform minSpawnPoint, maxSpawnPoint;
 
     public List<Vector3> spawnPoints = new List<Vector3>();
+
+    public List<GameObject> spawnedObjects = new List<GameObject>();
+
+    public float moveSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,7 +24,7 @@ public class ClampSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        objectToSpawn.transform.position += Vector3.MoveTowards(objectToSpawn.transform.position, objectToChase.transform.position, moveSpeed * Time.deltaTime);
     }
 
     Vector3 SelectSpawnPoint()
@@ -32,9 +38,9 @@ public class ClampSpawn : MonoBehaviour
     void SpawnObject()
     {
         Vector3 spawnPoint = SelectSpawnPoint();
-
         spawnPoints.Add(spawnPoint);
 
         GameObject newObject = Instantiate(objectToSpawn, spawnPoint, Quaternion.identity);
+        spawnedObjects.Add(newObject);
     }
 }
