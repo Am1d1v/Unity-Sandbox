@@ -1682,11 +1682,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 8100855767387375977, guid: 96cc9311f3540bb458c545bc6d75177a, type: 3}
-  objectToChase: {fileID: 26777735}
+  objectToChase: {fileID: 1070981086}
   minSpawnPoint: {fileID: 1004125220}
   maxSpawnPoint: {fileID: 793970967}
   spawnPoints: []
-  moveSpeed: 5
+  spawnedObjects: []
+  moveSpeed: 3
+  rangeToChase: 18
 --- !u!1 &1522937802
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class ClampSpawn : MonoBehaviour
 
     public List<GameObject> spawnedObjects = new List<GameObject>();
 
-    public float moveSpeed;
+    public float moveSpeed, rangeToChase;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +24,8 @@ public class ClampSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        objectToSpawn.transform.position += Vector3.MoveTowards(objectToSpawn.transform.position, objectToChase.transform.position, moveSpeed * Time.deltaTime);
+        RangeCheck(objectToChase.transform.position);
+
     }
 
     Vector3 SelectSpawnPoint()
@@ -42,5 +43,28 @@ public class ClampSpawn : MonoBehaviour
 
         GameObject newObject = Instantiate(objectToSpawn, spawnPoint, Quaternion.identity);
         spawnedObjects.Add(newObject);
+    }
+
+    void ChasePlayer(Vector3 objectToChase)
+    {
+        foreach (GameObject obj in spawnedObjects)
+        {
+            obj.transform.position = Vector3.MoveTowards(obj.transform.position, objectToChase, moveSpeed * Time.deltaTime);
+        }
+
+        
+    }
+
+    void RangeCheck(Vector3 objectToChase)
+    {
+        foreach (GameObject obj in spawnedObjects)
+        {
+            if(Vector3.Distance(obj.transform.position, objectToChase) <= rangeToChase)
+            {
+                ChasePlayer(objectToChase);
+            }
+        }
+
+        Debug.Log(objectToChase);
     }
 }
