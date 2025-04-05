@@ -63,8 +63,14 @@ public class ClampSpawn : MonoBehaviour
             {
                 ChasePlayer(objectToChase);
             }
+            else
+            {
+                if(obj.transform.position != spawnPoints[0])
+                {
+                    obj.transform.position = Vector3.MoveTowards(obj.transform.position, spawnPoints[0], moveSpeed * Time.deltaTime);
+                }
+            }
         }
-
-        Debug.Log(objectToChase);
     }
+
 }
