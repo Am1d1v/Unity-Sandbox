@@ -1098,7 +1098,7 @@ GameObject:
   m_Component:
   - component: {fileID: 793970967}
   m_Layer: 0
-  m_Name: Msx Pos
+  m_Name: Max Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1682,6 +1682,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 8100855767387375977, guid: 96cc9311f3540bb458c545bc6d75177a, type: 3}
+  minSpawnPoint: {fileID: 1004125220}
+  maxSpawnPoint: {fileID: 793970967}
 --- !u!1 &1522937802
 GameObject:
   m_ObjectHideFlags: 0
