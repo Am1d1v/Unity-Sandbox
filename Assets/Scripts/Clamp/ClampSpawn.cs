@@ -9,7 +9,7 @@ public class ClampSpawn : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SelectSpawnPoint();
+        SpawnObject();
     }
 
     // Update is called once per frame
@@ -24,5 +24,10 @@ public class ClampSpawn : MonoBehaviour
         float yPos = Random.Range(minSpawnPoint.position.z, maxSpawnPoint.position.z);
 
         return new Vector3(xPos, 0.6f, yPos);
+    }
+
+    void SpawnObject()
+    {
+        GameObject newObject = Instantiate(objectToSpawn, SelectSpawnPoint(), Quaternion.identity);
     }
 }
