@@ -5,6 +5,8 @@ public class Sorting : MonoBehaviour
 {
     public GameObject objectToSpawn;
 
+    public Transform minPos, maxPos;
+
     public List<GameObject> handledObjects = new List<GameObject>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,4 +27,6 @@ public class Sorting : MonoBehaviour
 
         handledObjects.Add(newObj);
     }
+
+
 }
