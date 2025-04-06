@@ -8,6 +8,9 @@
         },
         {
             "m_Id": "851208aaabb04b3a881b481f9bf4dd31"
+        },
+        {
+            "m_Id": "9673e79b04bb4b17b44b7535d376a514"
         }
     ],
     "m_Keywords": [],
@@ -65,6 +68,9 @@
         },
         {
             "m_Id": "a1bc962c39ec483b9769ce22dfe6e2b8"
+        },
+        {
+            "m_Id": "e3946cb710e04fb482521b5df2146bdc"
         }
     ],
     "m_GroupDatas": [],
@@ -192,6 +198,20 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "481795edfe9a44308f84a44c92b1af3f"
+                },
+                "m_SlotId": 1
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "e3946cb710e04fb482521b5df2146bdc"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "c0383921996f4b08a9906775cb234064"
                 },
                 "m_SlotId": 1
             }
@@ -775,10 +795,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1714.000244140625,
-            "y": 52.99998092651367,
+            "x": -1720.0,
+            "y": -76.0,
             "width": 124.0,
-            "height": 173.0000457763672
+            "height": 173.0
         }
     },
     "m_Slots": [
@@ -834,6 +854,9 @@
         },
         {
             "m_Id": "851208aaabb04b3a881b481f9bf4dd31"
+        },
+        {
+            "m_Id": "9673e79b04bb4b17b44b7535d376a514"
         }
     ]
 }
@@ -883,7 +906,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "e00": -0.20999999344348908,
+        "e00": -0.8799999952316284,
         "e01": 2.0,
         "e02": 2.0,
         "e03": 2.0,
@@ -929,6 +952,21 @@
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Sine Time",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "61988cedd9c34832946017196fe94747",
+    "m_Id": 0,
+    "m_DisplayName": "Speed",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
@@ -1237,6 +1275,34 @@
     "useTilingAndOffset": false,
     "m_Modifiable": true,
     "m_DefaultType": 0
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "9673e79b04bb4b17b44b7535d376a514",
+    "m_Guid": {
+        "m_GuidSerialized": "31e2b719-1c70-48a9-9ade-d0c6a2a5821c"
+    },
+    "m_Name": "Speed",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Speed",
+    "m_DefaultReferenceName": "_Speed",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 0.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    }
 }
 
 {
@@ -1824,6 +1890,42 @@
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "e3946cb710e04fb482521b5df2146bdc",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -1534.0,
+            "y": 17.0,
+            "width": 109.0,
+            "height": 34.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "61988cedd9c34832946017196fe94747"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "9673e79b04bb4b17b44b7535d376a514"
     }
 }
 
