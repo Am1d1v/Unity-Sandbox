@@ -12,6 +12,11 @@ public class Chunks : MonoBehaviour
         {
             PlayerController.instance.speedMod = slowMoveSpeedModifier;
         }
+        else if(!isSlow && other.gameObject.tag == "Player")
+        {
+            PlayerController.instance.speedMod = speedUpModifier;
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
