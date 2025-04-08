@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float movespeed = 1f;
 
-    public float speedMod = 1f;
+    public float speedMod, defaultSpeedModifier = 1f;
 
     public float checkRadius;
 
