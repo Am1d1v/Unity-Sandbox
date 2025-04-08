@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     [SerializeField] float movespeed = 1f;
 
-    public float speedMod, defaultSpeedModifier = 1f;
+    public float speedMod, defaultSpeedModifier;
 
     public float checkRadius;
 
@@ -24,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
+
         playerControls = new PlayerControls();
     }
 
@@ -31,6 +35,8 @@ public class PlayerController : MonoBehaviour
     {
         playerControls.Enable();
         rb = GetComponent<Rigidbody>();
+
+        defaultSpeedModifier = speedMod;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
