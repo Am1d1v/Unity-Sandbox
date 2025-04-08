@@ -67,3 +67,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowMoveSpeedModifier: 0.001
+  speedUpModifier: 0
+  isSlow: 1
