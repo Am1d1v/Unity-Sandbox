@@ -22,7 +22,7 @@ public class WaveSpawner : MonoBehaviour
     private void Update()
     {
         enemySpawnTimerCounter -= Time.deltaTime;
-        if(enemySpawnTimerCounter <= 0)
+        if(enemySpawnTimerCounter <= 0 && activeEnemies.Count < enemiesToSpawn.Length)
         {
             CreateEnemy();
 
