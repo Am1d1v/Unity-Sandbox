@@ -100,8 +100,11 @@ public class PlayerController : MonoBehaviour
 
     void CharacterFallingState()
     {
-        Collider[] collision = Physics.OverlapSphere(transform.position, 1f);
+        Collider[] collision = Physics.OverlapSphere(transform.position, 1f, groundLayer);
 
-        Debug.Log(collision.Length);
+        if(collision.Length == 0)
+        {
+            Debug.Log("Falling");
+        }
     }
 }

@@ -5226,7 +5226,7 @@ GameObject:
   - component: {fileID: 273971173}
   - component: {fileID: 273971172}
   - component: {fileID: 273971175}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6542,6 +6542,9 @@ MonoBehaviour:
   colorBoxesLayer:
     serializedVersion: 2
     m_Bits: 128
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
   nearestBox: {fileID: 0}
 --- !u!1001 &1072081206
 PrefabInstance:
