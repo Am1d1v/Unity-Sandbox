@@ -7137,6 +7137,7 @@ MonoBehaviour:
   - {fileID: 736458083014068317, guid: e36e9b408af5fab4b9d48fd52555a526, type: 3}
   - {fileID: 736458083014068317, guid: b7db31154891dcb478bda79b8dc835a6, type: 3}
   amountToSpawn: 18
+  enemySpawnTimer: 2
   activeEnemies: []
 --- !u!1 &2013296347
 GameObject:

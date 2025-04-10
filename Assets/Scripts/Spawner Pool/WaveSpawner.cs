@@ -7,12 +7,27 @@ public class WaveSpawner : MonoBehaviour
 
     public int amountToSpawn;
 
+    public float enemySpawnTimer;
+
+    private float enemySpawnTimerCounter;
+
     public List<GameObject> activeEnemies = new List<GameObject>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        enemySpawnTimerCounter = enemySpawnTimer;
+    }
+
+    private void Update()
+    {
+        enemySpawnTimerCounter -= Time.deltaTime;
+        if(enemySpawnTimerCounter <= 0)
+        {
+            CreateEnemy();
+
+            enemySpawnTimerCounter = enemySpawnTimer;
+        }
     }
 
     public void CreateEnemy()
