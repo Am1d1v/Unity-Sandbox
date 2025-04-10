@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     public float checkRadius;
 
+    public bool isFalling;
+
     public Material color;
 
     private PlayerControls playerControls;
@@ -20,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     public Collider[] colliders;
 
-    public LayerMask colorBoxesLayer;
+    public LayerMask colorBoxesLayer, groundLayer;
 
     public GameObject nearestBox;
 
@@ -51,6 +54,8 @@ public class PlayerController : MonoBehaviour
         PlayerInput();
 
         GetNearestBox();
+
+        CharacterFallingState();
     }
 
     private void FixedUpdate()
@@ -91,5 +96,12 @@ public class PlayerController : MonoBehaviour
         {
             GetComponent<MeshRenderer>().material.color = Color.black;
         }
+    }
+
+    void CharacterFallingState()
+    {
+        Collider[] collision = Physics.OverlapSphere(transform.position, 1f);
+
+        Debug.Log(collision.Length);
     }
 }
