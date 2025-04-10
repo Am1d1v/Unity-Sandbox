@@ -6536,6 +6536,7 @@ MonoBehaviour:
   speedMod: 1
   defaultSpeedModifier: 1
   checkRadius: 3
+  fallingTimer: 1
   isFalling: 0
   color: {fileID: 2100000, guid: 6ca4a0116fb87a4429c3bfa3e2a1f8e5, type: 2}
   colliders: []

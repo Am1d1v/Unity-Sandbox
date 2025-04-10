@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
 
     public float checkRadius;
 
+    public float fallingTimer;
+    private float fallingTimerCounter;
+
     public bool isFalling;
 
     public Material color;
@@ -45,7 +48,7 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        fallingTimerCounter = fallingTimer;
     }
 
     // Update is called once per frame
@@ -104,7 +107,24 @@ public class PlayerController : MonoBehaviour
 
         if(collision.Length == 0)
         {
-            Debug.Log("Falling");
+            isFalling = true;
+
+            if (isFalling)
+            {
+                fallingTimerCounter -= Time.deltaTime;
+                if(fallingTimerCounter <= 0 && isFalling)
+                {
+                    Debug.Log("Falling animation");
+                }
+            }           
+        }
+        else
+        {
+            isFalling = false;
+
+            fallingTimerCounter = fallingTimer;
+
+            Debug.Log("Running animation");
         }
     }
 }
