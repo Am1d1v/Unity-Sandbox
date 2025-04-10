@@ -12,16 +12,13 @@ public class WaveSpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        CreateEnemies();
+        
     }
 
-    public void CreateEnemies()
+    public void CreateEnemy()
     {
-        for(int i = 0; i < amountToSpawn; i++)
-        {
-            GameObject newEnemy = Instantiate(enemiesToSpawn[Random.Range(0, enemiesToSpawn.Length)], transform.position, transform.rotation);
+        GameObject newEnemy = Instantiate(enemiesToSpawn[Random.Range(0, enemiesToSpawn.Length)], transform.position, transform.rotation, transform.parent);
 
-            activeEnemies.Add(newEnemy);
-        }
+        activeEnemies.Add(newEnemy);
     }
 }
