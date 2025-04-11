@@ -30,6 +30,7 @@ public class DoorSystem : MonoBehaviour
         if (shouldOpenDoors)
         {
             OpenDoors();
+            OpenDoor();
         }
         else
         {
@@ -55,6 +56,11 @@ public class DoorSystem : MonoBehaviour
         //CloseDoors();
 
         shouldOpenDoors = false;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        shouldOpenDoors = true;
     }
 
     void OpenDoors()
@@ -88,6 +94,7 @@ public class DoorSystem : MonoBehaviour
 
     void OpenDoor()
     {
-
+        singleDoorClosedState.position = Vector3.Lerp(singleDoorClosedState.position, singleDoorOpenedState.position, Time.deltaTime);
+        singleDoorClosedState.rotation = Quaternion.Lerp(singleDoorClosedState.rotation, singleDoorOpenedState.rotation, Time.deltaTime);
     }
 }

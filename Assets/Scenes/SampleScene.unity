@@ -6120,13 +6120,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792750207}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.70090926, z: 0, w: 0.7132505}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 6}
   m_LocalScale: {x: 12.396182, y: 0.988049, z: 0.811381}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2107737764}
-  m_LocalEulerAnglesHint: {x: 0, y: -89, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!65 &792750209
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7652,6 +7652,7 @@ GameObject:
   - component: {fileID: 1913178453}
   - component: {fileID: 1913178454}
   - component: {fileID: 1913178455}
+  - component: {fileID: 1913178456}
   m_Layer: 0
   m_Name: Door System
   m_TagString: Untagged
@@ -7695,8 +7696,8 @@ MonoBehaviour:
   closedStatePositionLeft: {x: 0, y: 0, z: 0}
   closedStatePositionRight: {x: 0, y: 0, z: 0}
   openPosition: {x: 1.5, y: 0, z: 0}
-  singleDoorClosedState: {x: 0, y: 0, z: 0}
-  singleDoorOpenedState: {x: 0, y: 0, z: 0}
+  singleDoorClosedState: {fileID: 0}
+  singleDoorOpenedState: {fileID: 0}
   shouldOpenDoors: 0
 --- !u!65 &1913178455
 BoxCollider:
@@ -7719,6 +7720,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.6, y: 4.8, z: 4.5}
   m_Center: {x: 1, y: 1.8, z: -0.0965653}
+--- !u!65 &1913178456
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913178452}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.3}
+  m_Center: {x: -4, y: 0.85, z: 0}
 --- !u!1 &2013296347
 GameObject:
   m_ObjectHideFlags: 0
