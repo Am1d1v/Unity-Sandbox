@@ -6,6 +6,8 @@ public class DoorSystem : MonoBehaviour
 
     public Vector3 openPosition;
 
+    public bool shouldOpenDoors;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,8 +17,11 @@ public class DoorSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, -openPosition - new Vector3(0f, -leftDoor.transform.position.y, 0f), Time.deltaTime);
-        rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, openPosition + new Vector3(2f, rightDoor.transform.position.y, 0f), Time.deltaTime);
+        if (shouldOpenDoors)
+        {
+            leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, -openPosition - new Vector3(0f, -leftDoor.transform.position.y, 0f), Time.deltaTime);
+            rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, openPosition + new Vector3(2f, rightDoor.transform.position.y, 0f), Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,6 +30,8 @@ public class DoorSystem : MonoBehaviour
         //rightDoor.transform.position += openPosition;
 
         //OpenDoors();
+
+        shouldOpenDoors = true;
     }
 
     private void OnTriggerExit(Collider other)
@@ -33,6 +40,8 @@ public class DoorSystem : MonoBehaviour
         //rightDoor.transform.position -= openPosition;
 
         //CloseDoors();
+
+        shouldOpenDoors = false;
     }
 
     void OpenDoors()
