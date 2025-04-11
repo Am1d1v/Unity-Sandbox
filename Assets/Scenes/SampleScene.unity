@@ -7369,6 +7369,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1913178453}
+  - component: {fileID: 1913178454}
+  - component: {fileID: 1913178455}
   m_Layer: 0
   m_Name: Door System
   m_TagString: Untagged
@@ -7393,6 +7395,43 @@ Transform:
   - {fileID: 455093082}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1913178454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913178452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45049ef2c2c6a0e4c84349d2f820016c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftDoor: {fileID: 1719294720}
+  rightDoor: {fileID: 455093081}
+  closedPosition: {fileID: 0}
+  openedPosition: {fileID: 0}
+--- !u!65 &1913178455
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913178452}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.6, y: 4.8, z: 4.5}
+  m_Center: {x: 1, y: 1.8, z: -0.0965653}
 --- !u!1 &2013296347
 GameObject:
   m_ObjectHideFlags: 0

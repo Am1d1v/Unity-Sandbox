@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
                 fallingTimerCounter -= Time.deltaTime;
                 if(fallingTimerCounter <= 0 && isFalling)
                 {
-                    Debug.Log("Falling animation");
+                    //Debug.Log("Falling animation");
                 }
             }           
         }
@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
 
             fallingTimerCounter = fallingTimer;
 
-            Debug.Log("Running animation");
+            //Debug.Log("Running animation");
         }
     }
 }
