@@ -20,13 +20,39 @@ public class DoorSystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        leftDoor.transform.position -= openPosition;
-        rightDoor.transform.position += openPosition;
+        //leftDoor.transform.position -= openPosition;
+        //rightDoor.transform.position += openPosition;
+
+        OpenDoors();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        leftDoor.transform.position += openPosition;
-        rightDoor.transform.position -= openPosition;
+        //leftDoor.transform.position += openPosition;
+        //rightDoor.transform.position -= openPosition;
+
+        CloseDoors();
+    }
+
+    void OpenDoors()
+    {
+        Vector3 openedLeftDoorPosition = leftDoor.transform.position -= openPosition;
+        float left = leftDoor.transform.position.x;
+        left = Mathf.Lerp(left, openedLeftDoorPosition.x, 10f);
+
+        Vector3 openedRightDoorPosition = rightDoor.transform.position += openPosition;
+        float right = rightDoor.transform.position.x;
+        right = Mathf.Lerp(right, openedLeftDoorPosition.x, 10f);
+    }
+
+    void CloseDoors()
+    {
+        Vector3 closedLeftDoorPosition = leftDoor.transform.position += openPosition;
+        float left = leftDoor.transform.position.x;
+        left = Mathf.Lerp(left, closedLeftDoorPosition.x, 1f);
+
+        Vector3 openedRightDoorPosition = rightDoor.transform.position -= openPosition;
+        float right = rightDoor.transform.position.x;
+        right = Mathf.Lerp(right, closedLeftDoorPosition.x, 1f);
     }
 }
