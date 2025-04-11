@@ -7409,8 +7409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftDoor: {fileID: 1719294720}
   rightDoor: {fileID: 455093081}
-  closedPosition: {fileID: 0}
-  openedPosition: {fileID: 0}
+  openPosition: {x: 1.5, y: 0, z: 0}
 --- !u!65 &1913178455
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ public class DoorSystem : MonoBehaviour
 {
     public GameObject leftDoor, rightDoor;
 
-    public Transform closedPosition, openedPosition;
+    public Vector3 openPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,11 +20,13 @@ public class DoorSystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Open");
+        leftDoor.transform.position -= openPosition;
+        rightDoor.transform.position += openPosition;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Close");
+        leftDoor.transform.position += openPosition;
+        rightDoor.transform.position -= openPosition;
     }
 }
