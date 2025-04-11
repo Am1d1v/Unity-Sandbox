@@ -7690,9 +7690,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftDoor: {fileID: 1719294720}
   rightDoor: {fileID: 455093081}
+  singleDoorClosed: {fileID: 843468679}
+  singleDoorOpened: {fileID: 792750207}
   closedStatePositionLeft: {x: 0, y: 0, z: 0}
   closedStatePositionRight: {x: 0, y: 0, z: 0}
   openPosition: {x: 1.5, y: 0, z: 0}
+  singleDoorClosedState: {x: 0, y: 0, z: 0}
+  singleDoorOpenedState: {x: 0, y: 0, z: 0}
   shouldOpenDoors: 0
 --- !u!65 &1913178455
 BoxCollider:

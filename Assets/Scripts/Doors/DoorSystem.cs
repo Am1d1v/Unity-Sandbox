@@ -4,11 +4,13 @@ public class DoorSystem : MonoBehaviour
 {
     public GameObject leftDoor, rightDoor;
 
+    public GameObject singleDoorClosed, singleDoorOpened;
+
     public Vector3 closedStatePositionLeft, closedStatePositionRight;
 
     public Vector3 openPosition;
 
-    public Vector3 singleDoorClosed, singleDoorOpened;
+    public Transform singleDoorClosedState, singleDoorOpenedState;
 
     public bool shouldOpenDoors;
 
@@ -17,6 +19,9 @@ public class DoorSystem : MonoBehaviour
     {
         closedStatePositionLeft = leftDoor.transform.position;
         closedStatePositionRight = rightDoor.transform.position;
+
+        singleDoorClosedState = singleDoorClosed.transform;
+        singleDoorOpenedState = singleDoorOpened.transform;
     }
 
     // Update is called once per frame
@@ -78,6 +83,11 @@ public class DoorSystem : MonoBehaviour
 
         leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, closedStatePositionLeft, Time.deltaTime);
         rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, closedStatePositionRight, Time.deltaTime);
+
+    }
+
+    void OpenDoor()
+    {
 
     }
 }
