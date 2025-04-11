@@ -4,6 +4,8 @@ public class DoorSystem : MonoBehaviour
 {
     public GameObject leftDoor, rightDoor;
 
+    public Vector3 closedStatePositionLeft, closedStatePositionRight;
+
     public Vector3 openPosition;
 
     public bool shouldOpenDoors;
@@ -11,7 +13,8 @@ public class DoorSystem : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        closedStatePositionLeft = leftDoor.transform.position;
+        closedStatePositionRight = rightDoor.transform.position;
     }
 
     // Update is called once per frame
@@ -19,8 +22,11 @@ public class DoorSystem : MonoBehaviour
     {
         if (shouldOpenDoors)
         {
-            leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, -openPosition - new Vector3(0f, -leftDoor.transform.position.y, 0f), Time.deltaTime);
-            rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, openPosition + new Vector3(2f, rightDoor.transform.position.y, 0f), Time.deltaTime);
+            OpenDoors();
+        }
+        else
+        {
+            CloseDoors();
         }
     }
 
@@ -46,23 +52,30 @@ public class DoorSystem : MonoBehaviour
 
     void OpenDoors()
     {
-        Vector3 openedLeftDoorPosition = leftDoor.transform.position -= openPosition;
-        float left = leftDoor.transform.position.x;
-        left = Mathf.Lerp(left, openedLeftDoorPosition.x, 0.1f);
+        //Vector3 openedLeftDoorPosition = leftDoor.transform.position -= openPosition;
+        //float left = leftDoor.transform.position.x;
+        //left = Mathf.Lerp(left, openedLeftDoorPosition.x, 0.1f);
 
-        Vector3 openedRightDoorPosition = rightDoor.transform.position += openPosition;
-        float right = rightDoor.transform.position.x;
-        right = Mathf.Lerp(right, openedLeftDoorPosition.x, 0.1f);
+        //Vector3 openedRightDoorPosition = rightDoor.transform.position += openPosition;
+        //float right = rightDoor.transform.position.x;
+        //right = Mathf.Lerp(right, openedLeftDoorPosition.x, 0.1f);
+
+        leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, -openPosition - new Vector3(0f, -leftDoor.transform.position.y, 0f), Time.deltaTime);
+        rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, openPosition + new Vector3(2f, rightDoor.transform.position.y, 0f), Time.deltaTime);
     }
 
     void CloseDoors()
     {
-        Vector3 closedLeftDoorPosition = leftDoor.transform.position += openPosition;
-        float left = leftDoor.transform.position.x;
-        left = Mathf.Lerp(left, closedLeftDoorPosition.x, 1f);
+        //Vector3 closedLeftDoorPosition = leftDoor.transform.position += openPosition;
+        //float left = leftDoor.transform.position.x;
+        //left = Mathf.Lerp(left, closedLeftDoorPosition.x, 1f);
 
-        Vector3 openedRightDoorPosition = rightDoor.transform.position -= openPosition;
-        float right = rightDoor.transform.position.x;
-        right = Mathf.Lerp(right, closedLeftDoorPosition.x, 1f);
+        //Vector3 openedRightDoorPosition = rightDoor.transform.position -= openPosition;
+        //float right = rightDoor.transform.position.x;
+        //right = Mathf.Lerp(right, closedLeftDoorPosition.x, 1f);
+
+        leftDoor.transform.position = Vector3.Lerp(leftDoor.transform.position, closedStatePositionLeft, Time.deltaTime);
+        rightDoor.transform.position = Vector3.Lerp(rightDoor.transform.position, closedStatePositionRight, Time.deltaTime);
+
     }
 }
