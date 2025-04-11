@@ -8,6 +8,8 @@ public class DoorSystem : MonoBehaviour
 
     public Vector3 openPosition;
 
+    public Vector3 singleDoorClosed, singleDoorOpened;
+
     public bool shouldOpenDoors;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
