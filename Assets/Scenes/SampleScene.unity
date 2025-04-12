@@ -7611,6 +7611,7 @@ MonoBehaviour:
   objectToAdd:
     serializedVersion: 2
     m_Bits: 8
+  boxDetectionRange: {x: 2, y: 2, z: 2}
 --- !u!1 &1872093148
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ public class BoxCollider : MonoBehaviour
 
     public LayerMask objectToAdd;
 
+    public Vector3 boxDetectionRange;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,11 +22,13 @@ public class BoxCollider : MonoBehaviour
 
     void GetObjects()
     {
-        objectsInRange = Physics.OverlapBox(transform.position, transform.localPosition, Quaternion.identity, objectToAdd);
+        objectsInRange = Physics.OverlapBox(transform.position, boxDetectionRange / 2, Quaternion.identity, objectToAdd);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
+
+        Gizmos.DrawWireCube(transform.position, boxDetectionRange);
     }
 }
