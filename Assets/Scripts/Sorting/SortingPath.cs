@@ -10,6 +10,13 @@ public class SortingPath : MonoBehaviour
 
     public Transform[] sortingPoints;
 
+    public static SortingPath instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         SpawnNewObject();
