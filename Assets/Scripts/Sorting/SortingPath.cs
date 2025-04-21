@@ -2,15 +2,23 @@ using UnityEngine;
 
 public class SortingPath : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public GameObject[] objectsToSpawn;
 
-    // Update is called once per frame
-    void Update()
+    public Transform objectHolder;
+
+    public Transform middlePoint;
+
+    public Transform[] sortingPoints;
+
+    private void Start()
     {
-        
+        SpawnNewObject();
     }
+    public void SpawnNewObject()
+    {
+        int objectIndex = Random.Range(0, objectsToSpawn.Length);
+
+        Instantiate(objectsToSpawn[objectIndex], transform.position, transform.rotation, objectHolder);
+    } 
+
 }
