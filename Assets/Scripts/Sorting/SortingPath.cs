@@ -1,8 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SortingPath : MonoBehaviour
 {
     public GameObject[] objectsToSpawn;
+
+    public List<GameObject> activeObjects = new List<GameObject>();
 
     public Transform objectHolder;
 
@@ -11,7 +14,6 @@ public class SortingPath : MonoBehaviour
     public Transform[] sortingPoints;
 
     public static SortingPath instance;
-
 
     private void Awake()
     {
@@ -22,11 +24,21 @@ public class SortingPath : MonoBehaviour
     {
         SpawnNewObject();
     }
+
+    private void Update()
+    {
+        if(activeObjects.Count == 0)
+        {
+            SpawnNewObject();
+        }
+    }
     public void SpawnNewObject()
     {
         int objectIndex = Random.Range(0, objectsToSpawn.Length);
 
-        Instantiate(objectsToSpawn[objectIndex], transform.position, transform.rotation, objectHolder);
+        GameObject spawnedObject = Instantiate(objectsToSpawn[objectIndex], transform.position + new Vector3(0f, 0.5f, 0f), transform.rotation, objectHolder);
+
+        activeObjects.Add(spawnedObject);
 
     }
 

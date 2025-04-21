@@ -46,6 +46,8 @@ public class SortedMovingObject : MonoBehaviour
         if (Vector3.Distance(transform.position, pointToMove.position) < 0.1f)
         {
             Destroy(gameObject);
+
+            SortingPath.instance.activeObjects.Remove(gameObject);
         }
     }
 
