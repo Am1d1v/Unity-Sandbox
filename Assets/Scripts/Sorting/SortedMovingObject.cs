@@ -6,14 +6,14 @@ public class SortedMovingObject : MonoBehaviour
 
     public float moveSpeed;
 
-    public bool atTheMiddlePoint;
+    public bool atTheMiddlePoint, atTheEndPoint;
 
     public Transform pointToMove;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        SelectMovePoint(color);
     }
 
     // Update is called once per frame
@@ -22,6 +22,10 @@ public class SortedMovingObject : MonoBehaviour
         if (!atTheMiddlePoint)
         {
             MoveToTheMiddle();
+        }
+        else
+        {
+            MoveToTheSpicificPoint();
         }
     }
 
@@ -35,18 +39,23 @@ public class SortedMovingObject : MonoBehaviour
         }
     }
 
-    void MoveToTheSpicificPoint(string objectColor)
+    void MoveToTheSpicificPoint()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, pointToMove.position, moveSpeed * Time.deltaTime);
+    }
+
+    void SelectMovePoint(string objectColor)
     {
         switch (objectColor)
         {
             case "Pink":
-
-                    break;
-            case "Black":
-
+                pointToMove = SortingPath.instance.sortingPoints[0];
                 break;
             case "Blue":
-
+                pointToMove = SortingPath.instance.sortingPoints[1];
+                break;
+            case "Black":
+                pointToMove = SortingPath.instance.sortingPoints[2];
                 break;
         }
     }
