@@ -12,6 +12,8 @@ public class SortingPath : MonoBehaviour
 
     public static SortingPath instance;
 
+    public string objectColor;
+
     private void Awake()
     {
         instance = this;
@@ -25,7 +27,9 @@ public class SortingPath : MonoBehaviour
     {
         int objectIndex = Random.Range(0, objectsToSpawn.Length);
 
-        Instantiate(objectsToSpawn[objectIndex], transform.position, transform.rotation, objectHolder);
-    } 
+        GameObject spawnedObject = Instantiate(objectsToSpawn[objectIndex], transform.position, transform.rotation, objectHolder);
+
+        objectColor = spawnedObject.GetComponent<SortedMovingObject>().color;
+    }
 
 }
