@@ -5958,7 +5958,6 @@ GameObject:
   m_Component:
   - component: {fileID: 674693305}
   - component: {fileID: 674693306}
-  - component: {fileID: 674693307}
   m_Layer: 0
   m_Name: Sorting Path
   m_TagString: Untagged
@@ -6006,23 +6005,6 @@ MonoBehaviour:
   - {fileID: 1606860006}
   - {fileID: 1724219297}
   - {fileID: 331209560}
---- !u!114 &674693307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674693304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c5283350ff5c3440ae642344caedd66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: 
-  moveSpeed: 0
-  atTheMiddlePoint: 0
-  atTheEndPoint: 0
-  pointToMove: {fileID: 0}
 --- !u!1 &717643721
 GameObject:
   m_ObjectHideFlags: 0
