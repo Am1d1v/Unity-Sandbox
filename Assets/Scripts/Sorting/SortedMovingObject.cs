@@ -42,6 +42,11 @@ public class SortedMovingObject : MonoBehaviour
     void MoveToTheSpicificPoint()
     {
         transform.position = Vector3.MoveTowards(transform.position, pointToMove.position, moveSpeed * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, pointToMove.position) < 0.1f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void SelectMovePoint(string objectColor)
