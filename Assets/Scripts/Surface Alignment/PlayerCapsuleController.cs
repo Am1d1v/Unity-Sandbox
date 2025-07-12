@@ -20,4 +20,11 @@ public class PlayerCapsuleController : MonoBehaviour
 
         transform.position += new Vector3(moveInput.x, 0f, moveInput.y) * moveSpeed * Time.deltaTime;
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawRay(transform.position, Vector3.down * 100f);
+    }
 }
