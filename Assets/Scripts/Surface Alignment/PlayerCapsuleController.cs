@@ -23,20 +23,28 @@ public class PlayerCapsuleController : MonoBehaviour
         transform.position += new Vector3(moveInput.x, 0f, moveInput.y) * moveSpeed * Time.deltaTime;
 
         
-
+        // Align with surface
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.5f))
         {
-            Debug.Log(hit.transform.forward);
-
             transform.rotation = Quaternion.LookRotation(hit.transform.forward, hit.normal);
         }
-            
+
+        
     }
 
-    private void OnDrawGizmos()
+    private void OnMouseDown()
     {
-        Gizmos.color = Color.red;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Gizmos.DrawRay(hit.transform.forward, hit.normal * 100f);
+        Debug.Log(mousePos);
+
+        if (Vector3.Distance(transform.position, mousePos) > 0.1f)
+        {
+            transform.position = Vector3.Lerp(transform.position, mousePos, moveSpeed * Time.deltaTime);
+           
+        }
+
+        
     }
+
 }
