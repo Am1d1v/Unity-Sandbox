@@ -14,14 +14,18 @@ public class TreeShake : MonoBehaviour
 
     private void OnMouseDown()
     {
-        int randomAppleIndex = Random.Range(0, apples.Count);
-
-        GameObject selectedApple = apples[randomAppleIndex];
-        selectedApple.GetComponent<SphereCollider>().enabled = true;
-        selectedApple.GetComponent<Rigidbody>().useGravity = true;
-
         animator.SetTrigger("treeShake");
 
-        apples.Remove(apples[randomAppleIndex]);
+        if(apples.Count > 0)
+        {
+            int randomAppleIndex = Random.Range(0, apples.Count);
+
+            GameObject selectedApple = apples[randomAppleIndex];
+            selectedApple.GetComponent<SphereCollider>().enabled = true;
+            selectedApple.GetComponent<Rigidbody>().useGravity = true;
+            selectedApple.transform.SetParent(null);
+
+            apples.Remove(apples[randomAppleIndex]);
+        }
     }
 }
