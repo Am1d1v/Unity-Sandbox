@@ -30,21 +30,14 @@ public class PlayerCapsuleController : MonoBehaviour
         }
 
         
-    }
-
-    private void OnMouseDown()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        Debug.Log(mousePos);
-
-        if (Vector3.Distance(transform.position, mousePos) > 0.1f)
+        if(Physics.Raycast(Camera.main.transform.position, Vector3.forward, out hit, Mathf.Infinity))
         {
-            transform.position = Vector3.Lerp(transform.position, mousePos, moveSpeed * Time.deltaTime);
-           
+            Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
-
-        
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(Camera.main.transform.position, hit.point);
+    }
 }
