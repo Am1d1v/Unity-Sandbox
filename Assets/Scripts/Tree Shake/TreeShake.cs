@@ -9,6 +9,10 @@ public class TreeShake : MonoBehaviour
     {
         int randomAppleIndex = Random.Range(0, apples.Count);
 
-        Debug.Log(apples[randomAppleIndex]);
+        GameObject selectedApple = apples[randomAppleIndex];
+        selectedApple.GetComponent<SphereCollider>().enabled = true;
+        selectedApple.GetComponent<Rigidbody>().useGravity = true;
+
+        apples.Remove(apples[randomAppleIndex]);
     }
 }

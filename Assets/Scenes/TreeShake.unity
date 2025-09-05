@@ -1270,10 +1270,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2954205165104212701, guid: 981eb739975f94d40a7373ba22fbda18, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8739616746560477103, guid: 981eb739975f94d40a7373ba22fbda18, type: 3}
       propertyPath: m_Name
       value: Apple
