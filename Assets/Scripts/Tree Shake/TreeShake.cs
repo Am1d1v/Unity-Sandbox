@@ -1,16 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TreeShake : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] List<GameObject> apples = new List<GameObject>();
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        int randomAppleIndex = Random.Range(0, apples.Count);
+
+        Debug.Log(apples[randomAppleIndex]);
     }
 }
