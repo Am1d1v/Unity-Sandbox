@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TO : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class TO : MonoBehaviour
 
         foreach(RaycastHit raycasthit in raycasts)
         {
-            Debug.Log(raycasthit.collider.name);
+            raycasthit.collider.GetComponent<TransparentObject>().MakeTransparent();
         }
 
     }
@@ -27,6 +28,6 @@ public class TO : MonoBehaviour
     {
         Gizmos.color = Color.blue;
 
-        Gizmos.DrawLine(transform.position, transform.forward);
+        Gizmos.DrawRay(transform.position, transform.forward);
     }
 }
