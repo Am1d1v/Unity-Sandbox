@@ -21,7 +21,9 @@ public class AEPC : MonoBehaviour
     {
         moveDirection = transform.forward * Input.GetAxisRaw("Vertical");
 
-        characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
+        animator.SetFloat("movedirection", Input.GetAxisRaw("Vertical"));
+
+        characterController.Move(moveDirection.normalized * moveSpeed * Time.deltaTime);
 
         if(moveDirection.magnitude > 0f)
         {
