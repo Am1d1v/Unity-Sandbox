@@ -25,6 +25,6 @@ public class AEPC : MonoBehaviour
 
     void Rotate()
     {
-
+        characterController.transform.rotation = Quaternion.Euler(0f, characterController.transform.rotation.y + Input.GetAxisRaw("Horizontal") * rotationSpeed * Time.deltaTime, 0f);
     }
 }
