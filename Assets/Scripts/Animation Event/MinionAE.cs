@@ -9,7 +9,7 @@ public class MinionAE : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            animator.SetTrigger("fallDown");
+            animator.Play("Kneeling Down");
         }
     }
 
