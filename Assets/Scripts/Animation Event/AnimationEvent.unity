@@ -951,8 +951,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 1866487236}
-  moveSpeed: 6
-  rotationSpeed: 180
+  animator: {fileID: 1034241181}
+  moveSpeed: 3
+  rotationSpeed: 90
   moveDirection: {x: 0, y: 0, z: 0}
 --- !u!143 &1866487236
 CharacterController:

@@ -4,6 +4,7 @@ public class AEPC : MonoBehaviour
 {
     [Header("Elements")]
     [SerializeField] CharacterController characterController;
+    [SerializeField] Animator animator;
 
     [Header("Settings")]
     [SerializeField] float moveSpeed;
@@ -21,6 +22,15 @@ public class AEPC : MonoBehaviour
         moveDirection = transform.forward * Input.GetAxisRaw("Vertical");
 
         characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
+
+        if(moveDirection.magnitude > 0f)
+        {
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
     }
 
     void Rotate()
