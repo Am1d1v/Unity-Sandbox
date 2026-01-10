@@ -5,15 +5,19 @@ public class MinionAE : MonoBehaviour
     [Header("Elements")]
     [SerializeField] Animator animator;
 
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            animator.SetTrigger("standBack");
-        }
-        else if (Input.GetKeyDown(KeyCode.F))
+        if(other.tag == "Player")
         {
             animator.SetTrigger("fallDown");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            animator.SetTrigger("standBack");
         }
     }
 }
