@@ -427,8 +427,13 @@ MonoBehaviour:
   animator: {fileID: 1278011693}
   moveSpeed: 3
   rotationSpeed: 90
+  detecrionRange: 0.45
   moveDirection: {x: 0, y: 0, z: 0}
   moveDetectorPosition: {fileID: 839529756}
+  canMove: 0
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!143 &268835861
 CharacterController:
   m_ObjectHideFlags: 0

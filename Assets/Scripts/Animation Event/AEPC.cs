@@ -9,12 +9,18 @@ public class AEPC : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
+    [SerializeField] float detecrionRange;
     [SerializeField] Vector3 moveDirection;
     [SerializeField] Transform moveDetectorPosition;
+    [SerializeField] bool canMove;
+    [SerializeField] LayerMask obstacleLayer;
 
     private void Update()
     {
-        Move();
+        if (CollisionDetector())
+        {
+            Move();
+        }
         Rotate();
     }
 
@@ -36,6 +42,20 @@ public class AEPC : MonoBehaviour
         }
     }
 
+    bool CollisionDetector()
+    {
+        Collider[] obstacles = Physics.OverlapSphere(moveDetectorPosition.position, detecrionRange, obstacleLayer);
+
+        if(obstacles.Length != 0 && moveDirection.z > 0)
+        {
+            animator.SetBool("isWalking", false);
+
+            return false;
+        }
+
+        return true;
+    }
+
     void Rotate()
     {
         transform.Rotate(0f, Input.GetAxisRaw("Horizontal") * rotationSpeed * Time.deltaTime, 0f);
@@ -45,6 +65,6 @@ public class AEPC : MonoBehaviour
     {
         Gizmos.color = Color.green;
 
-        Gizmos.DrawSphere(moveDetectorPosition.position, 0.45f);
+        Gizmos.DrawSphere(moveDetectorPosition.position, detecrionRange);
     }
 }
