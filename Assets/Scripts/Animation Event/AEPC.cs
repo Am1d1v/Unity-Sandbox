@@ -10,6 +10,7 @@ public class AEPC : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
     [SerializeField] Vector3 moveDirection;
+    [SerializeField] Transform moveDetectorPosition;
 
     private void Update()
     {
@@ -38,5 +39,12 @@ public class AEPC : MonoBehaviour
     void Rotate()
     {
         transform.Rotate(0f, Input.GetAxisRaw("Horizontal") * rotationSpeed * Time.deltaTime, 0f);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+
+        Gizmos.DrawSphere(moveDetectorPosition.position, 0.45f);
     }
 }
