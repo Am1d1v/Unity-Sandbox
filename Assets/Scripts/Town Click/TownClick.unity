@@ -381,6 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb5ef30824a07940b5cc59075612bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  townName: TownInside
 --- !u!1 &1211868059
 GameObject:
   m_ObjectHideFlags: 0

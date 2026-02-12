@@ -1,8 +1,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class TownClick : MonoBehaviour, IPointerClickHandler
 {
+    [Header("Settings")]
+    [SerializeField] string townName;
+    [SerializeField] bool isInsideTown;
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if(eventData.clickCount == 2)
@@ -13,6 +18,6 @@ public class TownClick : MonoBehaviour, IPointerClickHandler
 
     void OpenMenu()
     {
-        Debug.Log("Town Menu");
+        SceneManager.LoadScene(townName, LoadSceneMode.Additive);
     }
 }
