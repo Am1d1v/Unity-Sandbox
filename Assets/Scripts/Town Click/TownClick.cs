@@ -10,6 +10,14 @@ public class TownClick : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log(eventData.clickCount);
+        if(eventData.clickCount == 2)
+        {
+            OpenMenu();
+        }
+    }
+
+    void OpenMenu()
+    {
+        Debug.Log("Town Menu");
     }
 }
