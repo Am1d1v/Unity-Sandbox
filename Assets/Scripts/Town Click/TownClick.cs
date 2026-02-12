@@ -9,7 +9,7 @@ public class TownClick : MonoBehaviour, IPointerClickHandler
     [SerializeField] bool isInsideTown;
 
     public void OnPointerClick(PointerEventData eventData)
-    {
+    {        
         if(eventData.clickCount == 2)
         {
             OpenMenu();
@@ -18,6 +18,10 @@ public class TownClick : MonoBehaviour, IPointerClickHandler
 
     void OpenMenu()
     {
+        if (isInsideTown) return;
+
         SceneManager.LoadScene(townName, LoadSceneMode.Additive);
+
+        isInsideTown = true;
     }
 }
