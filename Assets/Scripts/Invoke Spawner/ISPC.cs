@@ -5,13 +5,17 @@ public class ISPC : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
+    [SerializeField] int currentSelectedSpawnerIndex;
     [SerializeField] CharacterController characterController;
+    [SerializeField] Collider detectionCollider;
 
     private void Update()
     {
         Move();
 
         Rotate();
+
+        SpawnersCheck();
     }
 
     void Move()
@@ -25,6 +29,11 @@ public class ISPC : MonoBehaviour
         float rotationInput = Input.GetAxisRaw("Horizontal") * rotationSpeed * Time.deltaTime;
 
         transform.Rotate(new Vector3(0f, rotationInput, 0f));
+
+    }
+
+    void SpawnersCheck()
+    {
 
     }
 }
