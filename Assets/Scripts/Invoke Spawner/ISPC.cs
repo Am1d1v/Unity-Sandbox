@@ -41,7 +41,7 @@ public class ISPC : MonoBehaviour
 
         if(spawners.Length > 0)
         {
-            for (int i = 0; i < detectedSpawners.Count; i++)
+            for (int i = 0; i < spawners.Length; i++)
             {
                 if (detectedSpawners.Contains(spawners[i]))
                 {
