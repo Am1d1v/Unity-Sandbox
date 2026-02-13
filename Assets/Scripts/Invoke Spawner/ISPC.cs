@@ -78,7 +78,13 @@ public class ISPC : MonoBehaviour
 
     void SelectSpawner()
     {
-        detectedSpawners[currentSelectedSpawnerIndex].GetComponent<ISSpawner>().SelectSpawner();
+        DeselectAllSpawners();
+
+        selectedSpawner = detectedSpawners[currentSelectedSpawnerIndex].GetComponent<ISSpawner>();
+
+        selectedSpawner.SelectSpawner();
+
+        
     }
     
     void DeselectSpawner()
