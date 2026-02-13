@@ -20,7 +20,7 @@ public class ISPC : MonoBehaviour
 
         SpawnersCheck();
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && detectedSpawners.Count > 0)
         {
             SelectSpawner();
         }
@@ -60,6 +60,8 @@ public class ISPC : MonoBehaviour
         }
         else
         {
+            DeselectAllSpawners();
+
             detectedSpawners.Clear();
         }
     }
@@ -68,4 +70,21 @@ public class ISPC : MonoBehaviour
     {
         detectedSpawners[currentSelectedSpawnerIndex].GetComponent<ISSpawner>().SelectSpawner();
     }
+    
+    void DeselectSpawner()
+    {
+        detectedSpawners[currentSelectedSpawnerIndex].GetComponent<ISSpawner>().DeselectSpawner();
+    }
+    
+    void DeselectAllSpawners()
+    {
+        foreach(Collider spawnerCollider in detectedSpawners)
+        {
+            ISSpawner spawner = spawnerCollider.GetComponent<ISSpawner>();
+
+            spawner.DeselectSpawner();
+        }
+    }
+
+
 }
