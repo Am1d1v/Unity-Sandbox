@@ -543,8 +543,12 @@ MonoBehaviour:
   moveSpeed: 6
   rotationSpeed: 45
   currentSelectedSpawnerIndex: 0
+  spawnerMask:
+    serializedVersion: 2
+    m_Bits: 2048
   characterController: {fileID: 1901169593}
-  detectionCollider: {fileID: 0}
+  detectionCollider: {fileID: 1901169594}
+  detectedSpawners: []
 --- !u!143 &1901169593
 CharacterController:
   m_ObjectHideFlags: 0

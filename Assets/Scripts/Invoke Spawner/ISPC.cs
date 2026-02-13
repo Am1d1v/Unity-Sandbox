@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ISPC : MonoBehaviour
@@ -6,8 +7,10 @@ public class ISPC : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
     [SerializeField] int currentSelectedSpawnerIndex;
+    [SerializeField] LayerMask spawnerMask;
     [SerializeField] CharacterController characterController;
-    [SerializeField] Collider detectionCollider;
+    [SerializeField] SphereCollider detectionCollider;
+    [SerializeField] List<Collider> detectedSpawners = new List<Collider>();
 
     private void Update()
     {
@@ -34,6 +37,15 @@ public class ISPC : MonoBehaviour
 
     void SpawnersCheck()
     {
+        Collider[] spawners = Physics.OverlapSphere(transform.position, detectionCollider.radius, spawnerMask);
 
+        if(spawners.Length > 0)
+        {
+            detectedSpawners.AddRange(spawners);
+        }
+        else
+        {
+            detectedSpawners.Clear();
+        }
     }
 }
