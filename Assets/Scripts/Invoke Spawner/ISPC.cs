@@ -19,6 +19,11 @@ public class ISPC : MonoBehaviour
         Rotate();
 
         SpawnersCheck();
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            SelectSpawner();
+        }
     }
 
     void Move()
@@ -32,7 +37,6 @@ public class ISPC : MonoBehaviour
         float rotationInput = Input.GetAxisRaw("Horizontal") * rotationSpeed * Time.deltaTime;
 
         transform.Rotate(new Vector3(0f, rotationInput, 0f));
-
     }
 
     void SpawnersCheck()
@@ -58,5 +62,10 @@ public class ISPC : MonoBehaviour
         {
             detectedSpawners.Clear();
         }
+    }
+
+    void SelectSpawner()
+    {
+        detectedSpawners[currentSelectedSpawnerIndex].GetComponent<ISSpawner>().SelectSpawner();
     }
 }
