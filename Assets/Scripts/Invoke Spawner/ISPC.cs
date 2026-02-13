@@ -12,6 +12,9 @@ public class ISPC : MonoBehaviour
     [SerializeField] SphereCollider detectionCollider;
     [SerializeField] List<Collider> detectedSpawners = new List<Collider>();
 
+    [Header("Elements")]
+    [SerializeField] ISSpawner selectedSpawner;
+
     private void Update()
     {
         Move();
@@ -20,9 +23,14 @@ public class ISPC : MonoBehaviour
 
         SpawnersCheck();
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && detectedSpawners.Count > 0)
+        if (detectedSpawners.Count > 0)
         {
-            SelectSpawner();
+            if (Input.GetKeyDown(KeyCode.LeftShift) && currentSelectedSpawnerIndex < detectedSpawners.Count)
+            {
+                SelectSpawner();
+
+                currentSelectedSpawnerIndex++;
+            }       
         }
     }
 
@@ -63,6 +71,8 @@ public class ISPC : MonoBehaviour
             DeselectAllSpawners();
 
             detectedSpawners.Clear();
+
+            currentSelectedSpawnerIndex = 0;
         }
     }
 
