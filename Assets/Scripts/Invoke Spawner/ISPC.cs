@@ -27,9 +27,7 @@ public class ISPC : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) && currentSelectedSpawnerIndex < detectedSpawners.Count)
             {
-                SelectSpawner();
-
-                currentSelectedSpawnerIndex++;
+                SelectSpawner();               
             }       
         }
     }
@@ -84,7 +82,12 @@ public class ISPC : MonoBehaviour
 
         selectedSpawner.SelectSpawner();
 
-        
+        currentSelectedSpawnerIndex++;
+
+        if (currentSelectedSpawnerIndex > detectedSpawners.Count - 1)
+        {
+            currentSelectedSpawnerIndex = 0;
+        }
     }
     
     void DeselectSpawner()
@@ -100,6 +103,8 @@ public class ISPC : MonoBehaviour
 
             spawner.DeselectSpawner();
         }
+
+        selectedSpawner = null;
     }
 
 
