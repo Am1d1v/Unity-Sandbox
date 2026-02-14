@@ -4,6 +4,9 @@ using UnityEngine;
 public class SpawnersType : ScriptableObject
 {
     [Header("Settings")]
-    public Material defaultMaterial;
-    public Material selectedMaterial;
+    [SerializeField] Material defaultMaterial;
+    [SerializeField] Material selectedMaterial;
+
+    public Material DefaultMaterial => defaultMaterial;
+    public Material SelectedMaterial => selectedMaterial;
 }
