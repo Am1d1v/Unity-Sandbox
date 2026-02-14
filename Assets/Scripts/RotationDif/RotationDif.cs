@@ -13,6 +13,8 @@ public class RotationDif : MonoBehaviour
 
     void CalculateDifference()
     {
-        dif = transform.rotation.eulerAngles.y - target.transform.rotation.eulerAngles.y;
+        float dif = transform.rotation.eulerAngles.y - target.transform.rotation.eulerAngles.y;
+
+        difference = 360 - dif;
     }
 }
