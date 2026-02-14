@@ -34,13 +34,20 @@ public class ISPC : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) && currentSelectedSpawnerIndex < detectedSpawners.Count)
             {
-                SelectSpawner();                  
+                SelectSpawner();
+
+                selectedSpawnerTimerCounter = selectedSpawnerTimer;
             }       
         }
 
         if(selectedSpawner != null)
         {
             selectedSpawnerTimerCounter -= Time.deltaTime;
+        }
+
+        if(selectedSpawnerTimerCounter <= 0f)
+        {
+            DeselectAllSpawners();
         }
     }
 
@@ -101,12 +108,6 @@ public class ISPC : MonoBehaviour
             currentSelectedSpawnerIndex = 0;
         }
     }
-    
-    void DeselectSpawner()
-    {
-        detectedSpawners[currentSelectedSpawnerIndex].GetComponent<ISSpawner>().DeselectSpawner();
-    }
-    
     void DeselectAllSpawners()
     {
         foreach(Collider spawnerCollider in detectedSpawners)
