@@ -6,6 +6,7 @@ public class ISSpawner : MonoBehaviour
     [SerializeField] MeshRenderer meshRenderer;
     [SerializeField] Material defaultMaterial;
     [SerializeField] Material selectedMaterial;
+    [SerializeField] ElementType elementType;
 
     public void SelectSpawner()
     {
@@ -15,4 +16,12 @@ public class ISSpawner : MonoBehaviour
     {
         meshRenderer.materials = new Material[] { defaultMaterial };
     }
+}
+
+public enum ElementType
+{
+    Fire,
+    Water,
+    Earth,
+    Wind
 }
