@@ -7,6 +7,12 @@ public class ISSpawner : MonoBehaviour
     [SerializeField] Material defaultMaterial;
     [SerializeField] Material selectedMaterial;
     [SerializeField] ElementType elementType;
+    [SerializeField] ScriptableObject spawnerSO;
+
+    void Configure()
+    {
+
+    }
 
     public void SelectSpawner()
     {
