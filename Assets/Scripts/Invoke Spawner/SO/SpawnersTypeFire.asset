@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2be79a828a1914aa21101aa24df22a, type: 3}
   m_Name: SpawnersTypeFire
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 0}
-  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 2100000, guid: 445bf0f2ccbbbf448b3a421e3b44143e, type: 2}
+  selectedMaterial: {fileID: 2100000, guid: 6b857d0bb01da4742ae3bf3e0e762827, type: 2}

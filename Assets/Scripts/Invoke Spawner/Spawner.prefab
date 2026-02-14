@@ -125,4 +125,4 @@ MonoBehaviour:
   defaultMaterial: {fileID: 2100000, guid: 445bf0f2ccbbbf448b3a421e3b44143e, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 88638abf6a0291c43bda6a3306c55a77, type: 2}
   elementType: 0
-  spawnerSO: {fileID: 0}
+  spawnerSO: {fileID: 11400000, guid: cea2b9ef00db2884db1440629e2264ce, type: 2}

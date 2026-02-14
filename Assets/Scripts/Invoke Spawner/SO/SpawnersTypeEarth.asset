@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2be79a828a1914aa21101aa24df22a, type: 3}
   m_Name: SpawnersTypeEarth
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 0}
-  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 2100000, guid: 92045213ebb6aa04eb5f93a77d4a5f0c, type: 2}
+  selectedMaterial: {fileID: 2100000, guid: 03b7c57a85ab6514eb84a8380e57a9b6, type: 2}
