@@ -6,6 +6,8 @@ public class ISPC : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
+    [SerializeField] float selectedSpawnerTimer;
+    [SerializeField] float selectedSpawnerTimerCounter;
     [SerializeField] int currentSelectedSpawnerIndex;
     [SerializeField] LayerMask spawnerMask;
     [SerializeField] CharacterController characterController;
@@ -14,6 +16,11 @@ public class ISPC : MonoBehaviour
 
     [Header("Elements")]
     [SerializeField] ISSpawner selectedSpawner;
+
+    private void Start()
+    {
+        selectedSpawnerTimerCounter = selectedSpawnerTimer;
+    }
 
     private void Update()
     {
@@ -27,8 +34,13 @@ public class ISPC : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) && currentSelectedSpawnerIndex < detectedSpawners.Count)
             {
-                SelectSpawner();               
+                SelectSpawner();                  
             }       
+        }
+
+        if(selectedSpawner != null)
+        {
+            selectedSpawnerTimerCounter -= Time.deltaTime;
         }
     }
 

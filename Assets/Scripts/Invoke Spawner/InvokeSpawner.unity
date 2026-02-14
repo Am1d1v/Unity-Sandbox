@@ -656,6 +656,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   rotationSpeed: 90
+  selectedSpawnerTimer: 3
+  selectedSpawnerTimerCounter: 0
   currentSelectedSpawnerIndex: 0
   spawnerMask:
     serializedVersion: 2
@@ -663,6 +665,7 @@ MonoBehaviour:
   characterController: {fileID: 1901169593}
   detectionCollider: {fileID: 1901169594}
   detectedSpawners: []
+  selectedSpawner: {fileID: 0}
 --- !u!143 &1901169593
 CharacterController:
   m_ObjectHideFlags: 0
