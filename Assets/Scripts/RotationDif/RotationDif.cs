@@ -5,6 +5,7 @@ public class RotationDif : MonoBehaviour
     [Header("Settings")]
     [SerializeField] GameObject target;
     [SerializeField] float difference;
+    [SerializeField] float dif;
 
     private void Update()
     {
@@ -13,8 +14,20 @@ public class RotationDif : MonoBehaviour
 
     void CalculateDifference()
     {
-        float dif = transform.rotation.eulerAngles.y - target.transform.rotation.eulerAngles.y;
+        dif = Mathf.Abs(transform.rotation.eulerAngles.y) - Mathf.Abs(target.transform.rotation.eulerAngles.y);
 
-        difference = 360 - dif;
+        //difference = dif;
+
+        //difference = 360 - dif;
+
+        if(dif > 180)
+        {
+            
+            difference = transform.rotation.eulerAngles.y;
+        }
+        else
+        {
+            difference = dif;
+        }
     }
 }
