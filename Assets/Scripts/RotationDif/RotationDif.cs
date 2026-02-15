@@ -25,6 +25,8 @@ public class RotationDif : MonoBehaviour
 
         Move();
 
+        Look();
+
         if (fearDurationCounter >= 0f)
         {
             isFeared = true;
@@ -63,6 +65,11 @@ public class RotationDif : MonoBehaviour
         }
 
         characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
+    }
+
+    void Look()
+    {
+        transform.LookAt(transform.position + moveDirection.normalized);
     }
 
     private void OnTriggerEnter(Collider other)
