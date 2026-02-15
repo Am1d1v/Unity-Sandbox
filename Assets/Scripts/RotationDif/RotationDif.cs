@@ -12,6 +12,7 @@ public class RotationDif : MonoBehaviour
     [SerializeField] CharacterController characterController;
     [SerializeField] Vector2 moveDirection;
     [SerializeField] bool isFeared;
+    [SerializeField] LayerMask fearMask;
 
     private void Start()
     {
@@ -21,6 +22,8 @@ public class RotationDif : MonoBehaviour
     private void Update()
     {
         CalculateDifference();
+
+        Move();
     }
 
     void CalculateDifference()
@@ -35,5 +38,10 @@ public class RotationDif : MonoBehaviour
         {
             difference = dif;
         }
+    }
+
+    void Move()
+    {
+        characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
 }
