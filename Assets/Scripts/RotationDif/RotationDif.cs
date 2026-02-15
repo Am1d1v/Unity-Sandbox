@@ -24,6 +24,17 @@ public class RotationDif : MonoBehaviour
         CalculateDifference();
 
         Move();
+
+        if (fearDurationCounter >= 0f)
+        {
+            isFeared = true;
+
+            fearDurationCounter -= Time.deltaTime;
+        }
+        else
+        {
+            isFeared = false;
+        }
     }
 
     void CalculateDifference()
@@ -57,8 +68,8 @@ public class RotationDif : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "FearSpreader")
-        {
-            isFeared = true;
+        {            
+         fearDurationCounter = fearDuration;
         }
     }
 }

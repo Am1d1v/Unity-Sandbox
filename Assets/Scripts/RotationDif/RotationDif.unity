@@ -281,7 +281,7 @@ MonoBehaviour:
   difference: 0
   moveSpeed: 6
   fearTrashold: 90
-  fearDuration: 3
+  fearDuration: 1
   fearDurationCounter: 0
   characterController: {fileID: 886351006}
   moveDirection: {x: 1, y: 1, z: 0}
