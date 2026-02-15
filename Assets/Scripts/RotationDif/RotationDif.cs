@@ -14,11 +14,6 @@ public class RotationDif : MonoBehaviour
     [SerializeField] bool isFeared;
     [SerializeField] LayerMask fearMask;
 
-    private void Start()
-    {
-        fearDurationCounter = fearDuration;
-    }
-
     private void Update()
     {
         CalculateDifference();
@@ -69,7 +64,7 @@ public class RotationDif : MonoBehaviour
 
     void Look()
     {
-        transform.LookAt(transform.position + moveDirection.normalized);
+        transform.LookAt(transform.position + new Vector3(moveDirection.x, 0f, moveDirection.y));
     }
 
     private void OnTriggerEnter(Collider other)
