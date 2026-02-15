@@ -42,6 +42,6 @@ public class RotationDif : MonoBehaviour
 
     void Move()
     {
-        characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
+        characterController.Move(new Vector3(moveDirection.x, 0f, moveDirection.y).normalized * moveSpeed * Time.deltaTime);
     }
 }
