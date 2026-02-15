@@ -53,4 +53,12 @@ public class RotationDif : MonoBehaviour
 
         characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "FearSpreader")
+        {
+            isFeared = true;
+        }
+    }
 }
