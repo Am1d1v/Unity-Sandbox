@@ -277,6 +277,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 896337097}
   difference: 0
+  moveSpeed: 6
+  fearTrashold: 0
+  fearDuration: 3
+  fearDurationCounter: 0
 --- !u!1 &896337097
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,15 @@ public class RotationDif : MonoBehaviour
     [Header("Settings")]
     [SerializeField] GameObject target;
     [SerializeField] float difference;
+    [SerializeField] float moveSpeed;
+    [SerializeField] float fearTrashold;
+    [SerializeField] float fearDuration;
+    [SerializeField] float fearDurationCounter;
+
+    private void Start()
+    {
+        fearDurationCounter = fearDuration;
+    }
 
     private void Update()
     {
