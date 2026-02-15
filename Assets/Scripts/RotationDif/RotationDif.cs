@@ -10,7 +10,7 @@ public class RotationDif : MonoBehaviour
     [SerializeField] float fearDuration;
     [SerializeField] float fearDurationCounter;
     [SerializeField] CharacterController characterController;
-    [SerializeField] Vector2 moveDirection;
+    [SerializeField] Vector3 moveDirection;
     [SerializeField] bool isFeared;
     [SerializeField] LayerMask fearMask;
 
@@ -42,6 +42,15 @@ public class RotationDif : MonoBehaviour
 
     void Move()
     {
-        characterController.Move(new Vector3(moveDirection.x, 0f, moveDirection.y).normalized * moveSpeed * Time.deltaTime);
+        if (isFeared)
+        {
+            moveDirection = transform.forward * -1;
+        }
+        else
+        {
+            moveDirection = transform.forward;
+        }
+
+        characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
 }
