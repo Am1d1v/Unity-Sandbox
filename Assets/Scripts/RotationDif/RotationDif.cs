@@ -9,6 +9,9 @@ public class RotationDif : MonoBehaviour
     [SerializeField] float fearTrashold;
     [SerializeField] float fearDuration;
     [SerializeField] float fearDurationCounter;
+    [SerializeField] CharacterController characterController;
+    [SerializeField] Vector2 moveDirection;
+    [SerializeField] bool isFeared;
 
     private void Start()
     {
