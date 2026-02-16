@@ -22,7 +22,7 @@ public class RotationDif : MonoBehaviour
 
         Look();
 
-        if (fearDurationCounter >= 0f)
+        if (fearDurationCounter > 0f)
         {
             isFeared = true;
 
@@ -50,21 +50,21 @@ public class RotationDif : MonoBehaviour
 
     void Move()
     {
-        if (isFeared)
-        {
-            moveDirection = transform.forward * -1;
-        }
-        else
-        {
-            moveDirection = transform.forward;
-        }
+        moveDirection = transform.forward;
 
         characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
 
     void Look()
     {
-        transform.LookAt(transform.position + moveDirection);
+        if (isFeared)
+        {
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+        else
+        {
+            transform.LookAt(transform.position + moveDirection);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
