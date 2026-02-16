@@ -64,7 +64,7 @@ public class RotationDif : MonoBehaviour
 
     void Look()
     {
-        transform.LookAt(transform.position + new Vector3(moveDirection.x, 0f, moveDirection.y));
+        transform.LookAt(transform.position + moveDirection);
     }
 
     private void OnTriggerEnter(Collider other)
