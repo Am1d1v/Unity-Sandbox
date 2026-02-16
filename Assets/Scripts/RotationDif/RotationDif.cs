@@ -67,11 +67,11 @@ public class RotationDif : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if(other.tag == "FearSpreader" && (difference >= fearTrashold && difference <= fearTrashold * -1))
-        {            
-         fearDurationCounter = fearDuration;
+        if (other.tag == "FearSpreader" && (difference >= fearTrashold && difference >= fearTrashold * -1))
+        {
+            fearDurationCounter = fearDuration;
         }
     }
 }
