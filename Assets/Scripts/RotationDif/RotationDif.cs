@@ -12,15 +12,14 @@ public class RotationDif : MonoBehaviour
     [SerializeField] CharacterController characterController;
     [SerializeField] Vector3 moveDirection;
     [SerializeField] bool isFeared;
-    [SerializeField] LayerMask fearMask;
 
     private void Update()
     {
         CalculateDifference();
 
-        //Move();
+        Move();
 
-        //Look();
+        Look();
 
         if (fearDurationCounter > 0f)
         {
@@ -63,13 +62,13 @@ public class RotationDif : MonoBehaviour
         }
         else
         {
-            transform.LookAt(transform.position + moveDirection);
+            transform.LookAt(target.transform.position);
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "FearSpreader" && (difference >= fearTrashold && difference >= fearTrashold * -1))
+        if (other.tag == "FearSpreader" && (difference > fearTrashold || difference > fearTrashold * -1))
         {
             fearDurationCounter = fearDuration;
         }
