@@ -18,9 +18,9 @@ public class RotationDif : MonoBehaviour
     {
         CalculateDifference();
 
-        Move();
+        //Move();
 
-        Look();
+        //Look();
 
         if (fearDurationCounter > 0f)
         {
@@ -69,7 +69,7 @@ public class RotationDif : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "FearSpreader")
+        if(other.tag == "FearSpreader" && (difference >= fearTrashold && difference <= fearTrashold * -1))
         {            
          fearDurationCounter = fearDuration;
         }
