@@ -5,6 +5,7 @@ public class TMog : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] Transform weaponHolder;
-
+    [SerializeField] GameObject currentVisual;
+    [SerializeField] GameObject selectedVisual;
     
 }
