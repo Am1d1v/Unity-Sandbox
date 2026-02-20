@@ -18,17 +18,17 @@ public class TMog : MonoBehaviour
 
     void UpdateVisual()
     {
-        if(currentVisual.name != selectedVisual.name + "(Clone)")
+        if(currentVisual.name == selectedVisual.name + "(Clone)")
         {
-            GameObject currentWeapon = weaponHolder.GetChild(0).gameObject;
-            Destroy(currentWeapon);
+            Debug.Log("Visuals are equal");
 
-            GameObject newSelectedWeapon = Instantiate(selectedVisual, weaponHolder.position + selectedVisual.transform.position, selectedVisual.transform.rotation, weaponHolder);
-            currentVisual = newSelectedWeapon;
+            return;
         }
-        else
-        {
-            Debug.Log("Equal");
-        }
+
+        GameObject currentWeapon = weaponHolder.GetChild(0).gameObject;
+        Destroy(currentWeapon);
+
+        GameObject newSelectedWeapon = Instantiate(selectedVisual, weaponHolder.position + selectedVisual.transform.position, selectedVisual.transform.rotation, weaponHolder);
+        currentVisual = newSelectedWeapon;
     }
 }
