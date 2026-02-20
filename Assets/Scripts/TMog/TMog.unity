@@ -583,6 +583,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHolder: {fileID: 1410055907}
+  currentVisual: {fileID: 3851482747901712144, guid: 538144bded159a04e9bca8bf23dcdf32, type: 3}
+  selectedVisual: {fileID: 5108757635951059479, guid: a5c9aa17da39bb04cbf08e1aa101db11, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
