@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TMog : MonoBehaviour
@@ -19,7 +18,8 @@ public class TMog : MonoBehaviour
 
     void UpdateVisual()
     {
-        weaponHolder.GetChild(0).gameObject.SetActive(false);
+        GameObject currentWeapon = weaponHolder.GetChild(0).gameObject;
+        Destroy(currentWeapon);
 
         Instantiate(selectedVisual, weaponHolder.position + selectedVisual.transform.position, selectedVisual.transform.rotation, weaponHolder);
     }
