@@ -18,9 +18,17 @@ public class TMog : MonoBehaviour
 
     void UpdateVisual()
     {
-        GameObject currentWeapon = weaponHolder.GetChild(0).gameObject;
-        Destroy(currentWeapon);
+        if(currentVisual.name != selectedVisual.name + "(Clone)")
+        {
+            GameObject currentWeapon = weaponHolder.GetChild(0).gameObject;
+            Destroy(currentWeapon);
 
-        Instantiate(selectedVisual, weaponHolder.position + selectedVisual.transform.position, selectedVisual.transform.rotation, weaponHolder);
+            GameObject newSelectedWeapon = Instantiate(selectedVisual, weaponHolder.position + selectedVisual.transform.position, selectedVisual.transform.rotation, weaponHolder);
+            currentVisual = newSelectedWeapon;
+        }
+        else
+        {
+            Debug.Log("Equal");
+        }
     }
 }
