@@ -168,6 +168,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingPlatform: {fileID: 986360130}
+  levels:
+  - {fileID: 1257178278}
+  - {fileID: 1587376414}
+  - {fileID: 1223015399}
+  selectedLevel: 0
+  moveSpeed: 0
 --- !u!1 &986360130
 GameObject:
   m_ObjectHideFlags: 0
