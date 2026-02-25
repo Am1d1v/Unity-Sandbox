@@ -12,6 +12,8 @@ public class LiftPC : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+
+        Rotate();
     }
 
     void Move()
@@ -22,6 +24,12 @@ public class LiftPC : MonoBehaviour
 
         rb.linearVelocity = transform.forward * moveInput * moveSpeed;
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, yAxis, rb.linearVelocity.z);
+    }
 
+    void Rotate()
+    {
+        rotationInput = Input.GetAxisRaw("Horizontal");
+
+        transform.rotation += new Quaternion.Euler(0f, transform.rotation.y + rotationInput * rotationSpeed, 0f);
     }
 }
