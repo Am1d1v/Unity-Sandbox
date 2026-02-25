@@ -13,7 +13,7 @@ public class Lift : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.M) && selectedLevel != null)
+        if (Input.GetKeyDown(KeyCode.M) && selectedLevel != null)
         {
             Move();
         }
@@ -26,9 +26,9 @@ public class Lift : MonoBehaviour
 
     IEnumerator MoveCO()
     {
-        while(movingPlatform.transform.position.y < selectedLevel.transform.position.y)
+        while(movingPlatform.transform.position.y != selectedLevel.transform.position.y)
         {
-            movingPlatform.transform.position += new Vector3(0f, movingPlatform.transform.position.y * moveSpeed * Time.deltaTime, 0f);
+            movingPlatform.transform.position = Vector3.MoveTowards(movingPlatform.transform.position, new Vector3(0f, selectedLevel.transform.position.y, 0f), moveSpeed * Time.deltaTime);
 
             yield return null;
         }

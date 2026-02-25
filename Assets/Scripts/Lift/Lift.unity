@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingPlatform: {fileID: 986360130}
-  selectedLevel: {fileID: 0}
+  selectedLevel: {fileID: 1223015399}
   levels:
   - {fileID: 1257178278}
   - {fileID: 1587376414}
