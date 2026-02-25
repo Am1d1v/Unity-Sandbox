@@ -845,8 +845,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66ed2db7a2ac004c83278e2c4586a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  rotationSpeed: 0
+  moveSpeed: 6
+  rotationSpeed: 18
+  moveInput: 0
+  rotationInput: 0
+  rb: {fileID: 1619862366}
 --- !u!4 &1619862365
 Transform:
   m_ObjectHideFlags: 0
@@ -888,7 +891,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 64
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!136 &1619862367
 CapsuleCollider:
