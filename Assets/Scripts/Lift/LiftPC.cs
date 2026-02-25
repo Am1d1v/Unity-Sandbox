@@ -20,10 +20,8 @@ public class LiftPC : MonoBehaviour
     {
         moveInput = Input.GetAxisRaw("Vertical");
 
-        float yAxis = rb.linearVelocity.y;
-
         rb.linearVelocity = transform.forward * moveInput * moveSpeed;
-        rb.linearVelocity = new Vector3(rb.linearVelocity.x, yAxis, rb.linearVelocity.z);
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, -6f, rb.linearVelocity.z);
     }
 
     void Rotate()
