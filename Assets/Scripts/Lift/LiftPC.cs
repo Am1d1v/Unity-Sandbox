@@ -28,6 +28,9 @@ public class LiftPC : MonoBehaviour
     {
         rotationInput = Input.GetAxisRaw("Horizontal");
 
-        transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + (rotationInput * rotationSpeed),0f);
+        if(rotationInput != 0f)
+        {
+            transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + (rotationInput * rotationSpeed), 0f);
+        }
     }
 }
