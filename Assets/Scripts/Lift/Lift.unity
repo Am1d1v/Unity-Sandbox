@@ -846,7 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  rotationSpeed: 18
+  rotationSpeed: 3
   moveInput: 0
   rotationInput: 0
   rb: {fileID: 1619862366}

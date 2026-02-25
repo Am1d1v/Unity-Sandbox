@@ -30,6 +30,6 @@ public class LiftPC : MonoBehaviour
     {
         rotationInput = Input.GetAxisRaw("Horizontal");
 
-        transform.rotation += new Quaternion.Euler(0f, transform.rotation.y + rotationInput * rotationSpeed, 0f);
+        transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + (rotationInput * rotationSpeed),0f);
     }
 }
