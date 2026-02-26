@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,22 +7,40 @@ public class Lift : MonoBehaviour
     [Header("Settings")]
     [SerializeField] GameObject movingPlatform;
     [SerializeField] GameObject selectedLevel;
-    [SerializeField] GameObject[] levels;
-    [SerializeField] int selectedLevelIndex;
+    [SerializeField] GameObject[] levels;   
     [SerializeField] float moveSpeed;
-    
+    [SerializeField] bool isMoving;
 
+    private void Start()
+    {
+        LiftLevelButton.onLiftLevelButtonClicked += SetSelectedLevel;
+    }
+
+    private void OnDestroy()
+    {
+        LiftLevelButton.onLiftLevelButtonClicked -= SetSelectedLevel;
+    }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M) && selectedLevel != null)
+        if (selectedLevel != null && isMoving == false)
         {
             Move();
+
+            isMoving = true;
         }
     }
 
     void Move()
     {
         StartCoroutine(MoveCO());
+    }
+
+    void SetSelectedLevel(GameObject level)
+    {
+        if (selectedLevel == null)
+        {
+            selectedLevel = level;
+        }
     }
 
     IEnumerator MoveCO()
@@ -32,6 +51,8 @@ public class Lift : MonoBehaviour
 
             yield return null;
         }
+
+        isMoving = false;
 
         selectedLevel = null;
     }
