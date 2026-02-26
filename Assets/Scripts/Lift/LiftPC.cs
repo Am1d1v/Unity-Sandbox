@@ -32,11 +32,6 @@ public class LiftPC : MonoBehaviour
         if(rotationInput.x != 0f)
         {
             transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + (rotationInput.x * rotationSpeed), 0f);
-        }
-        
-        if(rotationInput.x != 0f)
-        {
-            transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + (rotationInput.x * rotationSpeed), 0f);
-        }
+        }       
     }
 }
