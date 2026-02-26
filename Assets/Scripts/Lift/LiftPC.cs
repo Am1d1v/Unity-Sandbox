@@ -34,4 +34,18 @@ public class LiftPC : MonoBehaviour
             transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + (rotationInput.x * rotationSpeed), 0f);
         }       
     }
+
+    void CastRay()
+    {
+        RaycastHit hit;
+
+        Physics.Raycast(Camera.main.transform.position, transform.forward);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+
+        Gizmos.DrawRay(Camera.main.transform.position, transform.forward);
+    }
 }
