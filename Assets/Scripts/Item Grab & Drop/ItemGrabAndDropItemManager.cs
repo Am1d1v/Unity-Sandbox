@@ -33,6 +33,8 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawRay(Camera.main.transform.position, mousePos);
+        Ray ray = new Ray(Camera.main.transform.position, mousePos);
+
+        Gizmos.DrawRay(ray);
     }
 }
