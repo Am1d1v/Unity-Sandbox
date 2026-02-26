@@ -7,9 +7,11 @@ public class LiftPC : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
     [SerializeField] float moveInput;
+    [SerializeField] float rayLength;
     [SerializeField] Vector2 rotationInput;
     [SerializeField] Rigidbody rb;
     [SerializeField] Camera camera;
+    [SerializeField] GameObject mousePosObj;
 
     private void Start()
     {
@@ -51,7 +53,7 @@ public class LiftPC : MonoBehaviour
 
         if(Physics.Raycast(Camera.main.transform.position, transform.forward, out hit))
         {
-            Debug.Log(hit.collider.gameObject.name);
+            mousePosObj.transform.position = hit.collider.transform.position;
         }
     }
 
@@ -59,6 +61,6 @@ public class LiftPC : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawRay(Camera.main.transform.position, camera.transform.forward);
+        Gizmos.DrawRay(Camera.main.transform.position, camera.transform.forward * rayLength);
     }
 }

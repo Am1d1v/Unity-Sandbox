@@ -282,6 +282,7 @@ MonoBehaviour:
   - {fileID: 1587376414}
   - {fileID: 1223015399}
   moveSpeed: 6
+  isMoving: 0
 --- !u!1 &548519750
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,6 +405,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548519750}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &663675267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8144478304061391974, guid: 648bc6ce780e2fc4bb352c69c6dcaae8, type: 3}
+  m_PrefabInstance: {fileID: 1577744045}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &706912144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,6 +1219,69 @@ Transform:
   - {fileID: 2104882787}
   m_Father: {fileID: 986360134}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1577744045
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1619862365}
+    m_Modifications:
+    - target: {fileID: 1192968983831999422, guid: 648bc6ce780e2fc4bb352c69c6dcaae8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1192968983831999422, guid: 648bc6ce780e2fc4bb352c69c6dcaae8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.215427
+      objectReference: {fileID: 0}
+    - target: {fileID: 1192968983831999422, guid: 648bc6ce780e2fc4bb352c69c6dcaae8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1192968983831999422, guid: 648bc6ce780e2fc4bb352c69c6dcaae8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1192968983831999422, guid: 648bc6ce780e2fc4bb352c69c6dcaae8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1192968983831999422, guid: 648bc6ce780e2fc4bb352c69c6dcaae8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1192968983831999422, guid: 648bc6ce780e2fc4bb352c69c6dcaae8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1192968983831999422, guid: 648bc6ce780e2fc4bb352c69c6dcaae8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1192968983831999422, guid: 648bc6ce780e2fc4bb352c69c6dcaae8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1192968983831999422, guid: 648bc6ce780e2fc4bb352c69c6dcaae8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8144478304061391974, guid: 648bc6ce780e2fc4bb352c69c6dcaae8, type: 3}
+      propertyPath: m_Name
+      value: Cube
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3325100141901423548, guid: 648bc6ce780e2fc4bb352c69c6dcaae8, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 648bc6ce780e2fc4bb352c69c6dcaae8, type: 3}
+--- !u!4 &1577744046 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1192968983831999422, guid: 648bc6ce780e2fc4bb352c69c6dcaae8, type: 3}
+  m_PrefabInstance: {fileID: 1577744045}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1587376414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,9 +1424,11 @@ MonoBehaviour:
   moveSpeed: 6
   rotationSpeed: 3
   moveInput: 0
+  rayLength: 6
   rotationInput: {x: 0, y: 0}
   rb: {fileID: 1619862366}
   camera: {fileID: 1996508984}
+  mousePosObj: {fileID: 663675267}
 --- !u!4 &1619862365
 Transform:
   m_ObjectHideFlags: 0
@@ -1373,6 +1444,7 @@ Transform:
   m_Children:
   - {fileID: 1178368279}
   - {fileID: 1996508985}
+  - {fileID: 1577744046}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1619862366
