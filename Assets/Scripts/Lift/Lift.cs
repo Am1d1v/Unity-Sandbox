@@ -25,8 +25,6 @@ public class Lift : MonoBehaviour
         if (selectedLevel != null && isMoving == false)
         {
             Move();
-
-            isMoving = true;
         }
     }
 
@@ -48,6 +46,8 @@ public class Lift : MonoBehaviour
         while(movingPlatform.transform.position.y != selectedLevel.transform.position.y)
         {
             movingPlatform.transform.position = Vector3.MoveTowards(movingPlatform.transform.position, new Vector3(0f, selectedLevel.transform.position.y, 0f), moveSpeed * Time.deltaTime);
+
+            isMoving = true;
 
             yield return null;
         }
