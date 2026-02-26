@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LiftPC : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class LiftPC : MonoBehaviour
     [SerializeField] Vector2 rotationInput;
     [SerializeField] Rigidbody rb;
     [SerializeField] Camera camera;
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+    }
 
     private void FixedUpdate()
     {
@@ -53,6 +59,6 @@ public class LiftPC : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawRay(Camera.main.transform.position, transform.forward);
+        Gizmos.DrawRay(Camera.main.transform.position, camera.transform.forward);
     }
 }
