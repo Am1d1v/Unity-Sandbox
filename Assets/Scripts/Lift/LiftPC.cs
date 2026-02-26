@@ -6,7 +6,7 @@ public class LiftPC : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
     [SerializeField] float moveInput;
-    [SerializeField] float rotationInput;
+    [SerializeField] Vector2 rotationInput;
     [SerializeField] Rigidbody rb;
 
     private void FixedUpdate()
@@ -26,11 +26,17 @@ public class LiftPC : MonoBehaviour
 
     void Rotate()
     {
-        rotationInput = Input.GetAxisRaw("Horizontal");
+        rotationInput.x = Input.GetAxisRaw("Mouse X");
 
-        if(rotationInput != 0f)
+        // Horizontal
+        if(rotationInput.x != 0f)
         {
-            transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + (rotationInput * rotationSpeed), 0f);
+            transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + (rotationInput.x * rotationSpeed), 0f);
+        }
+        
+        if(rotationInput.x != 0f)
+        {
+            transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + (rotationInput.x * rotationSpeed), 0f);
         }
     }
 }
