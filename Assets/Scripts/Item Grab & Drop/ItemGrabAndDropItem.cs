@@ -31,7 +31,7 @@ public class ItemGrabAndDropItem : MonoBehaviour
         float yValue = transform.rotation.eulerAngles.y;
         float zValue = transform.rotation.eulerAngles.z;
 
-        while(transform.rotation.x != 0 && transform.rotation.y != 0 && transform.rotation.z != 0)
+        while(xValue != 0f && yValue != 0f && zValue != 0f)
         {
             xValue = Mathf.MoveTowards(xValue, 0f, rotationSpeed * Time.deltaTime); 
             yValue = Mathf.MoveTowards(yValue, 0f, rotationSpeed * Time.deltaTime); 

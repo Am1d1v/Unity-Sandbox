@@ -35,8 +35,12 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(Camera.main.transform.position, ray.direction, out hit, rayLength, movebleItemMask))
-        {           
-            GrabItem(hit.collider.gameObject);
+        {
+            GameObject item = hit.collider.gameObject;
+
+            GrabItem(item);
+
+            item.GetComponent<ItemGrabAndDropItem>().SetDefaultRotationCO();
         }
     }
 
