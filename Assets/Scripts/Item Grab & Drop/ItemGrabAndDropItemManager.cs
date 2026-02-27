@@ -4,22 +4,25 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] GameObject currentItem;
-    [SerializeField] GameObject indicator;
-    [SerializeField] Vector3 mousePos;
+    [SerializeField] Ray ray;
     [SerializeField] float rayLength;
 
     private void Update()
     {
-        MousePos();
+        DetectItem();
     }
 
-    void MousePos()
+    void DetectItem()
     {
         RaycastHit hit;
 
-        if(Physics.Raycast(Camera.main.transform.position, mousePos, out hit, rayLength))
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(Camera.main.transform.position, ray.direction, out hit, rayLength))
         {
-            Debug.Log(hit.collider.gameObject);
+            Vector3 reflectDir = Vector3.Reflect(ray.direction, hit.normal);
+
+            Debug.DrawRay(hit.normal, reflectDir * rayLength, Color.red, 3f);
         }
     }
 
@@ -27,7 +30,7 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         Gizmos.DrawRay(Camera.main.transform.position, ray.direction * rayLength);
     }
