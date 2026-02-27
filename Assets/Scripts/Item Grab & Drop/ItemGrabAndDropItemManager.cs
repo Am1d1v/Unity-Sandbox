@@ -22,7 +22,10 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
             DropItem();
         }
 
-        
+        if(currentItem != null)
+        {
+            UpdateCurrentItemPosition();
+        }
     }
 
     void DetectItem()
@@ -49,6 +52,19 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
         currentItem.GetComponent<Rigidbody>().useGravity = true;
 
         currentItem = null;       
+    }
+
+    void UpdateCurrentItemPosition()
+    {
+        RaycastHit hit;
+
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(Camera.main.transform.position, ray.direction, out hit))
+        {
+            currentItem.transform.position = hit.point + currentItemOffset;
+        }
+    
     }
 
     private void OnDrawGizmos()

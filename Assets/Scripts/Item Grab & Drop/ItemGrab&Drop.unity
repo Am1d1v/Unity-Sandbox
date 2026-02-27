@@ -387,6 +387,7 @@ MonoBehaviour:
   movebleItemMask:
     serializedVersion: 2
     m_Bits: 8192
+  currentItemOffset: {x: 0, y: 3, z: 0}
 --- !u!1 &693662697
 GameObject:
   m_ObjectHideFlags: 0
