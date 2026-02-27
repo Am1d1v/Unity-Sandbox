@@ -4,13 +4,12 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] GameObject currentItem;
+    [SerializeField] GameObject indicator;
     [SerializeField] Vector3 mousePos;
     [SerializeField] float rayLength;
 
     private void Update()
     {
-        GetMousePos();
-
         MousePos();
     }
 
@@ -24,17 +23,12 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
         }
     }
 
-    void GetMousePos()
-    {
-        mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
 
-        Ray ray = new Ray(Camera.main.transform.position, mousePos);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        Gizmos.DrawRay(ray);
+        Gizmos.DrawRay(Camera.main.transform.position, ray.direction * rayLength);
     }
 }
