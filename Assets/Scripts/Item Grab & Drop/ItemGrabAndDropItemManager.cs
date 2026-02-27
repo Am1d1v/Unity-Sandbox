@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class ItemGrabAndDropItemManager : MonoBehaviour
 {
@@ -8,18 +9,20 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
     [SerializeField] Ray ray;
     [SerializeField] float rayLength;
     [SerializeField] LayerMask movebleItemMask;
-
-    [Header("Actions")]
-    public static Action onItemClicked;
+    [SerializeField] Vector3 currentItemOffset;
 
     private void Update()
     {      
         if (Input.GetMouseButtonDown(0) && currentItem == null)
         {
             DetectItem();
-
-            onItemClicked?.Invoke();
         }
+        else if(Input.GetMouseButtonDown(0) && currentItem != null)
+        {
+            DropItem();
+        }
+
+        
     }
 
     void DetectItem()
@@ -29,9 +32,23 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(Camera.main.transform.position, ray.direction, out hit, rayLength, movebleItemMask))
-        {
-            currentItem = hit.collider.gameObject;
+        {           
+            GrabItem(hit.collider.gameObject);
         }
+    }
+
+    void GrabItem(GameObject item)
+    {
+        currentItem = item;
+
+        currentItem.GetComponent<Rigidbody>().useGravity = false;
+    }
+
+    void DropItem()
+    {
+        currentItem.GetComponent<Rigidbody>().useGravity = true;
+
+        currentItem = null;       
     }
 
     private void OnDrawGizmos()
