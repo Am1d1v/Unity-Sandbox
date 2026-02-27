@@ -619,10 +619,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
-    - target: {fileID: 4875874472428234650, guid: b9399a0b15527de45877be12dfaa5aef, type: 3}
-      propertyPath: rotationSpeed
-      value: 6666
-      objectReference: {fileID: 0}
     - target: {fileID: 9158082601445770664, guid: b9399a0b15527de45877be12dfaa5aef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
