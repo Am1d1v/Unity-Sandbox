@@ -6,6 +6,7 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
     [SerializeField] GameObject currentItem;
     [SerializeField] Ray ray;
     [SerializeField] float rayLength;
+    [SerializeField] LayerMask movebleItemMask;
 
     private void Update()
     {
@@ -18,7 +19,7 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
 
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(Camera.main.transform.position, ray.direction, out hit, rayLength))
+        if (Physics.Raycast(Camera.main.transform.position, ray.direction, out hit, rayLength, movebleItemMask))
         {
             Vector3 reflectDir = Vector3.Reflect(ray.direction, hit.normal);
 
