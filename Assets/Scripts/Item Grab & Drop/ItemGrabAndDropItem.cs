@@ -41,5 +41,7 @@ public class ItemGrabAndDropItem : MonoBehaviour
 
             yield return null;
         }
+
+        GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
     }
 }
