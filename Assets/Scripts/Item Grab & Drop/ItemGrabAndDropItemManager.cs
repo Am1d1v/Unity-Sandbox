@@ -9,8 +9,11 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
     [SerializeField] LayerMask movebleItemMask;
 
     private void Update()
-    {
-        DetectItem();
+    {      
+        if (Input.GetMouseButtonDown(0) && currentItem == null)
+        {
+            DetectItem();
+        }
     }
 
     void DetectItem()
@@ -21,9 +24,7 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.transform.position, ray.direction, out hit, rayLength, movebleItemMask))
         {
-            Vector3 reflectDir = Vector3.Reflect(ray.direction, hit.normal);
-
-            Debug.DrawRay(hit.normal, reflectDir * rayLength, Color.red, 3f);
+            Debug.Log(hit.collider.gameObject.name);
         }
     }
 
