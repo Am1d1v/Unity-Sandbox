@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ItemGrabAndDropItemManager : MonoBehaviour
@@ -8,11 +9,16 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
     [SerializeField] float rayLength;
     [SerializeField] LayerMask movebleItemMask;
 
+    [Header("Actions")]
+    public static Action onItemClicked;
+
     private void Update()
     {      
         if (Input.GetMouseButtonDown(0) && currentItem == null)
         {
             DetectItem();
+
+            onItemClicked?.Invoke();
         }
     }
 
@@ -24,7 +30,7 @@ public class ItemGrabAndDropItemManager : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.transform.position, ray.direction, out hit, rayLength, movebleItemMask))
         {
-            Debug.Log(hit.collider.gameObject.name);
+            currentItem = hit.collider.gameObject;
         }
     }
 
