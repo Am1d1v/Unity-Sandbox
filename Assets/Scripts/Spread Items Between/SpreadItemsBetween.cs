@@ -19,9 +19,23 @@ public class SpreadItemsBetween : MonoBehaviour
 
     void SpreadItems()
     {
+        if (itemsToSpread.Count == 0) return;
+
         if(itemsToSpread.Count == 1)
         {
             itemsToSpread[0].transform.position = rightBorder.position + leftBorder.position;
+        }
+        else
+        {
+            float offsetBetweenItems = (rightBorder.position.x + Mathf.Abs(leftBorder.position.x)) - itemsToSpread.Count;
+            float newXPosition = offsetBetweenItems;
+
+            for(int i = 0; i < itemsToSpread.Count; i++)
+            {
+                itemsToSpread[i].transform.position = new Vector3(newXPosition, itemsToSpread[i].transform.position.y, itemsToSpread[i].transform.position.z);
+
+                newXPosition += offsetBetweenItems;
+            }
         }
     }
 
