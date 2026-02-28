@@ -27,9 +27,6 @@ public class SpreadItemsBetween : MonoBehaviour
         }
         else
         {
-            //float offsetBetweenItems = (rightBorder.position.x + Mathf.Abs(leftBorder.position.x)) - itemsToSpread.Count;
-            //float newXPosition = offsetBetweenItems;
-
             float startPosition = (rightBorder.position.x + Mathf.Abs(leftBorder.position.x)) / itemsToSpread.Count;
             float offsetBetweenItems = startPosition / 2;
 
