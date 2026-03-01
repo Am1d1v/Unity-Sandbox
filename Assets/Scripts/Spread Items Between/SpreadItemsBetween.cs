@@ -26,21 +26,17 @@ public class SpreadItemsBetween : MonoBehaviour
         }
         else
         {
-            float startPosition = (rightBorder.position.x + Mathf.Abs(leftBorder.position.x)) / itemsToSpread.Count; // 0.6
+            float startPosition = (rightBorder.position.x + Mathf.Abs(leftBorder.position.x)) / itemsToSpread.Count;
 
-            float bordersOffset = startPosition * 2; // 1.2
+            float bordersOffset = startPosition / 2;
 
-            float itemsRange = (rightBorder.position.x + Mathf.Abs(leftBorder.position.x)) - bordersOffset; // 4.8
-
-            float offsetBetweenItems = itemsRange / itemsToSpread.Count; // 0.48
+            float offsetBetweenItems = bordersOffset;
 
             for (int i = 0; i < itemsToSpread.Count; i++)
             {
-                Vector3 newPos = new Vector3(leftBorder.transform.position.x + startPosition, itemsToSpread[i].transform.position.y, itemsToSpread[i].transform.position.z);
+                Vector3 newPos = new Vector3(leftBorder.position.x + bordersOffset + startPosition * i, itemsToSpread[i].transform.position.y, itemsToSpread[i].transform.position.z);
 
                 itemsToSpread[i].GetComponent<SpreadItemsBetweenIC>().SetPosition(newPos);
-
-                startPosition += offsetBetweenItems;
             }
         }
     }
