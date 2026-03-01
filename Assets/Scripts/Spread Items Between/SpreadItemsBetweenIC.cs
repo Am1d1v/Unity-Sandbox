@@ -13,4 +13,9 @@ public class SpreadItemsBetweenIC : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, posToMove, moveSpeed * Time.deltaTime);
         }
     }
+
+    public void SetPosition(Vector3 pos)
+    {
+        posToMove = pos;
+    }
 }

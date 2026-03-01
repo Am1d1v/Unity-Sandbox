@@ -31,7 +31,9 @@ public class SpreadItemsBetween : MonoBehaviour
 
             for (int i = 0; i < itemsToSpread.Count; i++)
             {
-                itemsToSpread[i].transform.position = new Vector3(startPosition, itemsToSpread[i].transform.position.y, itemsToSpread[i].transform.position.z);
+                Vector3 newPos = new Vector3(startPosition, itemsToSpread[i].transform.position.y, itemsToSpread[i].transform.position.z);
+
+                itemsToSpread[i].GetComponent<SpreadItemsBetweenIC>().SetPosition(newPos);
 
                 startPosition += offsetBetweenItems;
             }
