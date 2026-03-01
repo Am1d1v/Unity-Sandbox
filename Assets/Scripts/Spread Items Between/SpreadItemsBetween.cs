@@ -4,8 +4,7 @@ using UnityEngine;
 public class SpreadItemsBetween : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] List<GameObject> itemsToSpread = new List<GameObject>();
-    [SerializeField] float moveSpeed;
+    [SerializeField] List<GameObject> itemsToSpread = new List<GameObject>();   
     [SerializeField] Transform leftBorder;
     [SerializeField] Transform rightBorder;
 
