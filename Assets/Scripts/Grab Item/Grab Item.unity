@@ -168,9 +168,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   rotationSpeed: 180
+  grabDistance: 0
+  canMove: 1
+  canRotate: 0
   moveDirection: {x: 0, y: 0, z: 0}
   rb: {fileID: 21475009}
-  canMove: 1
+  holdingObject: {fileID: 0}
+  grabItemMask:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!54 &21475009
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -468,7 +474,7 @@ GameObject:
   - component: {fileID: 859955756}
   - component: {fileID: 859955757}
   - component: {fileID: 859955758}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grab Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
