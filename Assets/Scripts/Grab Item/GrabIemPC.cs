@@ -6,6 +6,7 @@ public class GrabIemPC : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
     [SerializeField] float grabDistance;   
+    [SerializeField] float rayHeight;   
     [SerializeField] bool canMove;
     [SerializeField] bool canRotate;
     [SerializeField] Vector3 moveDirection;
@@ -16,6 +17,15 @@ public class GrabIemPC : MonoBehaviour
     private void Update()
     {
         Rotate();
+
+        if(Input.GetMouseButtonDown(0) && holdingObject == null)
+        {
+            GrabItem();
+        }
+        else if(Input.GetMouseButtonDown(0) && holdingObject != null)
+        {
+            DropItem();
+        }
     }
 
     private void FixedUpdate()
@@ -40,5 +50,17 @@ public class GrabIemPC : MonoBehaviour
     void GrabItem()
     {
         Physics.Raycast(transform.position, transform.forward, grabDistance, grabItemMask);
+    }
+    
+    void DropItem()
+    {
+        
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+
+        Gizmos.DrawRay(new Vector3(transform.position.x, transform.position.y + rayHeight, transform.position.z), transform.forward * grabDistance);
     }
 }
