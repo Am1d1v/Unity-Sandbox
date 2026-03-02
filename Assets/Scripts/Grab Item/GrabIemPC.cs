@@ -6,19 +6,25 @@ public class GrabIemPC : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
     [SerializeField] Vector3 moveDirection;
+    [SerializeField] Rigidbody rb;
     [SerializeField] bool canMove;
 
     private void Update()
     {
-        Move();
         Rotate();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     void Move()
     {
         moveDirection = transform.forward * Input.GetAxisRaw("Vertical");
-    }
 
+        rb.linearVelocity = moveDirection * moveSpeed;
+    }
 
     void Rotate()
     {
