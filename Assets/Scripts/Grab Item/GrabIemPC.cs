@@ -17,7 +17,7 @@ public class GrabIemPC : MonoBehaviour
 
     private void Update()
     {
-        Rotate();
+        //Rotate();
 
         if(Input.GetMouseButtonDown(0) && holdingObject == null)
         {
@@ -32,6 +32,8 @@ public class GrabIemPC : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+
+        Rotate();
     }
 
     void Move()
@@ -47,7 +49,13 @@ public class GrabIemPC : MonoBehaviour
     {
         if (canRotate == false) return;
 
-        transform.Rotate(0f, Input.GetAxisRaw("Horizontal") * rotationSpeed * Time.deltaTime, 0f);
+        //transform.Rotate(0f, Input.GetAxisRaw("Horizontal") * rotationSpeed * Time.deltaTime, 0f);
+
+        float rotationInput = Input.GetAxisRaw("Horizontal") * rotationSpeed * Time.deltaTime;
+
+        Vector3 rotation = transform.eulerAngles;
+
+        rb.MoveRotation(Quaternion.Euler(rotation + new Vector3(0f, rotationInput, 0f)));
     }
 
     void GrabItem()
