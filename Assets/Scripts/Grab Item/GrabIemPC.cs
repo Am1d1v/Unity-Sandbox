@@ -64,7 +64,11 @@ public class GrabIemPC : MonoBehaviour
 
             item.Grab(transform);
 
-            holdingObject = item;           
+            holdingObject = item;
+
+            rb.linearDamping = holdingObject.GetMass();
+
+            rb.angularDamping = holdingObject.GetMass();
 
             if(holdingObject.GetMass() > moveTrashlod)
             {
@@ -82,6 +86,10 @@ public class GrabIemPC : MonoBehaviour
         canMove = true;
 
         canRotate = true;
+
+        rb.linearDamping = 0f;
+
+        rb.angularDamping = 0f;
 
         holdingObject = null;
     }
