@@ -49,7 +49,12 @@ public class GrabIemPC : MonoBehaviour
 
     void GrabItem()
     {
-        Physics.Raycast(transform.position, transform.forward, grabDistance, grabItemMask);
+        RaycastHit hit;
+
+        if(Physics.Raycast(transform.position, transform.forward, out hit, grabDistance, grabItemMask))
+        {
+            Debug.Log(hit.collider.gameObject.name);
+        }
     }
     
     void DropItem()

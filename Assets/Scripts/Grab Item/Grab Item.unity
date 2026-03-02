@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   rotationSpeed: 180
-  grabDistance: 2
+  grabDistance: 1
   rayHeight: 1.1
   canMove: 1
   canRotate: 1
