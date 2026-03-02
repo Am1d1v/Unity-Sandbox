@@ -19,4 +19,9 @@ public class GrabItem : MonoBehaviour
     {
         return mass;
     }
+
+    public void Release()
+    {
+
+    }
 }

@@ -7,11 +7,12 @@ public class GrabIemPC : MonoBehaviour
     [SerializeField] float rotationSpeed;
     [SerializeField] float grabDistance;   
     [SerializeField] float rayHeight;   
+    [SerializeField] float moveTrashlod;   
     [SerializeField] bool canMove;
     [SerializeField] bool canRotate;
     [SerializeField] Vector3 moveDirection;
     [SerializeField] Rigidbody rb;
-    [SerializeField] GameObject holdingObject;
+    [SerializeField] GrabItem holdingObject;
     [SerializeField] LayerMask grabItemMask;
 
     private void Update()
@@ -35,6 +36,8 @@ public class GrabIemPC : MonoBehaviour
 
     void Move()
     {
+        if (canMove == false) return;
+
         moveDirection = transform.forward * Input.GetAxisRaw("Vertical");
 
         rb.linearVelocity = moveDirection * moveSpeed;
@@ -53,13 +56,26 @@ public class GrabIemPC : MonoBehaviour
 
         if(Physics.Raycast(transform.position, transform.forward, out hit, grabDistance, grabItemMask))
         {
-            Debug.Log(hit.collider.gameObject.name);
+            holdingObject = hit.collider.gameObject.GetComponent<GrabItem>();
+
+            canRotate = false;
+
+            if(holdingObject.GetMass() > moveTrashlod)
+            {
+                canMove = false;
+            }
         }
     }
     
     void DropItem()
     {
-        
+        holdingObject.Release();
+
+        canMove = true;
+
+        canRotate = true;
+
+        holdingObject = null;
     }
 
     private void OnDrawGizmos()

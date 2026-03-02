@@ -170,6 +170,7 @@ MonoBehaviour:
   rotationSpeed: 180
   grabDistance: 1
   rayHeight: 1.1
+  moveTrashlod: 45
   canMove: 1
   canRotate: 1
   moveDirection: {x: 0, y: 0, z: 0}
