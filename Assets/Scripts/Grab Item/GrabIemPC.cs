@@ -49,13 +49,9 @@ public class GrabIemPC : MonoBehaviour
     {
         if (canRotate == false) return;
 
-        //transform.Rotate(0f, Input.GetAxisRaw("Horizontal") * rotationSpeed * Time.deltaTime, 0f);
-
         float rotationInput = Input.GetAxisRaw("Horizontal") * rotationSpeed * Time.deltaTime;
 
-        Vector3 rotation = transform.eulerAngles;
-
-        rb.MoveRotation(Quaternion.Euler(rotation + new Vector3(0f, rotationInput, 0f)));
+        rb.angularVelocity = new Vector3(0f, rotationInput, 0f);
     }
 
     void GrabItem()
