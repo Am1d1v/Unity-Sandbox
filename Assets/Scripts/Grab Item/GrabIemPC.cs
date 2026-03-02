@@ -56,13 +56,17 @@ public class GrabIemPC : MonoBehaviour
 
         if(Physics.Raycast(transform.position, transform.forward, out hit, grabDistance, grabItemMask))
         {
-            holdingObject = hit.collider.gameObject.GetComponent<GrabItem>();
+            GrabItem item = hit.collider.gameObject.GetComponent<GrabItem>();
 
-            canRotate = false;
+            item.Grab(transform);
+
+            holdingObject = item;           
 
             if(holdingObject.GetMass() > moveTrashlod)
             {
                 canMove = false;
+
+                canRotate = false;
             }
         }
     }

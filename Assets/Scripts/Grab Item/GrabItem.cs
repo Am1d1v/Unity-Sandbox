@@ -22,6 +22,17 @@ public class GrabItem : MonoBehaviour
 
     public void Release()
     {
+        GetComponent<Rigidbody>().isKinematic = false;
 
+        transform.SetParent(null);
     }
+    
+    public void Grab(Transform parent)
+    {
+        GetComponent<Rigidbody>().isKinematic = true;
+
+        transform.SetParent(parent);
+    }
+
+    
 }
