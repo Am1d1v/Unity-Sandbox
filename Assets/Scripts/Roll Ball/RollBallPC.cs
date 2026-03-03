@@ -23,6 +23,8 @@ public class RollBallPC : MonoBehaviour
 
     void Rotate()
     {
+        if (rb.linearVelocity.magnitude <= 0) return;
+
         moveInput.y = Input.GetAxisRaw("Horizontal") * moveSpeed;
 
         rb.angularVelocity = new Vector3(0f, moveInput.y * rotationSpeed, 0f);
