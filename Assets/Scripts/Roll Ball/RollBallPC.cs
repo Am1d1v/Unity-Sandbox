@@ -4,7 +4,7 @@ public class RollBallPC : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float moveSpeed;
-    [SerializeField] float rotatiobSpeed;
+    [SerializeField] float rotationSpeed;
     [SerializeField] Rigidbody rb;
     [SerializeField] Vector3 moveInput;
 
@@ -23,6 +23,8 @@ public class RollBallPC : MonoBehaviour
 
     void Rotate()
     {
+        moveInput.y = Input.GetAxisRaw("Horizontal") * moveSpeed;
 
+        rb.angularVelocity = new Vector3(0f, moveInput.y * rotationSpeed, 0f);
     }
 }
