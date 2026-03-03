@@ -5,6 +5,7 @@ public class RollBallPC : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
+    [SerializeField] float speedMagnitudeToRotateTrashold;
     [SerializeField] Rigidbody rb;
     [SerializeField] Vector3 moveInput;
 
@@ -18,12 +19,16 @@ public class RollBallPC : MonoBehaviour
     {
         moveInput.z = Input.GetAxisRaw("Vertical") * moveSpeed;
 
-        rb.linearVelocity = transform.forward * moveInput.z + new Vector3(0f, rb.linearVelocity.y, 0f);
+        //rb.linearVelocity = transform.forward * moveInput.z + new Vector3(0f, rb.linearVelocity.y, 0f);
+
+        rb.AddForce(transform.forward * moveInput.z + new Vector3(0f, rb.linearVelocity.y, 0f), ForceMode.Force);
+
+        Debug.Log(rb.linearVelocity.magnitude);
     }
 
     void Rotate()
     {
-        if (rb.linearVelocity.magnitude <= 0) return;
+        if (rb.linearVelocity.magnitude < speedMagnitudeToRotateTrashold) return;
 
         moveInput.y = Input.GetAxisRaw("Horizontal") * moveSpeed;
 
