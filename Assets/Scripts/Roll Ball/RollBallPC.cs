@@ -18,7 +18,7 @@ public class RollBallPC : MonoBehaviour
     {
         moveInput.z = Input.GetAxisRaw("Vertical") * moveSpeed;
 
-        rb.linearVelocity = transform.forward * moveInput.z;
+        rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, moveInput.z);
     }
 
     void Rotate()
