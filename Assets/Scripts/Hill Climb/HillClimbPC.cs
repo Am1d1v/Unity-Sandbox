@@ -73,16 +73,12 @@ public class HillClimbPC : MonoBehaviour
         {
             rb.isKinematic = true;
 
-            transform.position = Vector3.Slerp(transform.position, selectedRock.transform.position + rockOffset, moveSpeed * Time.deltaTime);            
-
-            if (currentRockIndex == lastRockIndex)
-            {
-                ClimbUp();
-
-                DeselectRockAndHill();
-
-                currentRockIndex = 0;
-            }
+            transform.position = Vector3.Slerp(transform.position, selectedRock.transform.position + rockOffset, moveSpeed * Time.deltaTime);                      
+        }  
+        
+        if(Vector3.Distance(transform.position, selectedRock.transform.position + rockOffset) <= 0.5f && currentRockIndex == lastRockIndex)
+        {
+            ClimbUp();
         }        
     }
 
@@ -95,33 +91,27 @@ public class HillClimbPC : MonoBehaviour
 
     void ClimbUp()
     {
-        //transform.localPosition += transform.forward * climbUp.z + new Vector3(0f, climbUp.y, 0f);
-
         StartCoroutine(ClimbUpProcess());
-
-        //animator.Play("Climb Up");       
     }
 
     IEnumerator ClimbUpProcess()
     {
-        while(Vector3.Distance(transform.position, UpClimbPoint.position) > 0.1f)
+        yield return new WaitForSeconds(1f);
+
+        UpClimbPoint.SetParent(null);
+        ForwardClimbPoint.SetParent(null);
+
+        while(transform.position.y != UpClimbPoint.transform.position.y)
         {
-            transform.position = Vector3.Slerp(transform.position, UpClimbPoint.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, UpClimbPoint.position, moveSpeed * Time.deltaTime);
+
+            Debug.Log("UP");
 
             yield return null;
         }
-        
-        while(Vector3.Distance(transform.position, ForwardClimbPoint.position) > 0.1f)
-        {
-            transform.position = Vector3.Slerp(transform.position, ForwardClimbPoint.position, moveSpeed * Time.deltaTime);
 
-            yield return null;
-        }
+        TurnOnRB();
 
-        void TurnOnRB()
-        {
-            rb.isKinematic = false;
-        }
     }
 
     void TurnOnRB()
