@@ -33,7 +33,13 @@ public class HillClimbPC : MonoBehaviour
     {
         if(Vector3.Distance(transform.position, selectedRock.transform.position) >= 0.1f)
         {
-            transform.position = Vector3.Lerp(transform.position, selectedRock.transform.position + rockOffset, moveSpeed * Time.deltaTime);
+            //transform.position = Vector3.Lerp(transform.position, selectedRock.transform.position + rockOffset, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.Slerp(transform.position, selectedRock.transform.position + rockOffset, moveSpeed * Time.deltaTime);
+        }
+        
+        if(Vector3.Distance(transform.position, selectedRock.transform.position + rockOffset) < 0.1f)
+        {
+            selectedRock = null;
         }
     }
 }
