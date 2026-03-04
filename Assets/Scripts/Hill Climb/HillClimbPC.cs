@@ -11,10 +11,8 @@ public class HillClimbPC : MonoBehaviour
     [SerializeField] int lastRockIndex;
     [SerializeField] int currentRockIndex;
     [SerializeField] Vector3 rockOffset;
-    [SerializeField] Vector3 climbUp;
     [SerializeField] Transform rocksHolder;
     [SerializeField] Transform UpClimbPoint;
-    [SerializeField] Transform ForwardClimbPoint;
     [SerializeField] HillClimb selectedRock;
     [SerializeField] Rigidbody rb;
     [SerializeField] Animator animator;
@@ -96,22 +94,20 @@ public class HillClimbPC : MonoBehaviour
 
     IEnumerator ClimbUpProcess()
     {
-        yield return new WaitForSeconds(1f);
+        Transform UpPoint = Instantiate(UpClimbPoint, transform.position, Quaternion.identity);
 
-        UpClimbPoint.SetParent(null);
-        ForwardClimbPoint.SetParent(null);
+        UpPoint.SetParent(null);
 
-        while(transform.position.y != UpClimbPoint.transform.position.y)
+        while(transform.position != UpPoint.position)
         {
             transform.position = Vector3.MoveTowards(transform.position, UpClimbPoint.position, moveSpeed * Time.deltaTime);
-
-            Debug.Log("UP");
 
             yield return null;
         }
 
-        TurnOnRB();
+        yield return new WaitForSeconds(1f);
 
+        TurnOnRB();
     }
 
     void TurnOnRB()
