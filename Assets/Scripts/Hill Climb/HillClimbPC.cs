@@ -79,7 +79,7 @@ public class HillClimbPC : MonoBehaviour
 
     void ClimbUp()
     {
-        transform.position = transform.forward * climbUp.z + new Vector3(0f, climbUp.y, 0f);
+        transform.localPosition += transform.forward * climbUp.z + new Vector3(0f, climbUp.y, 0f);
 
         animator.Play("Climb Up");       
     }
