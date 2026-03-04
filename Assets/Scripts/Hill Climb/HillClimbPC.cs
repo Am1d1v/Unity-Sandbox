@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class HillClimbPC : MonoBehaviour
@@ -12,6 +13,8 @@ public class HillClimbPC : MonoBehaviour
     [SerializeField] Vector3 rockOffset;
     [SerializeField] Vector3 climbUp;
     [SerializeField] Transform rocksHolder;
+    [SerializeField] Transform UpClimbPoint;
+    [SerializeField] Transform ForwardClimbPoint;
     [SerializeField] HillClimb selectedRock;
     [SerializeField] Rigidbody rb;
     [SerializeField] Animator animator;
@@ -92,9 +95,33 @@ public class HillClimbPC : MonoBehaviour
 
     void ClimbUp()
     {
-        transform.localPosition += transform.forward * climbUp.z + new Vector3(0f, climbUp.y, 0f);
+        //transform.localPosition += transform.forward * climbUp.z + new Vector3(0f, climbUp.y, 0f);
 
-        animator.Play("Climb Up");       
+        StartCoroutine(ClimbUpProcess());
+
+        //animator.Play("Climb Up");       
+    }
+
+    IEnumerator ClimbUpProcess()
+    {
+        while(Vector3.Distance(transform.position, UpClimbPoint.position) > 0.1f)
+        {
+            transform.position = Vector3.Slerp(transform.position, UpClimbPoint.position, moveSpeed * Time.deltaTime);
+
+            yield return null;
+        }
+        
+        while(Vector3.Distance(transform.position, ForwardClimbPoint.position) > 0.1f)
+        {
+            transform.position = Vector3.Slerp(transform.position, ForwardClimbPoint.position, moveSpeed * Time.deltaTime);
+
+            yield return null;
+        }
+
+        void TurnOnRB()
+        {
+            rb.isKinematic = false;
+        }
     }
 
     void TurnOnRB()

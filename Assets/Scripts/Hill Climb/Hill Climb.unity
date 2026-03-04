@@ -427,6 +427,8 @@ MonoBehaviour:
   rockOffset: {x: 0.5, y: -0.6, z: 0}
   climbUp: {x: 0, y: 6, z: 3}
   rocksHolder: {fileID: 0}
+  UpClimbPoint: {fileID: 38175060}
+  ForwardClimbPoint: {fileID: 1745794093}
   selectedRock: {fileID: 0}
   rb: {fileID: 385819621}
   animator: {fileID: 385819622}
