@@ -19,8 +19,6 @@ public class RollBallPC : MonoBehaviour
     {
         moveInput.z = Input.GetAxisRaw("Vertical") * moveSpeed;
 
-        //rb.linearVelocity = transform.forward * moveInput.z + new Vector3(0f, rb.linearVelocity.y, 0f);
-
         rb.AddForce(transform.forward * moveInput.z + new Vector3(0f, rb.linearVelocity.y, 0f), ForceMode.Force);
 
         Debug.Log(rb.linearVelocity.magnitude);
