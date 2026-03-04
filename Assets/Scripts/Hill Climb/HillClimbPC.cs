@@ -32,6 +32,8 @@ public class HillClimbPC : MonoBehaviour
             DeselectRockAndHill();
 
             rb.isKinematic = false;
+
+            currentRockIndex = 0;
         }
     }
 
@@ -65,8 +67,6 @@ public class HillClimbPC : MonoBehaviour
     {
         selectedRock = null;
 
-        rocksHolder = null;
-
-        currentRockIndex = 0;
+        rocksHolder = null;        
     }
 }
