@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HillClimb : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        Debug.Log(gameObject.name);
+        HillClimbPC.instance.SelectRock(this);
     }
+
 }
