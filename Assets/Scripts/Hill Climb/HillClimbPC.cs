@@ -5,6 +5,7 @@ public class HillClimbPC : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float moveSpeed;
+    [SerializeField] Vector3 rockOffset;
     [SerializeField] HillClimb selectedRock;
 
     [Header("Actions")]
@@ -32,7 +33,7 @@ public class HillClimbPC : MonoBehaviour
     {
         if(Vector3.Distance(transform.position, selectedRock.transform.position) >= 0.1f)
         {
-            transform.position = Vector3.Lerp(transform.position, selectedRock.transform.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, selectedRock.transform.position + rockOffset, moveSpeed * Time.deltaTime);
         }
     }
 }

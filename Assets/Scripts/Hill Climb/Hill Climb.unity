@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  rockOffset: {x: 0.5, y: -0.6, z: 0}
   selectedRock: {fileID: 0}
 --- !u!1 &554032357
 GameObject:
