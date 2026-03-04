@@ -7,6 +7,7 @@ public class HillClimbPC : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] Vector3 rockOffset;
     [SerializeField] HillClimb selectedRock;
+    [SerializeField] Rigidbody rb;
 
     [Header("Actions")]
     public static HillClimbPC instance;
@@ -22,6 +23,13 @@ public class HillClimbPC : MonoBehaviour
         {
             Move();
         }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            selectedRock = null;
+
+            rb.isKinematic = false;
+        }
     }
 
     public void SelectRock(HillClimb rock)
@@ -33,7 +41,8 @@ public class HillClimbPC : MonoBehaviour
     {
         if(Vector3.Distance(transform.position, selectedRock.transform.position) >= 0.1f)
         {
-            //transform.position = Vector3.Lerp(transform.position, selectedRock.transform.position + rockOffset, moveSpeed * Time.deltaTime);
+            rb.isKinematic = true;
+
             transform.position = Vector3.Slerp(transform.position, selectedRock.transform.position + rockOffset, moveSpeed * Time.deltaTime);
         }
         
