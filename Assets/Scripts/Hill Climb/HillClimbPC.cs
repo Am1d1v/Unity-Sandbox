@@ -19,12 +19,20 @@ public class HillClimbPC : MonoBehaviour
     {
         if (selectedRock)
         {
-
+            Move();
         }
     }
 
     public void SelectRock(HillClimb rock)
     {
         selectedRock = rock;
+    }
+
+    void Move()
+    {
+        if(Vector3.Distance(transform.position, selectedRock.transform.position) >= 0.1f)
+        {
+            transform.position = Vector3.Lerp(transform.position, selectedRock.transform.position, moveSpeed * Time.deltaTime);
+        }
     }
 }
