@@ -61,13 +61,13 @@ public class HillClimbPC : MonoBehaviour
             if (currentRockIndex == lastRockIndex)
             {
                 ClimbUp();
+
+                DeselectRockAndHill();
+
+                currentRockIndex = 0;
             }
         }
         
-        if(Vector3.Distance(transform.position, selectedRock.transform.position + rockOffset) < 0.1f)
-        {
-            DeselectRockAndHill();
-        }
     }
 
     void DeselectRockAndHill()
@@ -79,7 +79,7 @@ public class HillClimbPC : MonoBehaviour
 
     void ClimbUp()
     {
-        transform.position += transform.forward * climbUp.z + new Vector3(0f, climbUp.y, 0f);
+        transform.position = transform.forward * climbUp.z + new Vector3(0f, climbUp.y, 0f);
 
         animator.Play("Climb Up");
     }
