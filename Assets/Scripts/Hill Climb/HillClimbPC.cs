@@ -80,8 +80,7 @@ public class HillClimbPC : MonoBehaviour
 
                 currentRockIndex = 0;
             }
-        }
-              
+        }        
     }
 
     void DeselectRockAndHill()
