@@ -5,7 +5,10 @@ public class HillClimbPC : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float moveSpeed;
+    [SerializeField] int lastRockIndex;
+    [SerializeField] int currentRockIndex;
     [SerializeField] Vector3 rockOffset;
+    [SerializeField] Transform rocksHolder;
     [SerializeField] HillClimb selectedRock;
     [SerializeField] Rigidbody rb;
 
@@ -26,7 +29,7 @@ public class HillClimbPC : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            selectedRock = null;
+            DeselectRockAndHill();
 
             rb.isKinematic = false;
         }
@@ -35,6 +38,12 @@ public class HillClimbPC : MonoBehaviour
     public void SelectRock(HillClimb rock)
     {
         selectedRock = rock;
+
+        rocksHolder = rock.transform.parent;
+
+        lastRockIndex = rocksHolder.childCount;
+
+        currentRockIndex = rock.RockIndex;
     }
 
     void Move()
@@ -48,7 +57,16 @@ public class HillClimbPC : MonoBehaviour
         
         if(Vector3.Distance(transform.position, selectedRock.transform.position + rockOffset) < 0.1f)
         {
-            selectedRock = null;
+            DeselectRockAndHill();
         }
+    }
+
+    void DeselectRockAndHill()
+    {
+        selectedRock = null;
+
+        rocksHolder = null;
+
+        currentRockIndex = 0;
     }
 }
