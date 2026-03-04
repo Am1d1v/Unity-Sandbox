@@ -36,12 +36,7 @@ public class HillClimbPC : MonoBehaviour
             rb.isKinematic = false;
 
             currentRockIndex = 0;
-        }
-        
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ClimbUp();
-        }
+        }       
     }
 
     public void SelectRock(HillClimb rock)
@@ -62,6 +57,11 @@ public class HillClimbPC : MonoBehaviour
             rb.isKinematic = true;
 
             transform.position = Vector3.Slerp(transform.position, selectedRock.transform.position + rockOffset, moveSpeed * Time.deltaTime);
+
+            if (currentRockIndex == lastRockIndex)
+            {
+                ClimbUp();
+            }
         }
         
         if(Vector3.Distance(transform.position, selectedRock.transform.position + rockOffset) < 0.1f)
