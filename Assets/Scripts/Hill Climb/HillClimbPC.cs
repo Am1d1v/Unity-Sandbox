@@ -81,6 +81,11 @@ public class HillClimbPC : MonoBehaviour
     {
         transform.position = transform.forward * climbUp.z + new Vector3(0f, climbUp.y, 0f);
 
-        animator.Play("Climb Up");
+        animator.Play("Climb Up");       
+    }
+
+    void TurnOnRB()
+    {
+        rb.isKinematic = false;
     }
 }
