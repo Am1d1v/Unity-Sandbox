@@ -5,6 +5,8 @@ public class HillClimbPC : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float moveSpeed;
+    [SerializeField] float hangingDuration;
+    [SerializeField] float hangingDurationCounter;
     [SerializeField] int lastRockIndex;
     [SerializeField] int currentRockIndex;
     [SerializeField] Vector3 rockOffset;
@@ -19,7 +21,9 @@ public class HillClimbPC : MonoBehaviour
 
     private void Awake()
     {
-        instance = this; 
+        instance = this;
+
+        hangingDurationCounter = hangingDuration;
     }
 
     private void Update()
@@ -31,12 +35,20 @@ public class HillClimbPC : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            DeselectRockAndHill();
+            StopHangingProcess();
+        }     
+        
+        if(selectedRock != null)
+        {
+            hangingDurationCounter -= Time.deltaTime;
+        }
 
-            rb.isKinematic = false;
+        if(hangingDurationCounter <= 0f)
+        {
+            StopHangingProcess();
 
-            currentRockIndex = 0;
-        }       
+            hangingDurationCounter = hangingDuration;
+        }
     }
 
     public void SelectRock(HillClimb rock)
@@ -87,5 +99,14 @@ public class HillClimbPC : MonoBehaviour
     void TurnOnRB()
     {
         rb.isKinematic = false;
+    }
+
+    void StopHangingProcess()
+    {
+        DeselectRockAndHill();
+
+        rb.isKinematic = false;
+
+        currentRockIndex = 0;
     }
 }
