@@ -60,6 +60,8 @@ public class HillClimbPC : MonoBehaviour
         lastRockIndex = rocksHolder.childCount;
 
         currentRockIndex = rock.RockIndex;
+
+        hangingDurationCounter = hangingDuration;
     }
 
     void Move()
@@ -68,7 +70,7 @@ public class HillClimbPC : MonoBehaviour
         {
             rb.isKinematic = true;
 
-            transform.position = Vector3.Slerp(transform.position, selectedRock.transform.position + rockOffset, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.Slerp(transform.position, selectedRock.transform.position + rockOffset, moveSpeed * Time.deltaTime);            
 
             if (currentRockIndex == lastRockIndex)
             {
@@ -79,7 +81,7 @@ public class HillClimbPC : MonoBehaviour
                 currentRockIndex = 0;
             }
         }
-        
+              
     }
 
     void DeselectRockAndHill()

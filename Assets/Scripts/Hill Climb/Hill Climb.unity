@@ -355,6 +355,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  hangingDuration: 3
+  hangingDurationCounter: 0
   lastRockIndex: 0
   currentRockIndex: 0
   rockOffset: {x: 0.5, y: -0.6, z: 0}
