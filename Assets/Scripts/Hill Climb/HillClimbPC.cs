@@ -8,9 +8,11 @@ public class HillClimbPC : MonoBehaviour
     [SerializeField] int lastRockIndex;
     [SerializeField] int currentRockIndex;
     [SerializeField] Vector3 rockOffset;
+    [SerializeField] Vector3 climbUp;
     [SerializeField] Transform rocksHolder;
     [SerializeField] HillClimb selectedRock;
     [SerializeField] Rigidbody rb;
+    [SerializeField] Animator animator;
 
     [Header("Actions")]
     public static HillClimbPC instance;
@@ -34,6 +36,11 @@ public class HillClimbPC : MonoBehaviour
             rb.isKinematic = false;
 
             currentRockIndex = 0;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            ClimbUp();
         }
     }
 
@@ -68,5 +75,12 @@ public class HillClimbPC : MonoBehaviour
         selectedRock = null;
 
         rocksHolder = null;        
+    }
+
+    void ClimbUp()
+    {
+        transform.position += transform.forward * climbUp.z + new Vector3(0f, climbUp.y, 0f);
+
+        animator.Play("Climb Up");
     }
 }
