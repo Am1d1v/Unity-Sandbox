@@ -7,6 +7,16 @@ public class ScaleItemPC : MonoBehaviour
     [SerializeField] Vector3 moveDirection;
     [SerializeField] CharacterController characterController;
 
+    private void Awake()
+    {
+        ScaleItem.onPlayerCollision += UpdateScale;
+    }
+
+    private void OnDestroy()
+    {
+        ScaleItem.onPlayerCollision -= UpdateScale;
+    }
+
     private void Update()
     {
         Move();
@@ -19,5 +29,10 @@ public class ScaleItemPC : MonoBehaviour
         Vector3 move = Vector3.forward * moveInput * moveSpeed * Time.deltaTime;
 
         characterController.Move(move);
+    }
+
+    void UpdateScale()
+    {
+
     }
 }
