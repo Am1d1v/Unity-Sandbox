@@ -8,4 +8,12 @@ public class ScaleItem : MonoBehaviour
 
     [Header("Actions")]
     public static Action onPlayerCollision;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            onPlayerCollision?.Invoke();
+        }
+    }
 }
