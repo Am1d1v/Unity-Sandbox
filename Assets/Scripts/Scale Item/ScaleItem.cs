@@ -14,6 +14,8 @@ public class ScaleItem : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             onPlayerCollision?.Invoke(scaleEffect);
+
+            Destroy(gameObject);
         }
     }
 }
