@@ -31,8 +31,8 @@ public class ScaleItemPC : MonoBehaviour
         characterController.Move(move);
     }
 
-    void UpdateScale()
+    void UpdateScale(Vector3 scaleEffect)
     {
-
+        transform.localScale += scaleEffect;
     }
 }

@@ -7,13 +7,13 @@ public class ScaleItem : MonoBehaviour
     [SerializeField] Vector3 scaleEffect;
 
     [Header("Actions")]
-    public static Action onPlayerCollision;
+    public static Action<Vector3> onPlayerCollision;
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            onPlayerCollision?.Invoke();
+            onPlayerCollision?.Invoke(scaleEffect);
         }
     }
 }
