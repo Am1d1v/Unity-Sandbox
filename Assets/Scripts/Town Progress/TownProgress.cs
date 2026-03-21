@@ -13,6 +13,10 @@ public class TownProgress : MonoBehaviour
         {
             BuildGuild();
         }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetTown();
+        }
     }
 
     void TownLevelUp()
@@ -32,5 +36,17 @@ public class TownProgress : MonoBehaviour
         }
 
         TownLevelUp();
+    }
+
+    void ResetTown()
+    {       
+        for (int i = 0; i < currentBuildingLevel; i++)
+        {
+            guildBuilding[i].SetActive(false);
+        }
+
+        townLevel = 1;
+
+        currentBuildingLevel = 0;
     }
 }
