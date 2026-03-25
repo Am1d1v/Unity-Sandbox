@@ -20,4 +20,11 @@ public class PortalThrough : MonoBehaviour
 
         Debug.Log(colliders.Length);
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+
+        Gizmos.DrawWireSphere(portalPointer.transform.position, detectionRadius);
+    }
 }

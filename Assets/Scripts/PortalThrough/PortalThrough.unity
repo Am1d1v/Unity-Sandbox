@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalPointerMoveSpeed: 3
-  detectionRadius: 1
+  detectionRadius: 0.45
   isMoving: 0
   obstacleMask:
     serializedVersion: 2
