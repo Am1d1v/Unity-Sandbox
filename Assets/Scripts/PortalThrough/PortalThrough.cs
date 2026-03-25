@@ -6,6 +6,7 @@ public class PortalThrough : MonoBehaviour
     [SerializeField] float portalPointerMoveSpeed;
     [SerializeField] float detectionRadius;
     [SerializeField] bool isMoving;
+    [SerializeField] LayerMask obstacleMask;
     [SerializeField] GameObject portalPointer;
 
     private void Update()
@@ -15,7 +16,7 @@ public class PortalThrough : MonoBehaviour
 
     void MovePortalPointer()
     {
-        Collider[] colliders = Physics.OverlapSphere(portalPointer.transform.position, detectionRadius);
+        Collider[] colliders = Physics.OverlapSphere(portalPointer.transform.position, detectionRadius, obstacleMask);
 
         Debug.Log(colliders.Length);
     }

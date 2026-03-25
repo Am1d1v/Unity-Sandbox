@@ -166,6 +166,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalPointerMoveSpeed: 3
+  detectionRadius: 1
+  isMoving: 0
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1024
   portalPointer: {fileID: 1240166524}
 --- !u!1 &893995026
 GameObject:
