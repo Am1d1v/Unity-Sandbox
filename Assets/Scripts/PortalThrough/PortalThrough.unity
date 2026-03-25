@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portalPointerMoveSpeed: 3
   detectionRadius: 0.45
-  portalPointerLifetime: 6
+  portalPointerLifetime: 3
   portalPointerLifetimeCounter: 0
   collidedWithObstacle: 0
   pointerCasted: 0

@@ -29,11 +29,11 @@ public class PortalThrough : MonoBehaviour
         {
             MovePortalPointer();
 
-            portalPointerLifetime -= Time.deltaTime;
-
+            portalPointerLifetimeCounter -= Time.deltaTime;
+           
             collidedWithObstacle = DetectObstacle();
 
-        }
+        }     
     }
 
     void MovePortalPointer()
