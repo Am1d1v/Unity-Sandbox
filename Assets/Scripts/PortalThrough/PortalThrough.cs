@@ -11,6 +11,7 @@ public class PortalThrough : MonoBehaviour
     [SerializeField] bool pointerCasted;
     [SerializeField] LayerMask obstacleMask;
     [SerializeField] GameObject portalPointer;
+    [SerializeField] Vector3 teleportationPoint;
 
     private void Update()
     {      
@@ -20,9 +21,7 @@ public class PortalThrough : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(1) && pointerCasted)
         {
-            //ResetPortalPointer();
-
-            TeleportPlayer();
+            ResetPortalPointer();
         }
 
         if (pointerCasted)
@@ -32,8 +31,16 @@ public class PortalThrough : MonoBehaviour
             portalPointerLifetimeCounter -= Time.deltaTime;
            
             collidedWithObstacle = DetectObstacle();
+        } 
+        
+        if (pointerCasted && collidedWithObstacle == false)
+        {
+            teleportationPoint = portalPointer.transform.position;
 
-        }     
+            TeleportPlayer();
+
+            ResetPortalPointer();
+        }
     }
 
     void MovePortalPointer()
@@ -49,7 +56,7 @@ public class PortalThrough : MonoBehaviour
         {          
             return true;
         }
-
+     
         return false;
     }
 
