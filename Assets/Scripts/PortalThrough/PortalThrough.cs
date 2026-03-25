@@ -18,6 +18,8 @@ public class PortalThrough : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             pointerCasted = true;
+
+            portalPointerLifetimeCounter = portalPointerLifetime;
         }
         else if (Input.GetMouseButtonDown(1) && pointerCasted)
         {
@@ -53,7 +55,7 @@ public class PortalThrough : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(portalPointer.transform.position, detectionRadius, obstacleMask);
 
         if(colliders.Length > 0)
-        {          
+        {           
             return true;
         }
      
