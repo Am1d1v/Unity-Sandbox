@@ -5,6 +5,8 @@ public class PortalThrough : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float portalPointerMoveSpeed;
     [SerializeField] float detectionRadius;
+    [SerializeField] float portalPointerLifetime;
+    [SerializeField] float portalPointerLifetimeCounter;
     [SerializeField] bool collidedWithObstacle;
     [SerializeField] bool pointerCasted;
     [SerializeField] LayerMask obstacleMask;
@@ -18,12 +20,19 @@ public class PortalThrough : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(1) && pointerCasted)
         {
-            ResetPortalPointer();
+            //ResetPortalPointer();
+
+            TeleportPlayer();
         }
 
         if (pointerCasted)
         {
             MovePortalPointer();
+
+            portalPointerLifetime -= Time.deltaTime;
+
+            collidedWithObstacle = DetectObstacle();
+
         }
     }
 
@@ -32,21 +41,37 @@ public class PortalThrough : MonoBehaviour
         portalPointer.transform.position += transform.up * portalPointerMoveSpeed * Time.deltaTime;
     }
 
-    void DetectObstacle()
+    bool DetectObstacle()
     {
         Collider[] colliders = Physics.OverlapSphere(portalPointer.transform.position, detectionRadius, obstacleMask);
 
         if(colliders.Length > 0)
-        {
-            collidedWithObstacle = true;
+        {          
+            return true;
         }
+
+        return false;
     }
 
     void ResetPortalPointer()
     {
         pointerCasted = false;
 
-        portalPointer.transform.position = Vector3.zero;
+        portalPointer.transform.position = transform.position;
+
+        ResetPortalPointerTimer();
+    }
+    
+    void ResetPortalPointerTimer()
+    {
+        portalPointerLifetimeCounter = portalPointerLifetime;
+    }
+
+    void TeleportPlayer()
+    {
+        transform.position = portalPointer.transform.position;
+
+        ResetPortalPointer();
     }
 
     private void OnDrawGizmos()
