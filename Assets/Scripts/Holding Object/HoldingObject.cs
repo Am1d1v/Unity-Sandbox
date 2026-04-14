@@ -6,7 +6,13 @@ public class HoldingObject : MonoBehaviour
     [SerializeField] Vector3 mousePosition;
     [SerializeField] Vector2 itemPoint;
     [SerializeField] LayerMask objectLayer;
+    
+
+    [Header("Object Settings")]
     [SerializeField] GameObject movingItem;
+    [SerializeField] float moveSpeed;
+    [SerializeField] float distanceToBreak;
+
     private void Update()
     {
         GetMousePosition();
@@ -34,10 +40,15 @@ public class HoldingObject : MonoBehaviour
 
     void MoveItem()
     {
-        if (new Vector2(movingItem.transform.position.x, movingItem.transform.position.y) != itemPoint)
+        if (new Vector2(movingItem.transform.position.x, movingItem.transform.position.y) != itemPoint && InDistance())
         {
-            movingItem.transform.position = Vector3.MoveTowards(movingItem.transform.position, new Vector2(itemPoint.x, itemPoint.y), Time.deltaTime);
+            movingItem.transform.position = Vector3.MoveTowards(movingItem.transform.position, new Vector2(itemPoint.x, itemPoint.y), moveSpeed * Time.deltaTime);
         }
+    }
+
+    bool InDistance()
+    {
+        return Vector3.Distance(transform.position, movingItem.transform.position) <= distanceToBreak;
     }
 
 }
