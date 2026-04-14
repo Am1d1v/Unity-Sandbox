@@ -4,7 +4,7 @@ public class HoldingObject : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] Vector3 mousePosition;
-    [SerializeField] Ray ray;
+    [SerializeField] LayerMask objectLayer;
     private void Update()
     {
         GetMousePosition();
@@ -20,7 +20,7 @@ public class HoldingObject : MonoBehaviour
 
         RaycastHit hit;
 
-        if(Physics.Raycast(ray, out hit))
+        if(Physics.Raycast(ray, out hit, Mathf.Infinity, objectLayer))
         {
             Debug.DrawLine(ray.origin, hit.point);
         }
