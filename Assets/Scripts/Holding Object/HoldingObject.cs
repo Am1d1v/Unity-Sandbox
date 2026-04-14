@@ -48,7 +48,20 @@ public class HoldingObject : MonoBehaviour
 
     bool InDistance()
     {
-        return Vector3.Distance(transform.position, movingItem.transform.position) <= distanceToBreak;
+        if(Vector3.Distance(transform.position, movingItem.transform.position) <= distanceToBreak)
+        {
+            movingItem.GetComponent<Rigidbody>().useGravity = false;
+            movingItem.GetComponent<Rigidbody>().isKinematic = true;
+
+            return true;
+        }
+        else
+        {
+            movingItem.GetComponent<Rigidbody>().useGravity = true;
+            movingItem.GetComponent<Rigidbody>().isKinematic = false;
+            movingItem = null;
+            return false;
+        }
     }
 
 }
