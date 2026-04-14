@@ -16,16 +16,16 @@ public class HoldingObject : MonoBehaviour
 
         mousePosition = mousePos;
 
-        if (Physics.Raycast(ray))
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+
+        RaycastHit hit;
+
+        if(Physics.Raycast(ray, out hit))
         {
-            Debug.Log(ray);
+            Debug.DrawLine(ray.origin, hit.point);
         }
+
+        
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-
-        Gizmos.DrawRay(ray);
-    }
 }
