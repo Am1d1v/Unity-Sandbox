@@ -40,7 +40,7 @@ public class HoldingObject : MonoBehaviour
 
     void MoveItem()
     {
-        if (new Vector2(movingItem.transform.position.x, movingItem.transform.position.y) != itemPoint && InDistance())
+        if (new Vector2(movingItem.transform.position.x, movingItem.transform.position.y) != itemPoint && InDistance() && movingItem != null)
         {
             movingItem.transform.position = Vector3.MoveTowards(movingItem.transform.position, new Vector2(itemPoint.x, itemPoint.y), moveSpeed * Time.deltaTime);
         }
