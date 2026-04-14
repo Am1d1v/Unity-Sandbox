@@ -249,7 +249,7 @@ MonoBehaviour:
     m_Bits: 16384
   movingItem: {fileID: 434377659}
   moveSpeed: 3
-  distanceToBreak: 6
+  distanceToBreak: 9
 --- !u!1 &374723273
 GameObject:
   m_ObjectHideFlags: 0
