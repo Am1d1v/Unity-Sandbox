@@ -251,6 +251,7 @@ MonoBehaviour:
   moveSpeed: 3
   distanceToBreak: 9
   objectToCreateIndex: 0
+  maxItemAmount: 3
   objectsToCreate:
   - {fileID: 2362923491002793596}
 --- !u!1 &374723273

@@ -15,6 +15,8 @@ public class HoldingObject : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float distanceToBreak;
     [SerializeField] int objectToCreateIndex;
+    [SerializeField] int currentObjectsAmount;
+    [SerializeField] int maxItemAmount;
     [SerializeField] List<HOObject> objectsToCreate = new List<HOObject>();
 
     private void Awake()
@@ -29,6 +31,11 @@ public class HoldingObject : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             UnsetItem();
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            CreateItem();
         }
 
         MoveItem();
@@ -75,6 +82,15 @@ public class HoldingObject : MonoBehaviour
 
             movingItem = null;
         }
+    }
+
+    void CreateItem()
+    {
+        if (currentObjectsAmount >= maxItemAmount && InDistance() == false) return;
+
+        Instantiate(objectsToCreate[objectToCreateIndex], new Vector2(itemPoint.x, itemPoint.y), Quaternion.identity);
+
+        currentObjectsAmount++;
     }
 
     bool InDistance()
