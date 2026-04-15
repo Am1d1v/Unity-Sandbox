@@ -23,7 +23,10 @@ public class HoldingObject : MonoBehaviour
     {       
         GetMousePosition();
 
-        if (movingItem == null) return;
+        if (Input.GetMouseButtonDown(1))
+        {
+            UnsetItem();
+        }
 
         MoveItem();
     }
@@ -48,6 +51,8 @@ public class HoldingObject : MonoBehaviour
 
     void MoveItem()
     {
+        if (movingItem == null) return;
+
         if (new Vector2(movingItem.transform.position.x, movingItem.transform.position.y) != itemPoint && InDistance())
         {
             movingItem.transform.position = Vector3.MoveTowards(movingItem.transform.position, new Vector2(itemPoint.x, itemPoint.y), moveSpeed * Time.deltaTime);
@@ -59,19 +64,27 @@ public class HoldingObject : MonoBehaviour
         movingItem = item;
     }
 
+    void UnsetItem()
+    {
+        if(movingItem != null)
+        {
+            movingItem.GetComponent<Rigidbody>().useGravity = true;
+
+            movingItem = null;
+        }
+    }
+
     bool InDistance()
     {
-        bool useGravity = movingItem.GetComponent<Rigidbody>().useGravity;
-
         if (Vector3.Distance(transform.position, movingItem.transform.position) <= distanceToBreak)
         {
-            useGravity = false;
+            movingItem.GetComponent<Rigidbody>().useGravity = false;
 
             return true;
         }
         else
         {
-            useGravity = true;
+            movingItem.GetComponent<Rigidbody>().useGravity = true;
             movingItem = null;
 
             return false;
