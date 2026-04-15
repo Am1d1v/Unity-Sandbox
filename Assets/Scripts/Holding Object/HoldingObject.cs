@@ -112,8 +112,6 @@ public class HoldingObject : MonoBehaviour
         float rotationInput = Input.GetAxisRaw("Horizontal");
 
         movingItem.transform.eulerAngles += new Vector3(0f, 0f, -rotationInput * rotationSpeed * Time.deltaTime);
-
-        Debug.Log("A");
     }
 
     bool InDistance()
