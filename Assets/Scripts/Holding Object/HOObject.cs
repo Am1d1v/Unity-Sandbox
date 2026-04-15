@@ -3,11 +3,11 @@ using UnityEngine;
 public class HOObject : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] float yValueTrashold;
+    [SerializeField] float yValueThreshold;
 
     private void Update()
     {
-        if(transform.position.y <= yValueTrashold)
+        if(transform.position.y <= yValueThreshold)
         {
             Destroy(gameObject);
         }
