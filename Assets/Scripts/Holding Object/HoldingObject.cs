@@ -2,20 +2,28 @@ using UnityEngine;
 
 public class HoldingObject : MonoBehaviour
 {
+    public static HoldingObject instance;
+
     [Header("Settings")]
     [SerializeField] Vector3 mousePosition;
     [SerializeField] Vector2 itemPoint;
     [SerializeField] LayerMask objectLayer;
     
-
     [Header("Object Settings")]
     [SerializeField] GameObject movingItem;
     [SerializeField] float moveSpeed;
     [SerializeField] float distanceToBreak;
 
-    private void Update()
+    private void Awake()
     {
+        instance = this;
+    }
+
+    private void Update()
+    {       
         GetMousePosition();
+
+        if (movingItem == null) return;
 
         MoveItem();
     }
@@ -40,9 +48,17 @@ public class HoldingObject : MonoBehaviour
 
     void MoveItem()
     {
-        if (new Vector2(movingItem.transform.position.x, movingItem.transform.position.y) != itemPoint && InDistance() && movingItem != null)
+        if (new Vector2(movingItem.transform.position.x, movingItem.transform.position.y) != itemPoint && InDistance())
         {
             movingItem.transform.position = Vector3.MoveTowards(movingItem.transform.position, new Vector2(itemPoint.x, itemPoint.y), moveSpeed * Time.deltaTime);
+        }
+    }
+
+    public void SetItem(GameObject item)
+    {
+        if(movingItem != null)
+        {
+            movingItem = item;
         }
     }
 
