@@ -56,10 +56,7 @@ public class HoldingObject : MonoBehaviour
 
     public void SetItem(GameObject item)
     {
-        if(movingItem != null)
-        {
-            movingItem = item;
-        }
+        movingItem = item;
     }
 
     bool InDistance()
