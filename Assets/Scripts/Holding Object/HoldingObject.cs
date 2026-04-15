@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class HoldingObject : MonoBehaviour
@@ -13,6 +14,8 @@ public class HoldingObject : MonoBehaviour
     [SerializeField] GameObject movingItem;
     [SerializeField] float moveSpeed;
     [SerializeField] float distanceToBreak;
+    [SerializeField] int objectToCreateIndex;
+    [SerializeField] List<HOObject> objectsToCreate = new List<HOObject>();
 
     private void Awake()
     {
