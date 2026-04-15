@@ -247,7 +247,7 @@ MonoBehaviour:
   objectLayer:
     serializedVersion: 2
     m_Bits: 16384
-  movingItem: {fileID: 434377659}
+  movingItem: {fileID: 0}
   moveSpeed: 3
   distanceToBreak: 9
 --- !u!1 &374723273
@@ -742,7 +742,7 @@ GameObject:
   - component: {fileID: 1562537476}
   - component: {fileID: 1562537475}
   - component: {fileID: 1562537474}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
