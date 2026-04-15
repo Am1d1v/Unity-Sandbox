@@ -255,6 +255,7 @@ MonoBehaviour:
   maxItemAmount: 3
   objectsToCreate:
   - {fileID: 6440137730702832489, guid: dff84bef7a6a08a4eae5e5999ae4d39d, type: 3}
+  - {fileID: 5603420272722591821, guid: f99187383966281408971793fb67fd71, type: 3}
 --- !u!1 &374723273
 GameObject:
   m_ObjectHideFlags: 0

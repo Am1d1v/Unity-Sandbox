@@ -37,6 +37,15 @@ public class HoldingObject : MonoBehaviour
         {
             CreateItem();
         }
+        
+        if (Input.GetKeyDown(KeyCode.N) && objectToCreateIndex < objectsToCreate.Count - 1)
+        {
+            objectToCreateIndex++;
+        }
+        else if (Input.GetKeyDown(KeyCode.P) && objectToCreateIndex > 0)
+        {
+            objectToCreateIndex--;
+        }
 
         MoveItem();
     }
