@@ -14,6 +14,7 @@ public class HoldingObject : MonoBehaviour
     [SerializeField] GameObject movingItem;
     [SerializeField] float moveSpeed;
     [SerializeField] float distanceToBreak;
+    [SerializeField] float rotationSpeed;
     [SerializeField] int objectToCreateIndex;
     [SerializeField] int currentObjectsAmount;
     [SerializeField] int maxItemAmount;
@@ -48,6 +49,8 @@ public class HoldingObject : MonoBehaviour
         }
 
         MoveItem();
+
+        RotateObject();
     }
 
     void GetMousePosition()
@@ -100,6 +103,17 @@ public class HoldingObject : MonoBehaviour
         Instantiate(objectsToCreate[objectToCreateIndex], new Vector2(itemPoint.x, itemPoint.y), Quaternion.identity);
 
         currentObjectsAmount++;
+    }
+
+    void RotateObject()
+    {
+        if (movingItem == null) return;
+
+        float rotationInput = Input.GetAxisRaw("Horizontal");
+
+        movingItem.transform.eulerAngles += new Vector3(0f, 0f, -rotationInput * rotationSpeed * Time.deltaTime);
+
+        Debug.Log("A");
     }
 
     bool InDistance()
