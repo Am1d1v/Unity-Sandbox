@@ -104,7 +104,7 @@ public class HoldingObject : MonoBehaviour
 
     void CreateItem()
     {
-        if (currentObjectsAmount >= maxItemAmount && InDistance() == false) return;
+        if (currentObjectsAmount >= maxItemAmount || InDistance() == false) return;
 
         Instantiate(objectsToCreate[objectToCreateIndex], new Vector2(itemPoint.x, itemPoint.y), Quaternion.identity);
 
