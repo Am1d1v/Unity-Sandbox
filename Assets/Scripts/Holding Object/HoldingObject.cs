@@ -23,6 +23,8 @@ public class HoldingObject : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        HOUI.instance.SetCurrentItemToSpawnText(objectsToCreate[objectToCreateIndex].name);
     }
 
     private void Update()
@@ -42,10 +44,14 @@ public class HoldingObject : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N) && objectToCreateIndex < objectsToCreate.Count - 1)
         {
             objectToCreateIndex++;
+
+            HOUI.instance.SetCurrentItemToSpawnText(objectsToCreate[objectToCreateIndex].name);
         }
         else if (Input.GetKeyDown(KeyCode.P) && objectToCreateIndex > 0)
         {
             objectToCreateIndex--;
+
+            HOUI.instance.SetCurrentItemToSpawnText(objectsToCreate[objectToCreateIndex].name);
         }
 
         MoveItem();
@@ -116,7 +122,7 @@ public class HoldingObject : MonoBehaviour
 
     bool InDistance()
     {
-        if (Vector3.Distance(transform.position, movingItem.transform.position) <= distanceToBreak)
+        if (Vector3.Distance(transform.position, itemPoint) <= distanceToBreak)
         {
             movingItem.GetComponent<Rigidbody>().useGravity = false;
 
