@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b77bdd13ab33f4abcfaea36092a8a0, type: 3}
   m_Name: LootSO
   m_EditorClassIdentifier: 
-  colors: []
+  materials:
+  - {fileID: 2100000, guid: 96ba3efcfa32bba47afbeb991694155c, type: 2}
+  - {fileID: 2100000, guid: 0242c9630caace640bb45d3e549c0b54, type: 2}
+  - {fileID: 2100000, guid: 65521747aa3b5294cbd5113fabdff4cd, type: 2}
   minLength: 0.45
   maxLength: 3
