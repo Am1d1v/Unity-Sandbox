@@ -4,10 +4,10 @@ using UnityEngine;
 public class LootSO : ScriptableObject
 {
     [Header("Settings")]
-    [SerializeField] Color[] colors;
+    [SerializeField] Material[] materials;
     [SerializeField] float minLength;
     [SerializeField] float maxLength;
-    public Color[] Colors => colors;
+    public Material[] Materials => materials;
     public float MinLength => minLength;
     public float MaxLength => maxLength;
 }

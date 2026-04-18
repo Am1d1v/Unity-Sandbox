@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class LFLoot : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Settings")]
+    [SerializeField] LootSO LootSO;
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void ConfigureLoot()
     {
-        
+
     }
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LootSO
   m_EditorClassIdentifier: 
   colors: []
-  minLength: 0
-  maxLength: 0
+  minLength: 0.45
+  maxLength: 3
