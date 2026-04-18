@@ -4,6 +4,7 @@ public class LootFountainChest : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] bool isOpened;
+    [SerializeField] Transform lootSpawnPoint;
 
     void OpenChest()
     {
