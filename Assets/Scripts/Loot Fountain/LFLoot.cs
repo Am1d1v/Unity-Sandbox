@@ -6,6 +6,9 @@ public class LFLoot : MonoBehaviour
     [SerializeField] LootSO LootSO;
     [SerializeField] MeshRenderer lootVisual;
     [SerializeField] float length;
+    [SerializeField] float pushUpStrength;
+    [SerializeField] Rigidbody rb;
+    [SerializeField] Collider lootCollider;
 
     private void Start()
     {
