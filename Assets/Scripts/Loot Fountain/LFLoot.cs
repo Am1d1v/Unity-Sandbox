@@ -8,13 +8,14 @@ public class LFLoot : MonoBehaviour
     [SerializeField] float length;
     [SerializeField] float pushUpStrength;
     [SerializeField] Rigidbody rb;
-    [SerializeField] Collider lootCollider;
 
     private void Start()
     {
         ConfigureLoot();
 
-        rb.AddForce(Vector3.up * pushUpStrength, ForceMode.Force);
+        //rb.AddForce(Vector3.up * pushUpStrength, ForceMode.Force);
+
+        rb.linearVelocity = Vector3.up * pushUpStrength;
     }
 
     void ConfigureLoot()
