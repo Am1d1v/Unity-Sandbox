@@ -14,7 +14,7 @@ public class LFLoot : MonoBehaviour
     {
         ConfigureLoot();
 
-        rb.AddForce(Vector3.up * pushUpStrength, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * pushUpStrength, ForceMode.Force);
     }
 
     void ConfigureLoot()

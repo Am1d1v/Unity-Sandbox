@@ -158,7 +158,7 @@ MonoBehaviour:
   LootSO: {fileID: 11400000, guid: 52c552fbd06962b4cbb30db0ff484e95, type: 2}
   lootVisual: {fileID: 8188644370754251521}
   length: 0
-  pushUpStrength: 6
+  pushUpStrength: 0.1
   rb: {fileID: 7996159233346167126}
   lootCollider: {fileID: 5407470631975356126}
 --- !u!54 &7996159233346167126
@@ -187,7 +187,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &5407470631975356126
 BoxCollider:
   m_ObjectHideFlags: 0
