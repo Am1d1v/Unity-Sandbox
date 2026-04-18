@@ -154,3 +154,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LootSO: {fileID: 11400000, guid: 52c552fbd06962b4cbb30db0ff484e95, type: 2}
+  lootVisual: {fileID: 8188644370754251521}
+  length: 0
