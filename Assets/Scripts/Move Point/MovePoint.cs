@@ -5,6 +5,7 @@ public class MovePoint : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float moveSpeed;
     [SerializeField] Vector3 movePosition;
+    [SerializeField] Vector3 rayDirection;
 
     [Header("Elements")]
     [SerializeField] Camera mainCamera;
@@ -23,6 +24,15 @@ public class MovePoint : MonoBehaviour
     {      
         RaycastHit hit;
 
-        Physics.Raycast(mainCamera.transform.position, );
+        rayDirection = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
+
+        Ray ray = new Ray(mainCamera.transform.position, rayDirection);
+
+        if(Physics.Raycast(ray, out hit))
+        {
+            Debug.Log(hit.collider.gameObject);
+        }
+       
+        Debug.DrawRay(mainCamera.transform.position, rayDirection, Color.red);
     }
 }
