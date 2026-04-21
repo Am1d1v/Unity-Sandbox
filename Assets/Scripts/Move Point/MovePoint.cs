@@ -4,8 +4,10 @@ public class MovePoint : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float moveSpeed;
+    [SerializeField] float rayLength;
     [SerializeField] Vector3 movePosition;
     [SerializeField] Vector3 rayDirection;
+    [SerializeField] LayerMask groundLayer;
 
     [Header("Elements")]
     [SerializeField] Camera mainCamera;
@@ -30,9 +32,8 @@ public class MovePoint : MonoBehaviour
 
         Ray ray = new Ray(mainCamera.transform.position, rayDirection);
 
-        if(Physics.Raycast(ray, out hit))
+        if(Physics.Raycast(ray, out hit, rayLength, groundLayer))
         {
-
             movePosition = hit.point;
         }
        

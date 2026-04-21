@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 1212916897}
   - component: {fileID: 1212916899}
   - component: {fileID: 1212916898}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
+  rayLength: 10
   movePosition: {x: 0, y: 0, z: 0}
+  rayDirection: {x: 0, y: 0, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
   mainCamera: {fileID: 0}
 --- !u!136 &1212916899
 CapsuleCollider:
@@ -411,7 +416,7 @@ GameObject:
   - component: {fileID: 1359481413}
   - component: {fileID: 1359481412}
   - component: {fileID: 1359481411}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
