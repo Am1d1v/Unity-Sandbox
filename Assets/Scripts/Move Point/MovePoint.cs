@@ -30,7 +30,7 @@ public class MovePoint : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit))
         {
-            Debug.Log(hit.collider.gameObject);
+            movePosition = hit.point;
         }
        
         Debug.DrawRay(mainCamera.transform.position, rayDirection, Color.red);
