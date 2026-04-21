@@ -18,6 +18,8 @@ public class MovePoint : MonoBehaviour
     private void Update()
     {
         MoveRay();
+
+        Move();
     }
 
     void MoveRay()
@@ -30,9 +32,18 @@ public class MovePoint : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit))
         {
+
             movePosition = hit.point;
         }
        
         Debug.DrawRay(mainCamera.transform.position, rayDirection, Color.red);
+    }
+
+    void Move()
+    {
+        if(transform.position != new Vector3(movePosition.x, transform.position.y, movePosition.z))
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(movePosition.x, transform.position.y, movePosition.z), moveSpeed * Time.deltaTime);
+        }
     }
 }
