@@ -373,6 +373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3532131d37774b439513fa0e0713333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 6
+  movePosition: {x: 0, y: 0, z: 0}
+  mainCamera: {fileID: 0}
 --- !u!136 &1212916899
 CapsuleCollider:
   m_ObjectHideFlags: 0
