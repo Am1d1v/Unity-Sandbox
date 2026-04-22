@@ -6,15 +6,17 @@ public class OTObstacle : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float cameraRotationTreshold;
     [SerializeField] float currentCameraRotationValue;
-    [SerializeField] float onGroundYValue;
-    [SerializeField] float underGroundYValue;
+    //[SerializeField] float onGroundYValue;
+    //[SerializeField] float underGroundYValue;
+    [SerializeField] Vector3 onGroundPosition;
+    [SerializeField] Vector3 underGroundPosition;
     [SerializeField] ObstacleState obstacleState;
 
     private void Start()
     {
         obstacleState = ObstacleState.OnGround;
 
-        onGroundYValue = transform.position.y;
+        underGroundPosition = transform.position;
     }
 
     private void Update()
@@ -38,10 +40,10 @@ public class OTObstacle : MonoBehaviour
         switch (obstacleState)
         {
             case ObstacleState.OnGround:
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, onGroundYValue, transform.position.z), moveSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, onGroundPosition, moveSpeed * Time.deltaTime);
                 break;
             case ObstacleState.UnderGround:
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, underGroundYValue, transform.position.z), moveSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, underGroundPosition, moveSpeed * Time.deltaTime);
                 break;
         }
     }
