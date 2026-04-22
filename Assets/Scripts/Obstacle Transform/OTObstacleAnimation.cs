@@ -16,6 +16,10 @@ public class OTObstacleAnimation : MonoBehaviour
         {
             animator.Play("UnderGround");
         }
+        else
+        {
+            animator.Play("OnGround");
+        }
         
     }
 }
