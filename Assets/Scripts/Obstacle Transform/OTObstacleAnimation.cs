@@ -5,7 +5,8 @@ public class OTObstacleAnimation : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float cameraRotationTreshold;
     [SerializeField] float currentCameraRotationValue;
-    [SerializeField] ObstacleState obstacleState;
+    [SerializeField] Animator animator;
+
 
     private void Update()
     {
@@ -13,11 +14,8 @@ public class OTObstacleAnimation : MonoBehaviour
 
         if (currentCameraRotationValue >= cameraRotationTreshold)
         {
-            obstacleState = ObstacleState.UnderGround;
+            animator.Play("UnderGround");
         }
-        else
-        {
-            obstacleState = ObstacleState.OnGround;
-        }        
+        
     }
 }

@@ -178,4 +178,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraRotationTreshold: 90
   currentCameraRotationValue: 0
-  obstacleState: 0
+  animator: {fileID: 5891601302184570677}

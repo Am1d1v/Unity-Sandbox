@@ -171,11 +171,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstacleAnimation
       objectReference: {fileID: 0}
+    - target: {fileID: 7267323765857976373, guid: d3364ec9d7cd5e540ae23069e4b70447, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 39409195}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3364ec9d7cd5e540ae23069e4b70447, type: 3}
+--- !u!95 &39409195 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5891601302184570677, guid: d3364ec9d7cd5e540ae23069e4b70447, type: 3}
+  m_PrefabInstance: {fileID: 39409193}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &184583381
 GameObject:
   m_ObjectHideFlags: 0
