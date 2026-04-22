@@ -166,6 +166,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   cameraRotationTreshold: 90
+  currentCameraRotationValue: 0
+  onGroundYValue: 0
+  underGroundYValue: -0.9
+  obstacleState: 0
 --- !u!1 &184583381
 GameObject:
   m_ObjectHideFlags: 0
