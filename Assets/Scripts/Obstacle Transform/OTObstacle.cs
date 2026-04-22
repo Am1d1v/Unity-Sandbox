@@ -20,6 +20,30 @@ public class OTObstacle : MonoBehaviour
     private void Update()
     {
         currentCameraRotationValue = Mathf.Abs(OTCameraController.instance.YRotationValue);
+
+        if(currentCameraRotationValue >= cameraRotationTreshold)
+        {
+            obstacleState = ObstacleState.UnderGround;
+        }
+        else
+        {
+            obstacleState = ObstacleState.OnGround;
+        }
+
+        Move();
+    }
+
+    void Move()
+    {
+        switch (obstacleState)
+        {
+            case ObstacleState.OnGround:
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, onGroundYValue, transform.position.z), moveSpeed * Time.deltaTime);
+                break;
+            case ObstacleState.UnderGround:
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, underGroundYValue, transform.position.z), moveSpeed * Time.deltaTime);
+                break;
+        }
     }
 }
 
