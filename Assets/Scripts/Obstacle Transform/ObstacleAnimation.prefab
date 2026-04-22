@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8639484913879801006}
   - component: {fileID: 8554866827446806393}
   - component: {fileID: 1580166412738927941}
+  - component: {fileID: 5891601302184570677}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -108,6 +109,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &5891601302184570677
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36179518075657534}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 33a51a052a17eb14bab512bc7fa81547, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3098529728898824144
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,3 +176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5abf958403ca646ab757418ecbaf45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraRotationTreshold: 90
+  currentCameraRotationValue: 0
+  obstacleState: 0
