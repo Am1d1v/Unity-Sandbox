@@ -6,8 +6,6 @@ public class OTObstacle : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float cameraRotationTreshold;
     [SerializeField] float currentCameraRotationValue;
-    //[SerializeField] float onGroundYValue;
-    //[SerializeField] float underGroundYValue;
     [SerializeField] Vector3 onGroundPosition;
     [SerializeField] Vector3 underGroundPosition;
     [SerializeField] ObstacleState obstacleState;
@@ -16,7 +14,7 @@ public class OTObstacle : MonoBehaviour
     {
         obstacleState = ObstacleState.OnGround;
 
-        underGroundPosition = transform.position;
+        onGroundPosition = transform.position;
     }
 
     private void Update()

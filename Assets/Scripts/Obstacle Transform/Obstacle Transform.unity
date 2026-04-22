@@ -167,8 +167,8 @@ MonoBehaviour:
   moveSpeed: 3
   cameraRotationTreshold: 90
   currentCameraRotationValue: 0
-  onGroundYValue: 0
-  underGroundYValue: -0.9
+  onGroundPosition: {x: 0, y: 0, z: 0}
+  underGroundPosition: {x: 0, y: -0.9, z: 0}
   obstacleState: 0
 --- !u!1 &184583381
 GameObject:
