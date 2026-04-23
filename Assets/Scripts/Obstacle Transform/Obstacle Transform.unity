@@ -171,25 +171,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstacleAnimationRotate
       objectReference: {fileID: 0}
-    - target: {fileID: 9043466257681295623, guid: a890b9ca08859d345ad7d8b34363a5f6, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 18408262}
-    - target: {fileID: 9043466257681295623, guid: a890b9ca08859d345ad7d8b34363a5f6, type: 3}
-      propertyPath: obstacleType
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5231297074466358791, guid: a890b9ca08859d345ad7d8b34363a5f6, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a890b9ca08859d345ad7d8b34363a5f6, type: 3}
---- !u!95 &18408262 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3389036099801765891, guid: a890b9ca08859d345ad7d8b34363a5f6, type: 3}
-  m_PrefabInstance: {fileID: 18408260}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &39409193
 PrefabInstance:
   m_ObjectHideFlags: 0
