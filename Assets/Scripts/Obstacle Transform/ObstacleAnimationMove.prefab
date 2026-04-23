@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 2258640594347017358}
   - component: {fileID: 7267323765857976373}
   m_Layer: 0
-  m_Name: ObstacleAnimation
+  m_Name: ObstacleAnimationMove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
