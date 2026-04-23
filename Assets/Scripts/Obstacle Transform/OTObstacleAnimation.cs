@@ -18,6 +18,9 @@ public class OTObstacleAnimation : MonoBehaviour
             case ObstacleType.GroundMove:
                 GroundMove();
                 break;
+            case ObstacleType.AirMove:
+                AirMove();
+                break;
         }
     }
     void GroundMove()
@@ -29,6 +32,18 @@ public class OTObstacleAnimation : MonoBehaviour
         else
         {
             animator.Play("OnGround");
+        }
+    }
+    
+    void AirMove()
+    {
+        if (currentCameraRotationValue >= cameraRotationTreshold)
+        {
+            animator.Play("Grounded");
+        }
+        else
+        {
+            animator.Play("Airborne");
         }
     }
 }
