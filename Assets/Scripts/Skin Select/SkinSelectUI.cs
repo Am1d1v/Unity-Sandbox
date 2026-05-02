@@ -32,6 +32,8 @@ public class SkinSelectUI : MonoBehaviour
     public void SelectPart(GameObject part)
     {
         selectedPart = part;
+
+        SetSkinMaterial();
     }
 
     public void SelectColor(Color color)
