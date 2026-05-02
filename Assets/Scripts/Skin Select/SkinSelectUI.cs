@@ -5,27 +5,27 @@ using UnityEngine.UI;
 public class SkinSelectUI : MonoBehaviour
 {
     [Header("Skin Materials")]
-    [SerializeField] Material[] materials;
-
-    [Header("Select part button")]
-    [SerializeField] Button selectHeadButton;
-    [SerializeField] Button selectTorsoButton;
-    [SerializeField] Button selectShouldersButton;
-
+    [SerializeField] Color[] colors;
 
     [Header("Selected part to transform")]
     [SerializeField] GameObject selectedPart;
+    [SerializeField] Color selectedColor;
 
-    void SetSkinMaterial(Material newMaterial)
+    public void SetSkinMaterial(Material newMaterial)
     {
         if(selectedPart != null)
         {
-            selectedPart.GetComponent<MeshRenderer>().material = newMaterial;
+            selectedPart.GetComponent<Material>().color = selectedColor;
         }
     }
 
     public void SelectPart(GameObject part)
     {
         selectedPart = part;
+    }
+
+    void SetMaterialButtons()
+    {
+
     }
 }
