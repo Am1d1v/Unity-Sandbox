@@ -243,7 +243,8 @@ MonoBehaviour:
   - {r: 0.25098044, g: 0.29036468, b: 0.972549, a: 1}
   selectedPart: {fileID: 0}
   selectedColor: {r: 0, g: 0, b: 0, a: 1}
-  colorButton: {fileID: 5347212178786315132, guid: ad7d5187bd4fcad46b1763922241499a, type: 3}
+  colorButtonPrefab: {fileID: 5347212178786315132, guid: ad7d5187bd4fcad46b1763922241499a, type: 3}
+  colorButtons: []
   colorsPanel: {fileID: 2040726933}
 --- !u!1 &158979026
 GameObject:

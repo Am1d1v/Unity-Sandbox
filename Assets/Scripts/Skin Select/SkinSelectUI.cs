@@ -12,7 +12,8 @@ public class SkinSelectUI : MonoBehaviour
     [SerializeField] Color selectedColor;
 
     [Header("Collor buttons")]
-    [SerializeField] Button colorButton;
+    [SerializeField] Button colorButtonPrefab;
+    [SerializeField] Button[] colorButtons;
     [SerializeField] Transform colorsPanel;
 
     private void Start()
@@ -33,13 +34,29 @@ public class SkinSelectUI : MonoBehaviour
         selectedPart = part;
     }
 
+    public void SelectColor(Color color)
+    {
+        selectedColor = color;
+    }
+
     void SetColorButtons()
     {
+        colorButtons = new Button[colors.Length];
+
         for(int i = 0; i < colors.Length; i++)
         {
-            Button colorBtn = Instantiate(colorButton, colorsPanel);
+            int index = i;
 
-            colorBtn.image.color = colors[i]; 
+            Button colorBtn = Instantiate(colorButtonPrefab, colorsPanel);
+
+            colorButtons[index] = colorBtn;
+
+            colorBtn.image.color = colors[i];
+
+            colorButtons[index].onClick.AddListener(() =>
+            {
+                SelectColor(colors[index]);
+            });
         }
     }
 }
