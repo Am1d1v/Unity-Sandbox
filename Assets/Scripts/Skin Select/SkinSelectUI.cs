@@ -11,9 +11,13 @@ public class SkinSelectUI : MonoBehaviour
     [SerializeField] GameObject selectedPart;
     [SerializeField] Color selectedColor;
 
+    [Header("Collor buttons")]
+    [SerializeField] Button colorButton;
+    [SerializeField] Transform colorsPanel;
+
     private void Start()
     {
-        SetSkinMaterial();
+        SetColorButtons();
     }
 
     public void SetSkinMaterial()
@@ -29,8 +33,11 @@ public class SkinSelectUI : MonoBehaviour
         selectedPart = part;
     }
 
-    void SetMaterialButtons()
+    void SetColorButtons()
     {
-
+        for(int i = 0; i < colors.Length; i++)
+        {
+            Button colorBtn = Instantiate(colorButton, colorsPanel);
+        }
     }
 }
