@@ -6,4 +6,10 @@ public class SkinSelect : MonoBehaviour
     [SerializeField] GameObject torso;
     [SerializeField] GameObject head;
     [SerializeField] GameObject[] shoulders;
+    [SerializeField] Material[] materials;
+
+    void SetSkinMaterial(GameObject part, Material newMaterial)
+    {
+        part.GetComponent<MeshRenderer>().material = newMaterial;
+    }
 }
