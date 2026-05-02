@@ -236,12 +236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b6f58d5b29e094abb4ddefaf941c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materials:
-  - {fileID: 2100000, guid: 65521747aa3b5294cbd5113fabdff4cd, type: 2}
-  - {fileID: 2100000, guid: 96ba3efcfa32bba47afbeb991694155c, type: 2}
-  - {fileID: 2100000, guid: 980e0b5427c7bc94ba85a9212aa77e44, type: 2}
-  selectedPart: {fileID: 0}
-  selectedMaterial: {fileID: 0}
+  colors: []
+  selectedPart: {fileID: 1186647562}
+  selectedColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &158979026
 GameObject:
   m_ObjectHideFlags: 0

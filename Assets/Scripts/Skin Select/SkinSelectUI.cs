@@ -11,11 +11,16 @@ public class SkinSelectUI : MonoBehaviour
     [SerializeField] GameObject selectedPart;
     [SerializeField] Color selectedColor;
 
-    public void SetSkinMaterial(Material newMaterial)
+    private void Start()
+    {
+        SetSkinMaterial();
+    }
+
+    public void SetSkinMaterial()
     {
         if(selectedPart != null)
         {
-            selectedPart.GetComponent<Material>().color = selectedColor;
+            selectedPart.GetComponent<MeshRenderer>().materials[0].color = selectedColor;
         }
     }
 
