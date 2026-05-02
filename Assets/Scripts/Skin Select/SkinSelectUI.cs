@@ -38,6 +38,8 @@ public class SkinSelectUI : MonoBehaviour
         for(int i = 0; i < colors.Length; i++)
         {
             Button colorBtn = Instantiate(colorButton, colorsPanel);
+
+            colorBtn.image.color = colors[i]; 
         }
     }
 }
