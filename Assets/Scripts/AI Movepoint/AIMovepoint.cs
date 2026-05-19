@@ -4,7 +4,7 @@ public class AIMovepoint : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] Vector3 mousePos;
-
+    [SerializeField] Ray ray;
 
     private void Update()
     {
@@ -13,9 +13,11 @@ public class AIMovepoint : MonoBehaviour
 
     void SetMousePosition()
     {
-        mousePos = new Vector3(Camera.main.transform.position.x, 0f, Camera.main.transform.position.y);
+        mousePos = Camera.main.WorldToScreenPoint(Input.mousePosition);
 
         RaycastHit hit;
+
+        ray = new Ray(Camera.main.transform.position, mousePos);
 
         if (Physics.Raycast(Camera.main.transform.position, mousePos, out hit))
         {
@@ -23,4 +25,11 @@ public class AIMovepoint : MonoBehaviour
         }
 
     }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.yellow;
+
+    //    Gizmos.DrawRay(ray);
+    //}
 }
