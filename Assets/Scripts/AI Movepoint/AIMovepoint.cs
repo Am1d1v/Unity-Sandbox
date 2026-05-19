@@ -13,23 +13,10 @@ public class AIMovepoint : MonoBehaviour
 
     void SetMousePosition()
     {
-        mousePos = Camera.main.WorldToScreenPoint(Input.mousePosition);
+        // mousePos = Input.mousePosition.normalized;
+        // mousePos = Camera.main.ScreenPointToRay(Input.mousePosition);
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        RaycastHit hit;
-
-        ray = new Ray(Camera.main.transform.position, mousePos);
-
-        if (Physics.Raycast(Camera.main.transform.position, mousePos, out hit))
-        {
-            Debug.DrawLine(Camera.main.transform.position, hit.point);
-        }
-
+        Debug.DrawRay(Camera.main.transform.position, ray.direction * 10f);
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.yellow;
-
-    //    Gizmos.DrawRay(ray);
-    //}
 }
