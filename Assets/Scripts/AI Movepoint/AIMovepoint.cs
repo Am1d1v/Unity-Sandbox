@@ -8,10 +8,16 @@ public class AIMovepoint : MonoBehaviour
     [SerializeField] Vector3 movePoint;
     [SerializeField] Ray ray;
     [SerializeField] float rayLength;
+    [SerializeField] float moveSpeed;
     [SerializeField] LayerMask groundLayer;
 
     [Header("Elements")]
     [SerializeField] NavMeshAgent navMeshAgent;
+
+    private void Start()
+    {
+        navMeshAgent.speed = moveSpeed;
+    }
 
     private void Update()
     {
@@ -32,6 +38,8 @@ public class AIMovepoint : MonoBehaviour
             Debug.DrawRay(Camera.main.transform.position, ray.direction * rayLength);
 
             movePoint = new Vector3(hit.point.x, 0f, hit.point.z);
+
+            navMeshAgent.SetDestination(movePoint);
         }
 
         

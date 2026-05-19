@@ -655,6 +655,7 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0, z: 0}
   movePoint: {x: 0, y: 0, z: 0}
   rayLength: 45
+  moveSpeed: 6
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
