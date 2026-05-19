@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 504690908}
   - component: {fileID: 504690907}
   - component: {fileID: 504690906}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,6 +643,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mousePos: {x: 0, y: 0, z: 0}
+  rayLength: 45
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

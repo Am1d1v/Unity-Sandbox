@@ -4,19 +4,32 @@ public class AIMovepoint : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] Vector3 mousePos;
+    [SerializeField] Vector3 movePoint;
     [SerializeField] Ray ray;
+    [SerializeField] float rayLength;
+    [SerializeField] LayerMask groundLayer;
 
     private void Update()
     {
-        SetMousePosition();
+        if (Input.GetMouseButtonDown(0))
+        {
+            SetMovePoint();
+        }
     }
 
-    void SetMousePosition()
+    void SetMovePoint()
     {
-        // mousePos = Input.mousePosition.normalized;
-        // mousePos = Camera.main.ScreenPointToRay(Input.mousePosition);
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        Debug.DrawRay(Camera.main.transform.position, ray.direction * 10f);
+        RaycastHit hit;
+
+        if(Physics.Raycast(ray, out hit, rayLength, groundLayer))
+        {
+            Debug.DrawRay(Camera.main.transform.position, ray.direction * rayLength);
+
+            movePoint = new Vector3(hit.point.x, 0f, hit.point.z);
+        }
+
+        
     }
 }
