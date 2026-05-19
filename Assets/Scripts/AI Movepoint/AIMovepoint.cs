@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AIMovepoint : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class AIMovepoint : MonoBehaviour
     [SerializeField] Ray ray;
     [SerializeField] float rayLength;
     [SerializeField] LayerMask groundLayer;
+
+    [Header("Elements")]
+    [SerializeField] NavMeshAgent navMeshAgent;
 
     private void Update()
     {
