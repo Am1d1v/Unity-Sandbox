@@ -11,6 +11,28 @@ public class JumpOverObstacle : MonoBehaviour
     [Header("Elements")]
     [SerializeField] Rigidbody rb;
 
+    private void Update()
+    {
+        isObstacleDetected();
+    }
+
+    private void FixedUpdate()
+    {
+        
+    }
+
+    bool isObstacleDetected()
+    {
+        if (Physics.OverlapSphere(transform.position + datectionZone, detectionRadius, obstacleLayer).Length > 0)
+        {
+            Debug.Log("T");
+
+            return true;
+        }
+
+        return false;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
