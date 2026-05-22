@@ -18,7 +18,7 @@ public class JumpOverObstacle : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        MoveForward();
     }
 
     bool isObstacleDetected()
@@ -31,6 +31,11 @@ public class JumpOverObstacle : MonoBehaviour
         }
 
         return false;
+    }
+
+    void MoveForward()
+    {
+        rb.linearVelocity = transform.forward * moveSpeed;
     }
 
     private void OnDrawGizmos()
