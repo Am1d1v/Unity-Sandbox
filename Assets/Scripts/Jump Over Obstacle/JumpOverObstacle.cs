@@ -4,6 +4,7 @@ public class JumpOverObstacle : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float moveSpeed;
+    [SerializeField] float jumpStrength;
     [SerializeField] float detectionRadius;
     [SerializeField] LayerMask obstacleLayer;
     [SerializeField] Vector3 datectionZone;
@@ -18,14 +19,14 @@ public class JumpOverObstacle : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveForward();
+        //MoveForward();
     }
 
     bool isObstacleDetected()
     {
         if (Physics.OverlapSphere(transform.position + datectionZone, detectionRadius, obstacleLayer).Length > 0)
         {
-            Debug.Log("T");
+            Jump();
 
             return true;
         }
@@ -36,6 +37,11 @@ public class JumpOverObstacle : MonoBehaviour
     void MoveForward()
     {
         rb.linearVelocity = transform.forward * moveSpeed;
+    }
+
+    void Jump()
+    {
+        rb.linearVelocity = new Vector3(0f, jumpStrength, rb.linearVelocity.z);
     }
 
     private void OnDrawGizmos()
