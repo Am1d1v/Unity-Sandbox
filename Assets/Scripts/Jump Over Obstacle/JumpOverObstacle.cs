@@ -12,14 +12,9 @@ public class JumpOverObstacle : MonoBehaviour
     [Header("Elements")]
     [SerializeField] Rigidbody rb;
 
-    private void Update()
-    {
-        isObstacleDetected();
-    }
-
     private void FixedUpdate()
     {
-        //MoveForward();
+        isObstacleDetected();
     }
 
     bool isObstacleDetected()
@@ -30,6 +25,8 @@ public class JumpOverObstacle : MonoBehaviour
 
             return true;
         }
+
+        MoveForward();
 
         return false;
     }

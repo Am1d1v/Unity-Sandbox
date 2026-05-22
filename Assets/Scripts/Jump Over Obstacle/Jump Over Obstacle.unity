@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  jumpStrength: 6
+  jumpStrength: 30
   detectionRadius: 0.36
   obstacleLayer:
     serializedVersion: 2
