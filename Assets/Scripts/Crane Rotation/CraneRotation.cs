@@ -12,6 +12,13 @@ public class CraneRotation : MonoBehaviour
 
     void LookAtTarget()
     {
-        transform.rotation = Quaternion.LookRotation(rotationTarget.transform.position);
+        //transform.rotation = Quaternion.LookRotation(rotationTarget.transform.position);
+
+        Quaternion lookDirection = Quaternion.LookRotation(rotationTarget.transform.position);
+
+        if(transform.rotation != lookDirection)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, lookDirection, Time.deltaTime);
+        }
     }
 }
