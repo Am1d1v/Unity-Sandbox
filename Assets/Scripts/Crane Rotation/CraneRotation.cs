@@ -3,7 +3,17 @@ using UnityEngine;
 public class CraneRotation : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] GameObject rotationTarget;
+    [SerializeField] Transform rotationTarget;
+
+    private void OnEnable()
+    {
+        CRTarget.onSelectRotationTarget += SelectRotationTarget;
+    }
+
+    private void OnDisable()
+    {
+        CRTarget.onSelectRotationTarget -= SelectRotationTarget;
+    }
 
     private void Update()
     {
@@ -12,13 +22,18 @@ public class CraneRotation : MonoBehaviour
 
     void LookAtTarget()
     {
-        //transform.rotation = Quaternion.LookRotation(rotationTarget.transform.position);
+        if (rotationTarget == null) return;
 
-        Quaternion lookDirection = Quaternion.LookRotation(rotationTarget.transform.position);
+        Quaternion lookDirection = Quaternion.LookRotation(rotationTarget.position);
 
         if(transform.rotation != lookDirection)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, lookDirection, Time.deltaTime);
         }
+    }
+
+    void SelectRotationTarget(Transform target)
+    {
+        rotationTarget = target;
     }
 }
