@@ -7,8 +7,9 @@ public class CallToArms : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float callRange;
     [SerializeField] float moveSpeed;
-    [SerializeField] List<GameObject> calledUnits = new List<GameObject>();
+    [SerializeField] List<CallToArms> calledUnits = new List<CallToArms>();
     [SerializeField] CallToArmsEnemyType enemyType;
+    [SerializeField] Transform movePoint;
     public CallToArmsEnemyType EnemyType => enemyType;
 
     [Header("Elements")]
@@ -23,10 +24,17 @@ public class CallToArms : MonoBehaviour
         {
             if(unit.TryGetComponent<CallToArms>(out CallToArms enemy) && enemy.EnemyType == CallToArmsEnemyType.Warrior)
             {
-                calledUnits.Add(unit.gameObject);
+                calledUnits.Add(unit.GetComponent<CallToArms>());
             }
         }
+
+        foreach(CallToArms unit in calledUnits)
+        {
+            agent.SetDestination(movePoint.position);
+        }
     }
+
+
 
     private void OnDrawGizmos()
     {
