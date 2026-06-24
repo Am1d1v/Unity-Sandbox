@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc79ee4ce93db3e4ba7c009aa9814e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  callRange: 9
+  callRange: 0
   moveSpeed: 6
   calledUnits: []
   enemyType: 1
