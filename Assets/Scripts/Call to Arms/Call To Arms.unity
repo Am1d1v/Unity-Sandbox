@@ -320,7 +320,7 @@ MonoBehaviour:
   moveSpeed: 9
   calledUnits: []
   enemyType: 1
-  movePoint: {fileID: 0}
+  movePoint: {fileID: 1705117052}
   agent: {fileID: 574812551}
 --- !u!136 &574812553
 CapsuleCollider:

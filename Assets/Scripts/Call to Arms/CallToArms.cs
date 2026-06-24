@@ -15,6 +15,16 @@ public class CallToArms : MonoBehaviour
     [Header("Elements")]
     [SerializeField] NavMeshAgent agent;
 
+    private void Start()
+    {
+        agent.speed = moveSpeed;
+    }
+
+    private void Update()
+    {
+        Move();
+    }
+
     [ContextMenu("Call Units")]
     void CallUnits()
     {
@@ -28,20 +38,13 @@ public class CallToArms : MonoBehaviour
             }
         }
 
-        foreach(CallToArms unit in calledUnits)
-        {
-            unit.SetMovePoint(movePoint.position);
-
-            agent.SetDestination(movePoint.position);
-        }
     }
 
-    public void SetMovePoint(Vector3 point)
+    void Move()
     {
-        if(movePoint == null)
-        {
-            movePoint.position = point;
-        }
+        if (movePoint == null) return;
+
+        agent.SetDestination(movePoint.position);
     }
 
 
