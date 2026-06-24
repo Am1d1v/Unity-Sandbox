@@ -1,13 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CallToArms : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float callRange;
+    [SerializeField] float moveSpeed;
     [SerializeField] List<GameObject> calledUnits = new List<GameObject>();
     [SerializeField] CallToArmsEnemyType enemyType;
     public CallToArmsEnemyType EnemyType => enemyType;
+
+    [Header("Elements")]
+    [SerializeField] NavMeshAgent agent;
 
     [ContextMenu("Call Units")]
     void CallUnits()
