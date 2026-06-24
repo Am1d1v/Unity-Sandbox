@@ -30,10 +30,19 @@ public class CallToArms : MonoBehaviour
 
         foreach(CallToArms unit in calledUnits)
         {
+            unit.SetMovePoint(movePoint.position);
+
             agent.SetDestination(movePoint.position);
         }
     }
 
+    public void SetMovePoint(Vector3 point)
+    {
+        if(movePoint == null)
+        {
+            movePoint.position = point;
+        }
+    }
 
 
     private void OnDrawGizmos()
