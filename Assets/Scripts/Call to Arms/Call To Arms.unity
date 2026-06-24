@@ -382,11 +382,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!4 &1705117052 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 86477230831199999, guid: 484d77293365bf240b7a2942d6c92630, type: 3}
-  m_PrefabInstance: {fileID: 5675846745827423288}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2077644757
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,10 +588,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior
       objectReference: {fileID: 0}
-    - target: {fileID: 2234028735060579917, guid: 96bb3284274fd4742a4939d4ac5b6c8e, type: 3}
-      propertyPath: movePoint
-      value: 
-      objectReference: {fileID: 1705117052}
     - target: {fileID: 5850661580333880849, guid: 96bb3284274fd4742a4939d4ac5b6c8e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.01

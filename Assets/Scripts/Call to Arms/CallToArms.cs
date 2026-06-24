@@ -38,6 +38,18 @@ public class CallToArms : MonoBehaviour
             }
         }
 
+        foreach(CallToArms unit in calledUnits)
+        {
+            unit.SetMovePoint(transform);
+        }
+
+    }
+
+    public void SetMovePoint(Transform moveDirection)
+    {
+        if (enemyType == CallToArmsEnemyType.Caller) return;
+
+        movePoint = moveDirection;
     }
 
     void Move()
