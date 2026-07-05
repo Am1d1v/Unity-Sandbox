@@ -4,7 +4,7 @@ public class MousePointer : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] Vector3 mousePosition;
-    [SerializeField] Vector3 mousePos;
+    [SerializeField] Vector3 lookDirection;
 
     private void Update()
     {
@@ -13,15 +13,16 @@ public class MousePointer : MonoBehaviour
 
     void GetMousePosition()
     {      
-        mousePos = Input.mousePosition;
+        mousePosition = Input.mousePosition;
 
-        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
 
         RaycastHit hit;
 
         if(Physics.Raycast(ray, out hit))
         {
-            Debug.Log(hit.collider.gameObject.name);
+            lookDirection = hit.point;
+            lookDirection.y = 0f;
         }
     }
 }
