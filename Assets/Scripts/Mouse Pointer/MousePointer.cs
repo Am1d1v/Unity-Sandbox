@@ -9,6 +9,8 @@ public class MousePointer : MonoBehaviour
     private void Update()
     {
         GetMousePosition();
+
+        Look();
     }
 
     void GetMousePosition()
@@ -24,5 +26,10 @@ public class MousePointer : MonoBehaviour
             lookDirection = hit.point;
             lookDirection.y = 0f;
         }
+    }
+
+    void Look()
+    {
+        transform.LookAt(transform.position + new Vector3(lookDirection.x, 0f, lookDirection.z));
     }
 }
