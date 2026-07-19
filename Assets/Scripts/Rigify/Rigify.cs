@@ -4,10 +4,13 @@ public class Rigify : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] Rigidbody[] RBs;
+    [SerializeField] float rbWeight;
 
     private void Start()
     {
         SetKinematic();
+
+        SetRBWeight();
     }
 
     void SetKinematic()
@@ -15,6 +18,14 @@ public class Rigify : MonoBehaviour
         foreach(Rigidbody rb in RBs)
         {
             rb.isKinematic = true;
+        }
+    }
+
+    void SetRBWeight()
+    {
+        foreach (Rigidbody rb in RBs)
+        {
+            rb.mass = rbWeight;
         }
     }
 
