@@ -17,4 +17,13 @@ public class Rigify : MonoBehaviour
             rb.isKinematic = true;
         }
     }
+
+    [ContextMenu("Unset RBs")]
+    void UnsetKinematic()
+    {
+        foreach(Rigidbody rb in RBs)
+        {
+            rb.isKinematic = false;
+        }
+    }
 }
