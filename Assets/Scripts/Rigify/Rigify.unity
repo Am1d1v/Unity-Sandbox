@@ -259,6 +259,7 @@ MonoBehaviour:
   - {fileID: 1744637783}
   - {fileID: 1661880956}
   - {fileID: 638867008}
+  rbWeight: 0
 --- !u!4 &126948292
 Transform:
   m_ObjectHideFlags: 0
@@ -3236,6 +3237,7 @@ MonoBehaviour:
   - {fileID: 1735921050}
   - {fileID: 1322444264}
   - {fileID: 670795072}
+  rbWeight: 0
 --- !u!1 &1050102816
 GameObject:
   m_ObjectHideFlags: 0
@@ -5115,6 +5117,7 @@ MonoBehaviour:
   - {fileID: 1021280843}
   - {fileID: 1986265196}
   - {fileID: 1968500801}
+  rbWeight: 3
 --- !u!4 &1417962178
 Transform:
   m_ObjectHideFlags: 0
@@ -6365,6 +6368,7 @@ MonoBehaviour:
   - {fileID: 1953159995}
   - {fileID: 193233634}
   - {fileID: 1457356627}
+  rbWeight: 0
 --- !u!4 &1629272734
 Transform:
   m_ObjectHideFlags: 0
@@ -6714,6 +6718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RBs: []
+  rbWeight: 0
 --- !u!1 &1734701889
 GameObject:
   m_ObjectHideFlags: 0

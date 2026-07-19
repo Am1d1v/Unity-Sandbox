@@ -18,6 +18,8 @@ public class Rigify : MonoBehaviour
         foreach(Rigidbody rb in RBs)
         {
             rb.isKinematic = true;
+
+            rb.useGravity = false;
         }
     }
 
@@ -35,6 +37,8 @@ public class Rigify : MonoBehaviour
         foreach(Rigidbody rb in RBs)
         {
             rb.isKinematic = false;
+
+            rb.useGravity = true;
         }
     }
 }
