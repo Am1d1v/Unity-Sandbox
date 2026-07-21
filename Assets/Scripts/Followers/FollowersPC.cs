@@ -26,6 +26,6 @@ public class FollowersPC : MonoBehaviour
 
     void Move()
     {      
-        rb.linearVelocity = moveDirection * moveSpeed;
+        rb.linearVelocity = new Vector3(moveDirection.x, rb.linearVelocity.y, moveDirection.y) * moveSpeed;
     }
 }
