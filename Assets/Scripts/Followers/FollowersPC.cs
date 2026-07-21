@@ -6,6 +6,7 @@ public class FollowersPC : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
+    [SerializeField] float followerOrderLength;
     [SerializeField] Vector2 moveDirection;
 
     [Header("Elements")]
@@ -27,5 +28,15 @@ public class FollowersPC : MonoBehaviour
     void Move()
     {      
         rb.linearVelocity = new Vector3(moveDirection.x, rb.linearVelocity.y, moveDirection.y) * moveSpeed;
+    }
+
+    void CastOrder()
+    {
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
     }
 }
