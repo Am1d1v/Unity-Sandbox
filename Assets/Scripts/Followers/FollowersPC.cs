@@ -40,18 +40,13 @@ public class FollowersPC : MonoBehaviour
 
     void CastOrder()
     {
-        Collider[] orderPointColliders = Physics.OverlapSphere(transform.position + transform.forward * followerOrderLength, followerOrderRadius);
-
-        if(orderPointColliders.Length > 0)
-        {
-            followers[0].SetOrderPosition(transform.position + transform.forward * followerOrderLength);
-        }
+        Ray orderRay = new Ray(transform.position, transform.forward * followerOrderLength);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
 
-        Gizmos.DrawWireSphere(transform.position + transform.forward * followerOrderLength, followerOrderRadius);
+        Gizmos.DrawRay(transform.position, transform.forward * followerOrderLength);
     }
 }
