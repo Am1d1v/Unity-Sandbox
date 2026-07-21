@@ -13,6 +13,7 @@ public class FollowersPC : MonoBehaviour
     [SerializeField] Vector3 playerPosition;
     [SerializeField] List<Followers> followers = new List<Followers>();
     [SerializeField] Transform orderPoint;
+    [SerializeField] LayerMask orderLayer;
 
     [Header("Elements")]
     [SerializeField] Rigidbody rb;
@@ -46,7 +47,7 @@ public class FollowersPC : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Physics.Raycast(orderRay, out hit))
+        if (Physics.Raycast(orderRay, out hit, followerOrderLength, orderLayer))
         {
             int selectedFollowerIndex = Random.Range(0, followers.Count);
 
