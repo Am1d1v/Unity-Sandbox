@@ -5,6 +5,7 @@ public class Followers : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float moveSpeed;
+    [SerializeField] float stoppingDistance;
 
     [Header("Elements")]
     [SerializeField] Transform player;
@@ -13,6 +14,8 @@ public class Followers : MonoBehaviour
     private void Start()
     {
         navMeshAgent.speed = moveSpeed;
+
+        navMeshAgent.stoppingDistance = stoppingDistance;
     }
 
     private void Update()
