@@ -28,6 +28,8 @@ public class Followers : MonoBehaviour
         }
         else
         {
+            orderDestination = null;
+
             navMeshAgent.SetDestination(player.position);
         }
     }
