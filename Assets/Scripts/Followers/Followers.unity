@@ -960,9 +960,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0602ebab7ad06c344966557f1677b60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeed: 3
   rotationSpeed: 0
   moveDirection: {x: 0, y: 0}
+  rb: {fileID: 1965778877}
   moveAction: {fileID: 8001400696426377549, guid: b761ac36c7d258b45bbc10b3b0ee0bd9, type: 3}
 --- !u!54 &1965778877
 Rigidbody:

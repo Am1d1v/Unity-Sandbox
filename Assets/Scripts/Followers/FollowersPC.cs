@@ -8,16 +8,24 @@ public class FollowersPC : MonoBehaviour
     [SerializeField] float rotationSpeed;
     [SerializeField] Vector2 moveDirection;
 
+    [Header("Elements")]
+    [SerializeField] Rigidbody rb;
+
     [Header("Actions")]
     [SerializeField] InputActionReference moveAction;
 
     private void Update()
     {
+        moveDirection = moveAction.action.ReadValue<Vector2>();
+    }
+
+    private void FixedUpdate()
+    {
         Move();
     }
 
     void Move()
-    {
-        moveDirection = moveAction.action.ReadValue<Vector2>();
+    {      
+        rb.linearVelocity = moveDirection * moveSpeed;
     }
 }
