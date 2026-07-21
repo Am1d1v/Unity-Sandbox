@@ -12,6 +12,7 @@ public class FollowersPC : MonoBehaviour
     [SerializeField] Vector2 moveDirection;
     [SerializeField] Vector3 playerPosition;
     [SerializeField] List<Followers> followers = new List<Followers>();
+    [SerializeField] Transform orderPoint;
 
     [Header("Elements")]
     [SerializeField] Rigidbody rb;
@@ -47,7 +48,7 @@ public class FollowersPC : MonoBehaviour
 
         if (Physics.Raycast(orderRay, out hit))
         {
-            Debug.Log(hit.collider.gameObject.name);
+            followers[0].SetOrderPosition(hit.transform);
         }
     }
 

@@ -21,8 +21,15 @@ public class Followers : MonoBehaviour
     }
 
     private void Update()
-    {
-        navMeshAgent.SetDestination(player.position);
+    {       
+        if(orderDestination != null && Vector3.Distance(transform.position, orderDestination.position) >= 0.1f)
+        {
+            navMeshAgent.SetDestination(orderDestination.position);
+        }
+        else
+        {
+            navMeshAgent.SetDestination(player.position);
+        }
     }
 
     public void SetOrderPosition(Transform orderPosition)
