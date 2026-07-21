@@ -10,6 +10,7 @@ public class FollowersPC : MonoBehaviour
     [SerializeField] float followerOrderLength;
     [SerializeField] float followerOrderRadius;
     [SerializeField] Vector2 moveDirection;
+    [SerializeField] Vector3 playerPosition;
     [SerializeField] List<Followers> followers = new List<Followers>();
 
     [Header("Elements")]
@@ -40,13 +41,13 @@ public class FollowersPC : MonoBehaviour
 
     void CastOrder()
     {
-        Ray orderRay = new Ray(transform.position, transform.forward * followerOrderLength);
+        Ray orderRay = new Ray(transform.position + playerPosition, transform.forward * followerOrderLength);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
 
-        Gizmos.DrawRay(transform.position, transform.forward * followerOrderLength);
+        Gizmos.DrawRay(transform.position + playerPosition, transform.forward * followerOrderLength);
     }
 }
