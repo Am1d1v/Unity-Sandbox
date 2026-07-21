@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &191176604 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4527285937286791145, guid: 4749cd10ba763324a8e850524798fe4e, type: 3}
+  m_PrefabInstance: {fileID: 2005034916}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f651409d6e15a98419114316ddb899d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &263072096
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +300,17 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &347018426 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4527285937286791145, guid: 4749cd10ba763324a8e850524798fe4e, type: 3}
+  m_PrefabInstance: {fileID: 3554939187310170860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f651409d6e15a98419114316ddb899d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &513336791
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +572,17 @@ Transform:
   - {fileID: 1376960322}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1254953884 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4527285937286791145, guid: 4749cd10ba763324a8e850524798fe4e, type: 3}
+  m_PrefabInstance: {fileID: 1928654091}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f651409d6e15a98419114316ddb899d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1376960320
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,6 +998,10 @@ MonoBehaviour:
   followerOrderLength: 6
   followerOrderRadius: 1
   moveDirection: {x: 0, y: 0}
+  followers:
+  - {fileID: 347018426}
+  - {fileID: 1254953884}
+  - {fileID: 191176604}
   rb: {fileID: 1965778877}
   moveAction: {fileID: 8001400696426377549, guid: b761ac36c7d258b45bbc10b3b0ee0bd9, type: 3}
 --- !u!54 &1965778877

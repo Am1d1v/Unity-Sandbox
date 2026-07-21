@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,7 @@ public class FollowersPC : MonoBehaviour
     [SerializeField] float followerOrderLength;
     [SerializeField] float followerOrderRadius;
     [SerializeField] Vector2 moveDirection;
+    [SerializeField] List<Followers> followers = new List<Followers>();
 
     [Header("Elements")]
     [SerializeField] Rigidbody rb;
