@@ -984,7 +984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3014858614780679061, guid: 4749cd10ba763324a8e850524798fe4e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4527285937286791145, guid: 4749cd10ba763324a8e850524798fe4e, type: 3}
       propertyPath: player
@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rotationSpeed: 0
-  followerOrderLength: 6
+  followerOrderLength: 15
   followerOrderRadius: 1
   moveDirection: {x: 0, y: 0}
   playerPosition: {x: 0, y: 1, z: 0}
@@ -1159,7 +1159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3014858614780679061, guid: 4749cd10ba763324a8e850524798fe4e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4527285937286791145, guid: 4749cd10ba763324a8e850524798fe4e, type: 3}
       propertyPath: player

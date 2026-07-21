@@ -48,7 +48,9 @@ public class FollowersPC : MonoBehaviour
 
         if (Physics.Raycast(orderRay, out hit))
         {
-            followers[0].SetOrderPosition(hit.transform);
+            int selectedFollowerIndex = Random.Range(0, followers.Count);
+
+            followers[selectedFollowerIndex].SetOrderPosition(hit.transform);
         }
     }
 
