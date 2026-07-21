@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 513336793}
   - component: {fileID: 513336792}
   - component: {fileID: 513336796}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   m_UseGeometry: 1
   m_DefaultArea: 0
   m_GenerateLinks: 0
