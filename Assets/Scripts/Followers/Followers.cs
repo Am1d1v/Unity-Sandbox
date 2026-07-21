@@ -7,7 +7,7 @@ public class Followers : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float moveSpeed;
     [SerializeField] float stoppingDistance;
-    [SerializeField] Vector3 orderDestination;
+    [SerializeField] Transform orderDestination;
 
     [Header("Elements")]
     [SerializeField] Transform player;
@@ -22,10 +22,10 @@ public class Followers : MonoBehaviour
 
     private void Update()
     {
-        navMeshAgent.SetDestination(orderDestination);
+        navMeshAgent.SetDestination(player.position);
     }
 
-    public void SetOrderPosition(Vector3 orderPosition)
+    public void SetOrderPosition(Transform orderPosition)
     {
         orderDestination = orderPosition;
     }

@@ -42,6 +42,13 @@ public class FollowersPC : MonoBehaviour
     void CastOrder()
     {
         Ray orderRay = new Ray(transform.position + playerPosition, transform.forward * followerOrderLength);
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(orderRay, out hit))
+        {
+            Debug.Log(hit.collider.gameObject.name);
+        }
     }
 
     private void OnDrawGizmos()
