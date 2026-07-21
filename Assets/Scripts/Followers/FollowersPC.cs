@@ -7,6 +7,7 @@ public class FollowersPC : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
     [SerializeField] float followerOrderLength;
+    [SerializeField] float followerOrderRadius;
     [SerializeField] Vector2 moveDirection;
 
     [Header("Elements")]
@@ -38,5 +39,7 @@ public class FollowersPC : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
+
+        Gizmos.DrawWireSphere(transform.forward * followerOrderLength, followerOrderRadius);
     }
 }
