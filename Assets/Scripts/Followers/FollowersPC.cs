@@ -19,6 +19,11 @@ public class FollowersPC : MonoBehaviour
     private void Update()
     {
         moveDirection = moveAction.action.ReadValue<Vector2>();
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            CastOrder();
+        }
     }
 
     private void FixedUpdate()
@@ -33,7 +38,15 @@ public class FollowersPC : MonoBehaviour
 
     void CastOrder()
     {
+        Collider[] orderPointColliders = Physics.OverlapSphere(transform.position + transform.forward * followerOrderLength, followerOrderRadius);
 
+        if(orderPointColliders.Length > 0)
+        {
+            foreach(Collider collider in orderPointColliders)
+            {
+                Debug.Log(collider.gameObject.name);
+            }
+        }
     }
 
     private void OnDrawGizmos()
