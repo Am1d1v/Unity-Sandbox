@@ -22,16 +22,9 @@ public class Followers : MonoBehaviour
 
     private void Update()
     {
-        if(orderDestination == null)
-        {
-            navMeshAgent.SetDestination(orderDestination);
-        }
-        else
-        {
-            navMeshAgent.SetDestination(player.position);
-        }
+        navMeshAgent.SetDestination(orderDestination);
 
-        if(transform.position == orderDestination)
+        if (Vector3.Distance(transform.position, new Vector3(orderDestination.x - stoppingDistance, 0f, orderDestination.z - stoppingDistance)) < 1f)
         {
             orderDestination = player.position;
         }
