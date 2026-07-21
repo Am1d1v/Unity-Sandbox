@@ -1115,6 +1115,7 @@ MonoBehaviour:
   - {fileID: 347018426}
   - {fileID: 1254953884}
   - {fileID: 191176604}
+  orderPoint: {fileID: 0}
   rb: {fileID: 1965778877}
   moveAction: {fileID: 8001400696426377549, guid: b761ac36c7d258b45bbc10b3b0ee0bd9, type: 3}
 --- !u!54 &1965778877

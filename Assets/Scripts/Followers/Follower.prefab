@@ -72,6 +72,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   stoppingDistance: 3
+  orderDestination: {fileID: 0}
   player: {fileID: 0}
   navMeshAgent: {fileID: 5538179302880752198}
 --- !u!195 &5538179302880752198

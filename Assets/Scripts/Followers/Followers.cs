@@ -22,7 +22,7 @@ public class Followers : MonoBehaviour
 
     private void Update()
     {       
-        if(orderDestination != null && Vector3.Distance(transform.position, orderDestination.position) >= 0.1f)
+        if(orderDestination != null && Vector3.Distance(transform.position, orderDestination.position) >= stoppingDistance)
         {
             navMeshAgent.SetDestination(orderDestination.position);
         }
