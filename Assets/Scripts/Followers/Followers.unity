@@ -874,6 +874,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Follower (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3014858614780679061, guid: 4749cd10ba763324a8e850524798fe4e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4527285937286791145, guid: 4749cd10ba763324a8e850524798fe4e, type: 3}
       propertyPath: player
       value: 
@@ -1042,6 +1046,10 @@ PrefabInstance:
     - target: {fileID: 3014858614780679061, guid: 4749cd10ba763324a8e850524798fe4e, type: 3}
       propertyPath: m_Name
       value: Follower (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3014858614780679061, guid: 4749cd10ba763324a8e850524798fe4e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4527285937286791145, guid: 4749cd10ba763324a8e850524798fe4e, type: 3}
       propertyPath: player

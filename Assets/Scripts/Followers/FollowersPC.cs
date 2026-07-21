@@ -44,10 +44,7 @@ public class FollowersPC : MonoBehaviour
 
         if(orderPointColliders.Length > 0)
         {
-            foreach(Collider collider in orderPointColliders)
-            {
-                Debug.Log(collider.gameObject.name);
-            }
+            followers[0].SetOrderPosition(transform.position + transform.forward * followerOrderLength);
         }
     }
 
