@@ -40,6 +40,6 @@ public class FollowersPC : MonoBehaviour
     {
         Gizmos.color = Color.white;
 
-        Gizmos.DrawWireSphere(transform.forward * followerOrderLength, followerOrderRadius);
+        Gizmos.DrawWireSphere(transform.position + transform.forward * followerOrderLength, followerOrderRadius);
     }
 }

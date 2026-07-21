@@ -962,7 +962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rotationSpeed: 0
-  followerOrderLength: 0
+  followerOrderLength: 6
   followerOrderRadius: 1
   moveDirection: {x: 0, y: 0}
   rb: {fileID: 1965778877}
