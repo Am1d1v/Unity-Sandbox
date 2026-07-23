@@ -7,6 +7,7 @@ public class WallRunPC : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpStrength;
     [SerializeField] Vector3 moveDirection;
+    [SerializeField] LayerMask wallLayer;
 
     [Header("Elements")]
     [SerializeField] Rigidbody rb;
@@ -24,9 +25,7 @@ public class WallRunPC : MonoBehaviour
     {
         Move();
 
-        Jump();
-
-        
+        Jump();       
     }
 
     void Move()
