@@ -42,4 +42,12 @@ public class WallRunPC : MonoBehaviour
             rb.AddForce(transform.up * jumpStrength, ForceMode.Impulse);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Obstacle")
+        {
+            Debug.Log("Obstacle");
+        }
+    }
 }
