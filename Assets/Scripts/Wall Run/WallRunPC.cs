@@ -12,6 +12,7 @@ public class WallRunPC : MonoBehaviour
 
     [Header("Elements")]
     [SerializeField] Rigidbody rb;
+    [SerializeField] GameObject visualModel;
 
     [Header("Input Actions")]
     [SerializeField] InputActionReference moveInputAction;
@@ -36,10 +37,14 @@ public class WallRunPC : MonoBehaviour
         if (isWallRun)
         {
             rb.linearVelocity = transform.up * moveSpeed * moveDirection.y;
+
+            visualModel.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
         }
         else
         {
-            rb.linearVelocity = transform.forward * moveSpeed * moveDirection.y;           
+            rb.linearVelocity = transform.forward * moveSpeed * moveDirection.y;
+
+            visualModel.transform.rotation = Quaternion.Euler(Vector3.zero);
         }       
     }
 

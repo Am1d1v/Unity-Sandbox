@@ -725,11 +725,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   jumpStrength: 3
+  isWallRun: 0
   moveDirection: {x: 0, y: 0, z: 0}
   wallLayer:
     serializedVersion: 2
     m_Bits: 1024
   rb: {fileID: 1156879030}
+  visualModel: {fileID: 1408772552}
   moveInputAction: {fileID: -8936930777641952043, guid: 9ae30d1887eef8940b2a74f8e661e67b, type: 3}
   jumpInputAction: {fileID: 0}
 --- !u!54 &1156879030
