@@ -6,6 +6,7 @@ public class WallRunPC : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpStrength;
+    [SerializeField] bool isWallRun;
     [SerializeField] Vector3 moveDirection;
     [SerializeField] LayerMask wallLayer;
 
@@ -32,7 +33,14 @@ public class WallRunPC : MonoBehaviour
     {
         if (moveDirection.magnitude == 0) return;
 
-        rb.linearVelocity = transform.forward * moveSpeed * moveDirection.y;
+        if (isWallRun)
+        {
+            rb.linearVelocity = transform.up * moveSpeed * moveDirection.y;
+        }
+        else
+        {
+            rb.linearVelocity = transform.forward * moveSpeed * moveDirection.y;           
+        }       
     }
 
     void Jump()
@@ -47,7 +55,7 @@ public class WallRunPC : MonoBehaviour
     {
         if(collision.gameObject.tag == "Obstacle")
         {
-            Debug.Log("Obstacle Enter");
+            isWallRun = true;
         }
     }
 
@@ -55,7 +63,7 @@ public class WallRunPC : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle")
         {
-            Debug.Log("Obstacle Exit");
+            isWallRun = false;
         }
     }
 }
