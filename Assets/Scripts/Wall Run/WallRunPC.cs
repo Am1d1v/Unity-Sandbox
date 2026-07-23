@@ -36,15 +36,11 @@ public class WallRunPC : MonoBehaviour
 
         if (isWallRun)
         {
-            rb.linearVelocity = transform.up * moveSpeed * moveDirection.y;
-
-            visualModel.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+            rb.linearVelocity = transform.up * moveSpeed * moveDirection.y;           
         }
         else
         {
-            rb.linearVelocity = transform.forward * moveSpeed * moveDirection.y;
-
-            visualModel.transform.rotation = Quaternion.Euler(Vector3.zero);
+            rb.linearVelocity = transform.forward * moveSpeed * moveDirection.y;           
         }       
     }
 
@@ -61,6 +57,8 @@ public class WallRunPC : MonoBehaviour
         if(collision.gameObject.tag == "Obstacle")
         {
             isWallRun = true;
+
+            visualModel.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
         }
     }
 
@@ -69,6 +67,8 @@ public class WallRunPC : MonoBehaviour
         if (collision.gameObject.tag == "Obstacle")
         {
             isWallRun = false;
+
+            visualModel.transform.rotation = Quaternion.Euler(Vector3.zero);
         }
     }
 }
