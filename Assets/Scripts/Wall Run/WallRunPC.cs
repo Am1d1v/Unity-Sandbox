@@ -47,7 +47,15 @@ public class WallRunPC : MonoBehaviour
     {
         if(collision.gameObject.tag == "Obstacle")
         {
-            Debug.Log("Obstacle");
+            Debug.Log("Obstacle Enter");
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            Debug.Log("Obstacle Exit");
         }
     }
 }
