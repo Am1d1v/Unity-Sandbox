@@ -25,6 +25,8 @@ public class WallRunPC : MonoBehaviour
         moveDirection = moveInputAction.action.ReadValue<Vector2>();
 
         IsWallDetected();
+
+        SetModelVisualRotation();
     }
 
     private void FixedUpdate()
@@ -61,6 +63,18 @@ public class WallRunPC : MonoBehaviour
         isWallRun = Physics.CheckSphere(transform.position + detectionPosition, detectionRange, wallLayer);
 
         return isWallRun;
+    }
+
+    void SetModelVisualRotation()
+    {
+        if (isWallRun)
+        {
+            visualModel.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+        }
+        else
+        {
+            visualModel.transform.rotation = Quaternion.Euler(Vector3.zero);
+        }
     }
 
     //private void OnCollisionEnter(Collision collision)
