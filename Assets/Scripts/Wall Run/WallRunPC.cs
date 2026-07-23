@@ -16,7 +16,7 @@ public class WallRunPC : MonoBehaviour
 
     private void Update()
     {
-        
+        moveDirection = moveInputAction.action.ReadValue<Vector2>();
     }
 
     private void FixedUpdate()

@@ -619,7 +619,7 @@ MonoBehaviour:
   jumpStrength: 6
   moveDirection: {x: 0, y: 0, z: 0}
   rb: {fileID: 1156879030}
-  moveInputAction: {fileID: 0}
+  moveInputAction: {fileID: -8936930777641952043, guid: 9ae30d1887eef8940b2a74f8e661e67b, type: 3}
 --- !u!54 &1156879030
 Rigidbody:
   m_ObjectHideFlags: 0
