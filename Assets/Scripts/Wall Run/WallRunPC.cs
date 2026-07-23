@@ -12,6 +12,7 @@ public class WallRunPC : MonoBehaviour
     [SerializeField] Vector3 moveDirection;
     [SerializeField] Vector3 detectionPosition;
     [SerializeField] Vector3 normal;
+    [SerializeField] Quaternion rotation;
     [SerializeField] LayerMask wallLayer;
 
     [Header("Elements")]
@@ -28,7 +29,7 @@ public class WallRunPC : MonoBehaviour
 
         IsWallDetected();
 
-        SetModelVisualRotation();
+        //SetModelVisualRotation();
 
         SetModelNormal();
     }
@@ -83,16 +84,22 @@ public class WallRunPC : MonoBehaviour
 
     void SetModelNormal()
     {
-        Ray ray = new Ray(transform.position, visualModel.transform.up * -1);
+        Ray ray = new Ray(transform.position, visualModel.transform.up * -1.5f);
 
         RaycastHit hit;
+          
+        Debug.DrawRay(transform.position, visualModel.transform.up * -1.5f, Color.magenta);
 
-        Debug.DrawRay(transform.position, visualModel.transform.up * -1, Color.magenta);
-
-        if(Physics.Raycast(ray, out hit, 1f, wallLayer))
+        if(Physics.Raycast(ray, out hit, 1.5f, wallLayer))
         {
             Debug.Log(hit.collider.gameObject.name);
+
+            normal = hit.normal;
         }
+
+        visualModel.transform.rotation = Quaternion.FromToRotation(visualModel.transform.up, normal) * visualModel.transform.rotation;
+
+        rotation = visualModel.transform.rotation;
     }
 
 
