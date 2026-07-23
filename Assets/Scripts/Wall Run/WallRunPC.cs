@@ -21,6 +21,11 @@ public class WallRunPC : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        Move();
+    }
+
+    void Move()
+    {
+        rb.linearVelocity = transform.forward * moveSpeed * moveDirection.y;
     }
 }
