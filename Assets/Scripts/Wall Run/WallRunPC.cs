@@ -6,8 +6,10 @@ public class WallRunPC : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpStrength;
+    [SerializeField] float detectionRange;
     [SerializeField] bool isWallRun;
     [SerializeField] Vector3 moveDirection;
+    [SerializeField] Vector3 detectionPosition;
     [SerializeField] LayerMask wallLayer;
 
     [Header("Elements")]
@@ -52,23 +54,30 @@ public class WallRunPC : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.gameObject.tag == "Obstacle")
+    //    {
+    //        isWallRun = true;
+
+    //        visualModel.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+    //    }
+    //}
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Obstacle")
+    //    {
+    //        isWallRun = false;
+
+    //        visualModel.transform.rotation = Quaternion.Euler(Vector3.zero);
+    //    }
+    //}
+
+    private void OnDrawGizmos()
     {
-        if(collision.gameObject.tag == "Obstacle")
-        {
-            isWallRun = true;
+        Gizmos.color = Color.green;
 
-            visualModel.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Obstacle")
-        {
-            isWallRun = false;
-
-            visualModel.transform.rotation = Quaternion.Euler(Vector3.zero);
-        }
+        Gizmos.DrawWireSphere(transform.position + detectionPosition, detectionRange);
     }
 }
