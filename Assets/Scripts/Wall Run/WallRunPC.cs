@@ -95,11 +95,12 @@ public class WallRunPC : MonoBehaviour
             Debug.Log(hit.collider.gameObject.name);
 
             normal = hit.normal;
-        }
 
-        visualModel.transform.rotation = Quaternion.FromToRotation(visualModel.transform.up, normal) * visualModel.transform.rotation;
+            visualModel.transform.rotation = Quaternion.FromToRotation(visualModel.transform.up, normal) * visualModel.transform.rotation;
 
-        rotation = visualModel.transform.rotation;
+            //rotation = visualModel.transform.rotation;
+            rotation = Quaternion.FromToRotation(visualModel.transform.up, normal);
+        }       
     }
 
 
