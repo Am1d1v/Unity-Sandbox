@@ -22,14 +22,16 @@ public class WallRunPC : MonoBehaviour
 
     private void Update()
     {
-        moveDirection = moveInputAction.action.ReadValue<Vector2>();       
+        moveDirection = moveInputAction.action.ReadValue<Vector2>();
+
+        IsWallDetected();
     }
 
     private void FixedUpdate()
     {
         Move();
 
-        Jump();       
+        Jump();              
     }
 
     void Move()
@@ -52,6 +54,13 @@ public class WallRunPC : MonoBehaviour
         {
             rb.AddForce(transform.up * jumpStrength, ForceMode.Impulse);
         }
+    }
+
+    bool IsWallDetected()
+    {
+        isWallRun = Physics.CheckSphere(transform.position + detectionPosition, detectionRange, wallLayer);
+
+        return isWallRun;
     }
 
     //private void OnCollisionEnter(Collision collision)

@@ -941,10 +941,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   jumpStrength: 3
-  detectionRange: 0.45
+  detectionRange: 0.3
   isWallRun: 0
   moveDirection: {x: 0, y: 0, z: 0}
-  detectionPosition: {x: 0, y: 0, z: 1}
+  detectionPosition: {x: 0, y: -0.6, z: 0.3}
   wallLayer:
     serializedVersion: 2
     m_Bits: 1024
