@@ -7,9 +7,11 @@ public class WallRunPC : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpStrength;
     [SerializeField] float detectionRange;
+    [SerializeField] float detectionRayLength;
     [SerializeField] bool isWallRun;
     [SerializeField] Vector3 moveDirection;
     [SerializeField] Vector3 detectionPosition;
+    [SerializeField] Vector3 normal;
     [SerializeField] LayerMask wallLayer;
 
     [Header("Elements")]
@@ -27,6 +29,8 @@ public class WallRunPC : MonoBehaviour
         IsWallDetected();
 
         SetModelVisualRotation();
+
+        SetModelNormal();
     }
 
     private void FixedUpdate()
@@ -77,25 +81,20 @@ public class WallRunPC : MonoBehaviour
         }
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if(collision.gameObject.tag == "Obstacle")
-    //    {
-    //        isWallRun = true;
+    void SetModelNormal()
+    {
+        Ray ray = new Ray(transform.position, visualModel.transform.up * -1);
 
-    //        visualModel.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
-    //    }
-    //}
+        RaycastHit hit;
 
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Obstacle")
-    //    {
-    //        isWallRun = false;
+        Debug.DrawRay(transform.position, visualModel.transform.up * -1, Color.magenta);
 
-    //        visualModel.transform.rotation = Quaternion.Euler(Vector3.zero);
-    //    }
-    //}
+        if(Physics.Raycast(ray, out hit, 1f, wallLayer))
+        {
+            Debug.Log(hit.collider.gameObject.name);
+        }
+    }
+
 
     private void OnDrawGizmos()
     {
