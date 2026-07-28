@@ -3,7 +3,7 @@ using UnityEngine;
 public class TrineProtoPC : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] Vector2 mousePos;
+    [SerializeField] Vector3 mousePos;
 
     private void Update()
     {
@@ -12,6 +12,14 @@ public class TrineProtoPC : MonoBehaviour
 
     void GetMousePos()
     {
-        mousePos = Input.mousePosition;
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition.z = 10;
+
+        mousePos = Camera.main.ScreenToWorldPoint(mousePosition);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
     }
 }
