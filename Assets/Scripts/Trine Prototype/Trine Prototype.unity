@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5d7c088409d9a40b7b09aa707777f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetOffset: {x: 0, y: -1.5, z: -6}
+  TargetOffset: {x: 0, y: -1.5, z: -3}
   TrackerSettings:
     BindingMode: 3
     PositionDamping: {x: 1, y: 1, z: 1}
@@ -331,7 +331,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 39.8
+    FieldOfView: 60
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -358,12 +358,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10509681}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.037421178, y: 0.0000000034981404, z: -1.3099628e-10, w: 0.99929965}
-  m_LocalPosition: {x: -8.04, y: 2.25, z: -10}
+  m_LocalRotation: {x: 0.053342506, y: 0.00000002999149, z: -0.0000000016021021, w: 0.9985763}
+  m_LocalPosition: {x: -8.04, y: 2.25, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1974894604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &152993598
 GameObject:
@@ -426,7 +426,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 39.8
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -452,8 +452,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152993598}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03742118, y: 0.0000000034981407, z: -1.3099631e-10, w: 0.9992996}
-  m_LocalPosition: {x: -8.04, y: 2.25, z: -10}
+  m_LocalRotation: {x: 0.05334251, y: 0.000000029991494, z: -0.0000000016021026, w: 0.9985763}
+  m_LocalPosition: {x: -8.04, y: 2.25, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -795,6 +795,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   rayLength: 30
+  objectMoveSpeed: 6
   holdingObject: {fileID: 0}
 --- !u!1 &1555444261
 GameObject:
@@ -1072,6 +1073,7 @@ Transform:
   - {fileID: 960263318}
   - {fileID: 152993601}
   - {fileID: 1555444262}
+  - {fileID: 10509687}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
@@ -1081,4 +1083,3 @@ SceneRoots:
   - {fileID: 1974894604}
   - {fileID: 1283633406}
   - {fileID: 1746220403}
-  - {fileID: 10509687}
