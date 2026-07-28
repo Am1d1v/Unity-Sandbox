@@ -10,6 +10,7 @@ public class TrineProtoPC : MonoBehaviour
     [SerializeField] LayerMask obstacleLayer;
     [SerializeField] float rayLength;
     [SerializeField] float objectMoveSpeed;
+    [SerializeField] float objectDragStrength;
 
     [Header("Elements")]
     [SerializeField] GameObject holdingObject;
@@ -55,8 +56,9 @@ public class TrineProtoPC : MonoBehaviour
     {
         //holdingObject.transform.position = holdingObjectStartPos + new Vector3(mousePosViewport.x, mousePosViewport.y, 0f);
 
+        //holdingObject.transform.position = Vector3.MoveTowards(holdingObject.transform.position, new Vector3(mousePosViewport.x, mousePosViewport.y, 0f) * objectDragStrength, objectMoveSpeed * Time.deltaTime);
 
-        holdingObject.transform.position = Vector3.MoveTowards(holdingObject.transform.position, mousePos, objectMoveSpeed * Time.deltaTime);
+        holdingObject.transform.position = Vector3.MoveTowards(holdingObject.transform.position, new Vector3(mousePos.x, mousePos.y, 0f), objectMoveSpeed * Time.deltaTime);
     }
 
     void GetRaycast()

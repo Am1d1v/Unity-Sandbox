@@ -796,6 +796,7 @@ MonoBehaviour:
     m_Bits: 1024
   rayLength: 30
   objectMoveSpeed: 6
+  objectDragStrength: 15
   holdingObject: {fileID: 0}
 --- !u!1 &1555444261
 GameObject:
