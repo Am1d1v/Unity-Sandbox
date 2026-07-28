@@ -508,7 +508,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7f94aa81b249e4397f43642ee3ddba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mousePos: {x: 0, y: 0}
+  mousePos: {x: 0, y: 0, z: 0}
+  raycastHit: {x: 0, y: 0, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  rayLength: 10
 --- !u!1 &1555444261
 GameObject:
   m_ObjectHideFlags: 0
