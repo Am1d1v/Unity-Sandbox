@@ -5,32 +5,48 @@ public class TrineProtoPC : MonoBehaviour
     [Header("Settings")]
     [SerializeField] Vector3 mousePos;
     [SerializeField] Vector3 raycastHit;
-    [SerializeField] LayerMask groundLayer;
+    [SerializeField] LayerMask obstacleLayer;
     [SerializeField] float rayLength;
+
+    [Header("Elements")]
+    [SerializeField] GameObject holdingObject;
 
 
     private void Update()
     {
         GetMousePos();
 
-        GetRaycast();
+        if (Input.GetMouseButtonDown(0))
+        {
+            GetRaycast();
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            DropObject();
+        }
+
     }
 
     void GetMousePos()
     {
         Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = 10;
+        mousePosition.z = rayLength;
 
         mousePos = Camera.main.ScreenToWorldPoint(mousePosition);
+    }
+
+    void DropObject()
+    {
+        holdingObject = null;
     }
 
     void GetRaycast()
     {
         RaycastHit hit;
       
-        if(Physics.Raycast(transform.position, mousePos, out hit, rayLength, groundLayer))
+        if(Physics.Raycast(Camera.main.transform.position, new Vector3(mousePos.x, mousePos.y, rayLength), out hit, rayLength, obstacleLayer))
         {
-            raycastHit = hit.point;
+            holdingObject = hit.collider.gameObject;
         }
     }
 
