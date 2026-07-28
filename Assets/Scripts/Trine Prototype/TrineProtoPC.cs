@@ -4,6 +4,7 @@ public class TrineProtoPC : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] Vector3 mousePos;
+    [SerializeField] Vector3 mousePosViewport;
     [SerializeField] Vector3 raycastHit;
     [SerializeField] LayerMask obstacleLayer;
     [SerializeField] float rayLength;
@@ -20,7 +21,7 @@ public class TrineProtoPC : MonoBehaviour
         {
             GetRaycast();
         }
-        else if (Input.GetMouseButtonDown(1))
+        else if (Input.GetMouseButtonDown(1) && holdingObject != null)
         {
             DropObject();
         }
@@ -37,16 +38,20 @@ public class TrineProtoPC : MonoBehaviour
         mousePosition.z = rayLength;
 
         mousePos = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        mousePosViewport = Camera.main.ScreenToViewportPoint(mousePosition);
     }
 
     void DropObject()
     {
+        holdingObject.GetComponent<Rigidbody>().isKinematic = false;
+
         holdingObject = null;
     }
 
     void MoveHoldingObject()
     {
-        holdingObject.transform.position = new Vector3(mousePos.x, mousePos.y, 0f);
+        holdingObject.transform.position = new Vector3(mousePosViewport.x, mousePosViewport.y, 0f);
     }
 
     void GetRaycast()
@@ -56,6 +61,8 @@ public class TrineProtoPC : MonoBehaviour
         if(Physics.Raycast(Camera.main.transform.position, new Vector3(mousePos.x, mousePos.y, rayLength), out hit, rayLength, obstacleLayer))
         {
             holdingObject = hit.collider.gameObject;
+
+            holdingObject.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 
