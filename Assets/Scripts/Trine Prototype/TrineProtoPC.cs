@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class TrineProtoPC : MonoBehaviour
@@ -14,6 +15,8 @@ public class TrineProtoPC : MonoBehaviour
 
     [Header("Elements")]
     [SerializeField] GameObject holdingObject;
+    [SerializeField] Camera camera;
+    [SerializeField] CinemachineCamera cincamera;
 
 
     private void Update()
@@ -40,7 +43,7 @@ public class TrineProtoPC : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = rayLength;
 
-        mousePos = Camera.main.ScreenToWorldPoint(mousePosition);
+        mousePos = camera.ScreenToWorldPoint(mousePosition);
 
         mousePosViewport = Camera.main.ScreenToViewportPoint(mousePosition);
     }
@@ -79,6 +82,6 @@ public class TrineProtoPC : MonoBehaviour
     {
         Gizmos.color = Color.blue;
 
-        Gizmos.DrawRay(Camera.main.transform.position, new Vector3(mousePos.x, mousePos.y, rayLength));
+        Gizmos.DrawRay(camera.transform.position, new Vector3(mousePos.x, mousePos.y, rayLength));
     }
 }
