@@ -52,7 +52,7 @@ public class TrineProtoPC : MonoBehaviour
 
     void MoveHoldingObject()
     {
-        holdingObject.transform.position = holdingObjectStartPos + new Vector3(mousePos.x, mousePos.y, 0f);
+        holdingObject.transform.position = holdingObjectStartPos + new Vector3(mousePosViewport.x, mousePosViewport.y, 0f);
     }
 
     void GetRaycast()
