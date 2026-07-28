@@ -25,6 +25,10 @@ public class TrineProtoPC : MonoBehaviour
             DropObject();
         }
 
+        if(holdingObject != null)
+        {
+            MoveHoldingObject();
+        }
     }
 
     void GetMousePos()
@@ -38,6 +42,11 @@ public class TrineProtoPC : MonoBehaviour
     void DropObject()
     {
         holdingObject = null;
+    }
+
+    void MoveHoldingObject()
+    {
+        holdingObject.transform.position = new Vector3(mousePos.x, mousePos.y, 0f);
     }
 
     void GetRaycast()
