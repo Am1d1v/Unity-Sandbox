@@ -794,7 +794,7 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 1024
-  rayLength: 30
+  rayLength: 10
   objectMoveSpeed: 6
   objectDragStrength: 15
   holdingObject: {fileID: 0}
