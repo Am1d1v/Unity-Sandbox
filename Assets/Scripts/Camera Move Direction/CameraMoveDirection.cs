@@ -6,6 +6,8 @@ public class CameraMoveDirection : MonoBehaviour
     [SerializeField] Vector3 cameraInput;
     [SerializeField] Vector3 moveInput;
     [SerializeField] Vector3 moveDirection;
+    [SerializeField] Vector3 firstVector;
+    [SerializeField] Vector3 targetVector;
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
 
@@ -17,6 +19,8 @@ public class CameraMoveDirection : MonoBehaviour
         GetMoveInput();
 
         SetRotation();
+
+        SetTargetVector();
     }
 
     void GetCameraInput()
@@ -53,9 +57,17 @@ public class CameraMoveDirection : MonoBehaviour
 
         Vector3 lookDirection = transform.position + new Vector3(moveInput.x, 0f, moveInput.y) * rotationSpeed * Time.deltaTime;
 
+        Vector3 lookTarget = Vector3.Lerp(transform.position, lookDirection, Time.deltaTime);
+
         //transform.rotation = Quaternion.LookRotation(lookDirection);
 
-        transform.LookAt(new Vector3(lookDirection.x, transform.position.y, lookDirection.z));
+        //transform.LookAt(new Vector3(lookDirection.x, transform.position.y, lookDirection.z));
+        transform.LookAt(lookTarget);
+    }
+
+    void SetTargetVector()
+    {
+        firstVector = Vector3.Lerp(firstVector, targetVector, Time.deltaTime);
     }
 
     private void OnDrawGizmos()
