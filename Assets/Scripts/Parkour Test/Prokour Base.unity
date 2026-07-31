@@ -503,7 +503,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkRadius: 0.45
-  checkPoint: {x: 0, y: 3.62, z: 0}
+  hangLenght: 3
+  checkPoint: {x: 0, y: 0, z: 0}
+  hangLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1284534527
 GameObject:
   m_ObjectHideFlags: 0
