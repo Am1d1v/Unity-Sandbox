@@ -504,7 +504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkRadius: 0.45
   hangLenght: 4
-  hangSpeed: 0
+  hangSpeed: 3
   canHang: 0
   isHanged: 0
   checkPoint: {x: 0, y: 0, z: 0}

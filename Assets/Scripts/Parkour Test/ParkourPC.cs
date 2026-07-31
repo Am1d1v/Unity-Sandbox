@@ -29,15 +29,15 @@ public class ParkourPC : MonoBehaviour
 
         //canHang = Physics.CheckSphere(transform.position + checkPoint * hangLenght, checkRadius, hangLayer);
 
-        if(Physics.Raycast(transform.position, checkPoint * hangLenght, out hit, hangLayer))
+        if(Physics.Raycast(transform.position, checkPoint * hangLenght, out hit, hangLenght, hangLayer))
         {
-            Debug.Log(hit.collider.gameObject.name);
+            hangObject = hit.collider.gameObject.transform;
         }
     }
 
     void Hang()
     {
-        if (canHang)
+        if (hangObject != null)
         {
             //transform.SetParent(hangObject);
 
