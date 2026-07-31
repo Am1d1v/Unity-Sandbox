@@ -51,8 +51,17 @@ public class CameraMoveDirection : MonoBehaviour
     {
         if (moveInput.magnitude == 0f) return;
 
-        Vector3 lookDirection = transform.forward + new Vector3(moveInput.x, 0f, moveInput.z) * rotationSpeed * Time.deltaTime;
+        Vector3 lookDirection = transform.position + new Vector3(moveInput.x, 0f, moveInput.y) * rotationSpeed * Time.deltaTime;
 
-        transform.rotation = Quaternion.LookRotation(lookDirection);
+        //transform.rotation = Quaternion.LookRotation(lookDirection);
+
+        transform.LookAt(new Vector3(lookDirection.x, transform.position.y, lookDirection.z));
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+
+        Gizmos.DrawSphere(transform.position + new Vector3(moveInput.x, 0f, moveInput.y), 1f);
     }
 }
