@@ -28,6 +28,8 @@ public class CameraMoveDirection : MonoBehaviour
 
     void Rotate()
     {
-        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z) + new Vector3(0f, cameraInput.x, 0f) * moveSpeed * Time.deltaTime);
+        Vector3 currentEulerRotation = new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+
+        transform.rotation = Quaternion.Euler(currentEulerRotation + new Vector3(0f, cameraInput.x, 0f) * moveSpeed * Time.deltaTime);
     }
 }
