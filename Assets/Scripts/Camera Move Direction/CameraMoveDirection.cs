@@ -15,6 +15,8 @@ public class CameraMoveDirection : MonoBehaviour
         GetCameraInput();
 
         Rotate();
+
+        Move();
     }
 
     void GetCameraInput()
@@ -30,6 +32,11 @@ public class CameraMoveDirection : MonoBehaviour
     {
         Vector3 currentEulerRotation = new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
 
-        transform.rotation = Quaternion.Euler(currentEulerRotation + new Vector3(0f, cameraInput.x, 0f) * moveSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(currentEulerRotation + new Vector3(0f, cameraInput.x, 0f) * Time.deltaTime);
+    }
+
+    void Move()
+    {
+        transform.position += moveDirection * moveSpeed * Time.deltaTime;
     }
 }
