@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraMoveDirection : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] Vector2 cameraInput;
+    [SerializeField] Vector3 cameraInput;
     [SerializeField] Vector3 moveDirection;
     [SerializeField] float moveSpeed;
 
@@ -14,20 +14,20 @@ public class CameraMoveDirection : MonoBehaviour
     {
         GetCameraInput();
 
-        Move();
+        Rotate();
     }
 
     void GetCameraInput()
     {
         cameraInput.x = Input.GetAxis("Mouse X");
-        cameraInput.y = Input.GetAxis("Mouse Y");
+        //cameraInput.y = Input.GetAxis("Mouse Y");
         cameraInput.Normalize();
 
-        moveDirection = activeCamera.transform.forward * cameraInput;
+        moveDirection = activeCamera.transform.forward + cameraInput;
     }
 
-    void Move()
+    void Rotate()
     {
-        transform.position += new Vector3(moveDirection.x, 0f, moveDirection.y) * moveSpeed;
+        
     }
 }
