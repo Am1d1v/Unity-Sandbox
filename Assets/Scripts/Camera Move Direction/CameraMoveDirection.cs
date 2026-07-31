@@ -12,22 +12,22 @@ public class CameraMoveDirection : MonoBehaviour
 
     private void Update()
     {
-        //GetCameraInput();
+        GetCameraInput();
 
         Move();
     }
 
-    Vector3 GetCameraInput()
+    void GetCameraInput()
     {
         cameraInput.x = Input.GetAxis("Mouse X");
         cameraInput.y = Input.GetAxis("Mouse Y");
         cameraInput.Normalize();
 
-        return activeCamera.transform.forward * cameraInput;
+        moveDirection = activeCamera.transform.forward * cameraInput;
     }
 
     void Move()
     {
-        transform.position += GetCameraInput() * moveSpeed;
+        transform.position += new Vector3(moveDirection.x, 0f, moveDirection.y) * moveSpeed;
     }
 }
