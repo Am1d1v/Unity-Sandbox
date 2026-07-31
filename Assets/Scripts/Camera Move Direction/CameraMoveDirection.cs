@@ -4,6 +4,7 @@ public class CameraMoveDirection : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] Vector3 cameraInput;
+    [SerializeField] Vector3 moveInput;
     [SerializeField] Vector3 moveDirection;
     [SerializeField] float moveSpeed;
 
@@ -12,11 +13,7 @@ public class CameraMoveDirection : MonoBehaviour
 
     private void Update()
     {
-        GetCameraInput();
-
-        Rotate();
-
-        Move();
+        GetMoveInput(); 
     }
 
     void GetCameraInput()
@@ -40,5 +37,10 @@ public class CameraMoveDirection : MonoBehaviour
     void Move()
     {
         transform.position += moveDirection * moveSpeed * Time.deltaTime;
+    }
+
+    void GetMoveInput()
+    {
+        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 }
