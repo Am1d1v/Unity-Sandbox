@@ -29,7 +29,7 @@ public class ParkourPC : MonoBehaviour
 
         //canHang = Physics.CheckSphere(transform.position + checkPoint * hangLenght, checkRadius, hangLayer);
 
-        if(Physics.Raycast(transform.position, transform.position + checkPoint * hangLenght, out hit, hangLayer))
+        if(Physics.Raycast(transform.position, checkPoint * hangLenght, out hit, hangLayer))
         {
             Debug.Log(hit.collider.gameObject.name);
         }
@@ -52,6 +52,6 @@ public class ParkourPC : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawWireSphere(transform.position + checkPoint * hangLenght, checkRadius);
+        //Gizmos.DrawWireSphere(transform.position + checkPoint * hangLenght, checkRadius);
     }
 }
