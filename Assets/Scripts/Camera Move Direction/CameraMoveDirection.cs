@@ -26,6 +26,8 @@ public class CameraMoveDirection : MonoBehaviour
         cameraInput.Normalize();
 
         moveDirection = activeCamera.transform.forward + cameraInput;
+
+        moveDirection.y = 0f;
     }
 
     void Rotate()
