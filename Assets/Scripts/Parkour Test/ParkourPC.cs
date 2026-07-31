@@ -7,8 +7,6 @@ public class ParkourPC : MonoBehaviour
     [SerializeField] float checkRadius;
     [SerializeField] float hangLenght;
     [SerializeField] float hangSpeed;
-    [SerializeField] bool canHang;
-    [SerializeField] bool isHanged;
     [SerializeField] Vector3 checkPoint;
     [SerializeField] LayerMask hangLayer;
     [SerializeField] Transform hangObject;
@@ -27,9 +25,7 @@ public class ParkourPC : MonoBehaviour
 
         RaycastHit hit;
 
-        //canHang = Physics.CheckSphere(transform.position + checkPoint * hangLenght, checkRadius, hangLayer);
-
-        if(Physics.Raycast(transform.position, checkPoint * hangLenght, out hit, hangLenght, hangLayer))
+        if(Physics.Raycast(transform.position, checkPoint * hangLenght, out hit, hangLenght, hangLayer) && Input.GetKeyDown(KeyCode.Space))
         {
             hangObject = hit.collider.gameObject.transform;
         }
@@ -37,15 +33,13 @@ public class ParkourPC : MonoBehaviour
 
     void Hang()
     {
-        if (hangObject != null)
-        {
-            //transform.SetParent(hangObject);
+        if (hangObject == null) return;
 
-            if(transform.position != hangObject.position)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, hangObject.position, hangSpeed * Time.deltaTime);
-            }
+        if (transform.position != hangObject.position)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, hangObject.position, hangSpeed * Time.deltaTime);
         }
+
     }
 
     private void OnDrawGizmos()
