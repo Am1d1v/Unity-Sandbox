@@ -13,7 +13,9 @@ public class CameraMoveDirection : MonoBehaviour
 
     private void Update()
     {
-        GetMoveInput(); 
+        GetMoveInput();
+
+        SetRotation();
     }
 
     void GetCameraInput()
@@ -42,5 +44,14 @@ public class CameraMoveDirection : MonoBehaviour
     void GetMoveInput()
     {
         moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+    }
+
+    void SetRotation()
+    {
+        if (moveInput.magnitude == 0f) return;
+
+        Vector3 lookDirection = transform.forward - new Vector3(moveInput.x, 0f, moveInput.z) * Time.deltaTime;
+
+        transform.rotation = Quaternion.LookRotation(lookDirection);
     }
 }
