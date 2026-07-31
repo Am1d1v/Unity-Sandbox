@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6185071119563409971}
   - component: {fileID: 8842440540449343775}
   - component: {fileID: 8870410013812130026}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hang object
   m_TagString: Untagged
   m_Icon: {fileID: 0}

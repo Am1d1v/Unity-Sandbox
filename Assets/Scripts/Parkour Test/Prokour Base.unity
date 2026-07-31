@@ -722,10 +722,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hang object
       objectReference: {fileID: 0}
-    - target: {fileID: 2024747005914598195, guid: 17f2a418effa13b45846c2d4a89328c4, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4535862167632555398, guid: 17f2a418effa13b45846c2d4a89328c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.48
