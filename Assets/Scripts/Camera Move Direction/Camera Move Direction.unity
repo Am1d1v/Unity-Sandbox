@@ -532,8 +532,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed893d02dcf5ca45968abf7bfb60b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraInput: {x: 0, y: 0}
-  moveSpeed: 3
+  cameraInput: {x: 0, y: 0, z: 0}
+  moveDirection: {x: 0, y: 0, z: 0}
+  moveSpeed: 30
   activeCamera: {fileID: 586518551}
 --- !u!1 &1438730801
 GameObject:
