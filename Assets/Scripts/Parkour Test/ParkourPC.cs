@@ -11,13 +11,18 @@ public class ParkourPC : MonoBehaviour
 
     private void Update()
     {
-        
+        CheckToHang();
+    }
+
+    void CheckToHang()
+    {
+        checkPoint = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * hangLenght;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawWireSphere((transform.position + checkPoint) * hangLenght, checkRadius);
+        Gizmos.DrawWireSphere(transform.position + checkPoint * hangLenght, checkRadius);
     }
 }
