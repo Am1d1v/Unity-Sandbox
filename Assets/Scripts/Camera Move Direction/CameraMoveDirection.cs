@@ -7,6 +7,7 @@ public class CameraMoveDirection : MonoBehaviour
     [SerializeField] Vector3 moveInput;
     [SerializeField] Vector3 moveDirection;
     [SerializeField] float moveSpeed;
+    [SerializeField] float rotationSpeed;
 
     [Header("Elements")]
     [SerializeField] Camera activeCamera;
@@ -50,7 +51,7 @@ public class CameraMoveDirection : MonoBehaviour
     {
         if (moveInput.magnitude == 0f) return;
 
-        Vector3 lookDirection = transform.forward - new Vector3(moveInput.x, 0f, moveInput.z) * Time.deltaTime;
+        Vector3 lookDirection = transform.forward + new Vector3(moveInput.x, 0f, moveInput.z) * rotationSpeed * Time.deltaTime;
 
         transform.rotation = Quaternion.LookRotation(lookDirection);
     }
