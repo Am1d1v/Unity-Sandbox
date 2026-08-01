@@ -20,14 +20,11 @@ public class ParkourPC : MonoBehaviour
     {
         //CheckToHang();
 
-        //Hang();
+        Hang();
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            
-        }
+        SetCheckSphere();
 
-        CastCheckSphere();
+        CheckHangSphere();
     }
 
     void CheckToHang()
@@ -49,7 +46,18 @@ public class ParkourPC : MonoBehaviour
         }
     }
 
-    void CastCheckSphere()
+    void CheckHangSphere()
+    {
+        Collider[] hangObjects = Physics.OverlapSphere(transform.position + targetPoint + checkOffset, checkRadius, hangLayer);
+
+        if (hangObjects.Length > 0 && Input.GetKeyDown(KeyCode.Space))
+        {
+            hangObject = hangObjects[0].transform;
+        }
+    }
+
+
+    void SetCheckSphere()
     {
         targetPoint.x += Input.GetAxisRaw("Horizontal") * accelarateSpeed * Time.deltaTime;
         targetPoint.y += Input.GetAxisRaw("Vertical") * accelarateSpeed * Time.deltaTime;
