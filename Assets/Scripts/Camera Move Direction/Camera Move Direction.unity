@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae7bd79097f91b4ebcb32d39dc90cc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 1
   mouseInput: {x: 0, y: 0}
   mainCamera: {fileID: 586518551}
   characterController: {fileID: 144465828}

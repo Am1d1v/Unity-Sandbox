@@ -24,6 +24,8 @@ public class CMDCinemacihinePC : MonoBehaviour
         GetMouseInputDelta();
 
         Move();
+
+        FaceMovementDirection();
     }
 
     void GetMouseInputDelta()
@@ -36,10 +38,21 @@ public class CMDCinemacihinePC : MonoBehaviour
         characterController.Move(mainCamera.transform.forward * moveSpeed * Time.deltaTime);
     }
 
+    void FaceMovementDirection()
+    {
+        Vector3 forward = mainCamera.transform.forward;
+        forward.y = 0f;
+
+        transform.rotation = Quaternion.LookRotation(forward);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawWireSphere(transform.position + mainCamera.transform.forward, 1f);
+        Vector3 forward = mainCamera.transform.forward;
+        forward.y = 0f;
+
+        Gizmos.DrawWireSphere(forward, 1f);
     }
 }
