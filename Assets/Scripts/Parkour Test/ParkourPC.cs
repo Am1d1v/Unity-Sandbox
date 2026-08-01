@@ -46,6 +46,6 @@ public class ParkourPC : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
 
-        //Gizmos.DrawWireSphere(transform.position + checkPoint * hangLenght, checkRadius);
+        Gizmos.DrawRay(transform.position, checkPoint);
     }
 }
