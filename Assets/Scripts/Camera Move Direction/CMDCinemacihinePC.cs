@@ -9,6 +9,7 @@ public class CMDCinemacihinePC : MonoBehaviour
 
     [Header("Elements")]
     [SerializeField] Camera mainCamera;
+    [SerializeField] CharacterController characterController;
 
     [Header("Input Actions")]
     [SerializeField] InputActionReference mouseDeltaAction;
@@ -21,10 +22,17 @@ public class CMDCinemacihinePC : MonoBehaviour
     private void Update()
     {
         GetMouseInputDelta();
+
+        Move();
     }
 
     void GetMouseInputDelta()
     {
         mouseInput = mouseDeltaAction.action.ReadValue<Vector2>().normalized;
+    }
+
+    void Move()
+    {
+        characterController.Move(mainCamera.transform.forward * moveSpeed * Time.deltaTime);
     }
 }
