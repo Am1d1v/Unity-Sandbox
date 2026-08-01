@@ -24,8 +24,10 @@ public class ParkourPC : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            CastCheckSphere();
+            
         }
+
+        CastCheckSphere();
     }
 
     void CheckToHang()
@@ -49,7 +51,8 @@ public class ParkourPC : MonoBehaviour
 
     void CastCheckSphere()
     {
-
+        targetPoint.x += Input.GetAxisRaw("Horizontal") * accelarateSpeed * Time.deltaTime;
+        targetPoint.y += Input.GetAxisRaw("Vertical") * accelarateSpeed * Time.deltaTime;
     }
 
     void Hang()

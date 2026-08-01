@@ -619,7 +619,7 @@ MonoBehaviour:
   checkRadius: 0.45
   hangLenght: 4
   hangSpeed: 3
-  accelarateSpeed: 0
+  accelarateSpeed: 3
   checkPoint: {x: 0, y: 0, z: 0}
   targetPoint: {x: 0, y: 0, z: 0}
   checkOffset: {x: 0, y: 1, z: -0.15}
