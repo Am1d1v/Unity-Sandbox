@@ -8,6 +8,7 @@ public class ParkourPC : MonoBehaviour
     [SerializeField] float hangLenght;
     [SerializeField] float hangSpeed;
     [SerializeField] Vector3 checkPoint;
+    [SerializeField] Vector3 hangOffset;
     [SerializeField] LayerMask hangLayer;
     [SerializeField] Transform hangObject;
 
@@ -35,9 +36,9 @@ public class ParkourPC : MonoBehaviour
     {
         if (hangObject == null) return;
 
-        if (transform.position != hangObject.position)
+        if (transform.position != hangObject.position + hangOffset)
         {
-            transform.position = Vector3.MoveTowards(transform.position, hangObject.position, hangSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, hangObject.position + hangOffset, hangSpeed * Time.deltaTime);
         }
 
     }
