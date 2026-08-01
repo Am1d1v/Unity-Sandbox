@@ -7,7 +7,9 @@ public class ParkourPC : MonoBehaviour
     [SerializeField] float checkRadius;
     [SerializeField] float hangLenght;
     [SerializeField] float hangSpeed;
+    [SerializeField] float accelarateSpeed;
     [SerializeField] Vector3 checkPoint;
+    [SerializeField] Vector3 targetPoint;
     [SerializeField] Vector3 checkOffset;
     [SerializeField] Vector3 hangOffset;
     [SerializeField] LayerMask hangLayer;
@@ -16,9 +18,14 @@ public class ParkourPC : MonoBehaviour
 
     private void Update()
     {
-        CheckToHang();
+        //CheckToHang();
 
-        Hang();
+        //Hang();
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            CastCheckSphere();
+        }
     }
 
     void CheckToHang()
@@ -40,6 +47,11 @@ public class ParkourPC : MonoBehaviour
         }
     }
 
+    void CastCheckSphere()
+    {
+
+    }
+
     void Hang()
     {
         if (hangObject == null) return;
@@ -55,6 +67,8 @@ public class ParkourPC : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawRay(transform.position + checkOffset, checkPoint);
+        Gizmos.DrawSphere(transform.position + targetPoint + checkOffset, checkRadius);
+
+        //Gizmos.DrawRay(transform.position + checkOffset, checkPoint);
     }
 }
