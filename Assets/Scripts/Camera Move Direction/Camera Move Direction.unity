@@ -275,7 +275,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  mouseInput: {x: 0, y: 0}
   mainCamera: {fileID: 586518551}
+  mouseDeltaAction: {fileID: 852840717642274933, guid: 410298a08556d5145952ea626b815f54, type: 3}
 --- !u!1 &169302729
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +335,7 @@ MonoBehaviour:
       Owner: {fileID: 169302734}
       Enabled: 1
       Input:
-        InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
+        InputAction: {fileID: 852840717642274933, guid: 410298a08556d5145952ea626b815f54, type: 3}
         Gain: 1
         LegacyInput: 
         LegacyGain: 1
@@ -344,7 +346,7 @@ MonoBehaviour:
         DecelTime: 0.2
     - Name: Look Orbit Y
       Owner: {fileID: 169302734}
-      Enabled: 1
+      Enabled: 0
       Input:
         InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
         Gain: -1
@@ -357,7 +359,7 @@ MonoBehaviour:
         DecelTime: 0.2
     - Name: Orbit Scale
       Owner: {fileID: 169302734}
-      Enabled: 1
+      Enabled: 0
       Input:
         InputAction: {fileID: -423771258819551211, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
         Gain: -1
