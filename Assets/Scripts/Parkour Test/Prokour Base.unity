@@ -563,6 +563,7 @@ MonoBehaviour:
   hangLenght: 4
   hangSpeed: 3
   checkPoint: {x: 0, y: 0, z: 0}
+  checkOffset: {x: 0, y: 1, z: -0.15}
   hangOffset: {x: 0, y: -1.8, z: 0}
   hangLayer:
     serializedVersion: 2
