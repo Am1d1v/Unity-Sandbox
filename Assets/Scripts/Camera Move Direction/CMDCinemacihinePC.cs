@@ -25,6 +25,6 @@ public class CMDCinemacihinePC : MonoBehaviour
 
     void GetMouseInputDelta()
     {
-        mouseInput = mouseDeltaAction.action.ReadValue<Vector2>();
+        mouseInput = mouseDeltaAction.action.ReadValue<Vector2>().normalized;
     }
 }
