@@ -8,6 +8,7 @@ public class ParkourPC : MonoBehaviour
     [SerializeField] float hangLenght;
     [SerializeField] float hangSpeed;
     [SerializeField] Vector3 checkPoint;
+    [SerializeField] Vector3 checkOffset;
     [SerializeField] Vector3 hangOffset;
     [SerializeField] LayerMask hangLayer;
     [SerializeField] Transform hangObject;
@@ -26,9 +27,16 @@ public class ParkourPC : MonoBehaviour
 
         RaycastHit hit;
 
-        if(Physics.Raycast(transform.position, checkPoint * hangLenght, out hit, hangLenght, hangLayer) && Input.GetKeyDown(KeyCode.Space))
+        if(Physics.Raycast(transform.position + checkOffset, checkPoint * hangLenght, out hit, hangLenght, hangLayer) && Input.GetKeyDown(KeyCode.Space))
         {
-            hangObject = hit.collider.gameObject.transform;
+            if (hangObject == null)
+            {
+                hangObject = hit.collider.gameObject.transform;
+            }
+            else if(hangObject != hit.collider.gameObject)
+            {
+                hangObject = hit.collider.gameObject.transform;
+            }
         }
     }
 
@@ -47,6 +55,6 @@ public class ParkourPC : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawRay(transform.position, checkPoint);
+        Gizmos.DrawRay(transform.position + checkOffset, checkPoint);
     }
 }
