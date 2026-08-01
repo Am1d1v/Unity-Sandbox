@@ -35,4 +35,11 @@ public class CMDCinemacihinePC : MonoBehaviour
     {
         characterController.Move(mainCamera.transform.forward * moveSpeed * Time.deltaTime);
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+
+        Gizmos.DrawWireSphere(transform.position + mainCamera.transform.forward, 1f);
+    }
 }
