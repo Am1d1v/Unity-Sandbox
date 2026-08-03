@@ -13,7 +13,9 @@ public class LockTargetPC : MonoBehaviour
     {
         LookAtTheTarget();
 
-        GetMoveInput();
+        //GetMoveInput();
+
+        MoveAround();
     }
 
     void LookAtTheTarget()
@@ -32,6 +34,13 @@ public class LockTargetPC : MonoBehaviour
         moveInput.z = Input.GetAxisRaw("Vertical");
 
         moveDirection = (transform.forward * moveInput.z + transform.right * moveInput.x) * Time.deltaTime;
+
+        transform.position += moveDirection * moveSpeed;
+    }
+
+    void MoveAround()
+    {
+        moveDirection = transform.right * Time.deltaTime;
 
         transform.position += moveDirection * moveSpeed;
     }
