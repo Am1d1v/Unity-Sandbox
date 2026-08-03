@@ -13,7 +13,7 @@ public class LockTargetPC : MonoBehaviour
     {
         LookAtTheTarget();
 
-        Move();
+        GetMoveInput();
     }
 
     void LookAtTheTarget()
@@ -26,12 +26,12 @@ public class LockTargetPC : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(targetPosition, transform.up);
     }
 
-    void Move()
+    void GetMoveInput()
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.z = Input.GetAxisRaw("Vertical");
 
-        moveDirection = (transform.forward * moveInput.z + transform.right * moveInput.y) * Time.deltaTime;
+        moveDirection = (transform.forward * moveInput.z + transform.right * moveInput.x) * Time.deltaTime;
 
         transform.position += moveDirection * moveSpeed;
     }
