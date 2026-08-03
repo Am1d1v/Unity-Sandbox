@@ -6,6 +6,7 @@ public class LockTargetPC : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] Vector3 targetPosition;
     [SerializeField] Vector3 moveInput;
+    [SerializeField] float moveSpeed;
 
     private void Update()
     {
@@ -29,6 +30,6 @@ public class LockTargetPC : MonoBehaviour
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.z = Input.GetAxisRaw("Vertical");
 
-        transform.position += (moveInput + targetPosition) * Time.deltaTime;
+        transform.position += (moveInput * moveSpeed + targetPosition.normalized) * Time.deltaTime;
     }
 }
