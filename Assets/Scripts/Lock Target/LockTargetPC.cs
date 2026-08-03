@@ -10,6 +10,8 @@ public class LockTargetPC : MonoBehaviour
     private void Update()
     {
         LookAtTheTarget();
+
+        Move();
     }
 
     void LookAtTheTarget()
@@ -20,5 +22,13 @@ public class LockTargetPC : MonoBehaviour
         targetPosition.y = 0f;
 
         transform.rotation = Quaternion.LookRotation(targetPosition, transform.up);
+    }
+
+    void Move()
+    {
+        moveInput.x = Input.GetAxisRaw("Horizontal");
+        moveInput.z = Input.GetAxisRaw("Vertical");
+
+        transform.position += (moveInput + targetPosition) * Time.deltaTime;
     }
 }
