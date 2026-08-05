@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class LockTargetPC : MonoBehaviour
@@ -12,6 +13,7 @@ public class LockTargetPC : MonoBehaviour
 
     [Header("Camera")]
     [SerializeField] Camera mainCamera;
+    [SerializeField] CinemachineTargetGroup targetGroupCamera; 
 
     private void Update()
     {

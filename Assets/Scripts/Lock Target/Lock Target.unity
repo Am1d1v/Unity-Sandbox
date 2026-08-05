@@ -169,8 +169,9 @@ MonoBehaviour:
   moveInput: {x: 0, y: 0, z: 0}
   moveDirection: {x: 0, y: 0, z: 0}
   moveSpeed: 3
-  rotationSpeed: 1.5
+  rotationSpeed: 3
   mainCamera: {fileID: 325798441}
+  targetGroupCamera: {fileID: 772167488}
 --- !u!1 &325798439
 GameObject:
   m_ObjectHideFlags: 0
