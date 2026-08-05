@@ -5,4 +5,5 @@ public class GridDataSO : ScriptableObject
 {
     [Header("Settings")]
     public Material gridMaterial;
+    public Mesh mesh;
 }

@@ -6,6 +6,7 @@ public class DGSUGrid : MonoBehaviour
     [SerializeField] GridDataSO gridData;
     [SerializeField] DGSUGridType gridType;
     [SerializeField] MeshRenderer gridMR;
+    [SerializeField] MeshFilter meshModel;
 
     private void Start()
     {
@@ -15,6 +16,7 @@ public class DGSUGrid : MonoBehaviour
     void ConfigureGrid(DGSUGridType type)
     {
         gridMR.material = gridData.gridMaterial;
+        //meshModel = gridData.mesh;
     }
 
     private void OnMouseDown()
