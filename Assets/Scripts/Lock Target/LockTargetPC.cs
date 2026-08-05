@@ -8,6 +8,7 @@ public class LockTargetPC : MonoBehaviour
     [SerializeField] Vector3 moveInput;
     [SerializeField] Vector3 moveDirection;
     [SerializeField] float moveSpeed;
+    [SerializeField] float rotationSpeed;
 
     [Header("Camera")]
     [SerializeField] Camera mainCamera;
@@ -28,7 +29,10 @@ public class LockTargetPC : MonoBehaviour
         targetPosition = target.position - transform.position;
         targetPosition.y = 0f;
 
-        transform.rotation = Quaternion.LookRotation(targetPosition, transform.up);
+        Quaternion currentRotation = transform.rotation;
+        Quaternion targetRotation = Quaternion.LookRotation(targetPosition, transform.up);
+
+        transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     void GetMoveInput()
