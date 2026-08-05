@@ -9,13 +9,16 @@ public class LockTargetPC : MonoBehaviour
     [SerializeField] Vector3 moveDirection;
     [SerializeField] float moveSpeed;
 
+    [Header("Camera")]
+    [SerializeField] Camera mainCamera;
+
     private void Update()
     {
         LookAtTheTarget();
 
-        //GetMoveInput();
+        GetMoveInput();
 
-        MoveAround();
+        //MoveAround();
     }
 
     void LookAtTheTarget()
