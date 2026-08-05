@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridData: {fileID: 0}
+  gridType: 0
+  gridMR: {fileID: 339083760011896758}
 --- !u!65 &171882598239036424
 BoxCollider:
   m_ObjectHideFlags: 0

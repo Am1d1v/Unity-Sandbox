@@ -25,3 +25,9 @@ public class DGSUGridManager : MonoBehaviour
         }
     }
 }
+
+public enum DGSUGridType
+{
+    Water,
+    Ground
+}
