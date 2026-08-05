@@ -7,6 +7,7 @@ public class HitSplatters : MonoBehaviour
     [SerializeField] ParticleSystem bloodVFX;
     [SerializeField] List<ParticleCollisionEvent> bloodCollisionsEvent = new List<ParticleCollisionEvent>();
     [SerializeField] List<Vector3> bloodPoints = new List<Vector3>();
+    [SerializeField] GameObject bloodPrefab;
 
     private void Update()
     {
@@ -25,6 +26,11 @@ public class HitSplatters : MonoBehaviour
         for(int i = 0; i < splattersEventsCount; i++)
         {
             bloodPoints.Add(bloodCollisionsEvent[i].intersection);
+        }
+        
+        for(int i = 0; i < bloodPoints.Count; i++)
+        {
+            Instantiate(bloodPrefab, bloodPoints[i], Quaternion.identity);
         }
     }   
 }

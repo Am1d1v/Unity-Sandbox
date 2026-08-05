@@ -5059,6 +5059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bloodVFX: {fileID: 493711577}
   bloodPoints: []
+  bloodPrefab: {fileID: 8739616746560477103, guid: 981eb739975f94d40a7373ba22fbda18, type: 3}
 --- !u!1 &607125240
 GameObject:
   m_ObjectHideFlags: 0
