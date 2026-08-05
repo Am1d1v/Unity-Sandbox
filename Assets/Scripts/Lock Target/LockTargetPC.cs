@@ -22,6 +22,11 @@ public class LockTargetPC : MonoBehaviour
         GetMoveInput();
 
         //MoveAround();
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            DeleteLastEnemyFromGroupTargetList();
+        }
     }
 
     void LookAtTheTarget()
@@ -52,5 +57,12 @@ public class LockTargetPC : MonoBehaviour
         moveDirection = transform.right * Time.deltaTime;
 
         transform.position += moveDirection * moveSpeed;
+    }
+
+    void DeleteLastEnemyFromGroupTargetList()
+    {
+        if (targetGroupCamera.Targets.Count == 1) return;
+
+        targetGroupCamera.Targets.RemoveAt(targetGroupCamera.Targets.Count - 1);
     }
 }
