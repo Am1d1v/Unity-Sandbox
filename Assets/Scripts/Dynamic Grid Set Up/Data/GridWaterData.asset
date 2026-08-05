@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GridWaterData
   m_EditorClassIdentifier: 
   gridMaterial: {fileID: 2100000, guid: 9d6d1dbff4854034caf18b7cf2ee33a6, type: 2}
+  mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}

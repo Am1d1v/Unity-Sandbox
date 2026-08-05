@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GridGroundData
   m_EditorClassIdentifier: 
   gridMaterial: {fileID: 2100000, guid: 03b7c57a85ab6514eb84a8380e57a9b6, type: 2}
-  mesh: {fileID: 4026528700639037984, guid: f4e69a7d58c873547a610081650c8028, type: 3}
+  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}

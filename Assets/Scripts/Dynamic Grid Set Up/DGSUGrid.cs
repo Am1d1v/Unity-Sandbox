@@ -16,7 +16,7 @@ public class DGSUGrid : MonoBehaviour
     void ConfigureGrid(DGSUGridType type)
     {
         gridMR.material = gridData.gridMaterial;
-        //meshModel = gridData.mesh;
+        meshModel.mesh = gridData.mesh;
     }
 
     private void OnMouseDown()
