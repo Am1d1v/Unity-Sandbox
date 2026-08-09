@@ -7,7 +7,7 @@ public class LCCart : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float moveSpeed;
     [SerializeField] Vector2 moveDirection;
-    [SerializeField] List<LCItem> items = new List<LCItem>();
+    [SerializeField] List<LCItem> items = new List<LCItem>();   
 
     [Header("Elements")]
     [SerializeField] Rigidbody rb;
@@ -33,5 +33,21 @@ public class LCCart : MonoBehaviour
     void Move()
     {
         rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed, rb.linearVelocity.y, 0f);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.TryGetComponent<LCItem>(out LCItem item))
+        {
+            items.Add(item);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent<LCItem>(out LCItem item))
+        {
+            items.Remove(item);
+        }
     }
 }
