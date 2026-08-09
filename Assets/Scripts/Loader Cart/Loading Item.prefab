@@ -47,6 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a5a65f5d3ef04409038ba0fc841a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xSizeBordersmin: 0.6
+  xSizeBordersmax: 1.5
+  ySizeBordersmin: 0.6
+  ySizeBordersmax: 1.5
+  zSizeBordersmin: 0.6
+  zSizeBordersmax: 1.5
 --- !u!54 &1805531233013041652
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -81,7 +87,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182890484972648497}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9e035fff0803bce42b626fcd8f9b8375, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
