@@ -23,14 +23,15 @@ public class LCItemsSpawner : MonoBehaviour
 
     IEnumerator SpawnItem()
     {
-        float selectedSpawnDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
+        while (enabled)
+        {
+            float selectedSpawnDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
 
-        yield return new WaitForSeconds(selectedSpawnDelay);
+            yield return new WaitForSeconds(selectedSpawnDelay);
 
-        float selectedXPosition = Random.Range(boxCollider.bounds.min.x, boxCollider.bounds.max.x);
+            float selectedXPosition = Random.Range(boxCollider.bounds.min.x, boxCollider.bounds.max.x);
 
-        Instantiate(itemPrefab, new Vector3(selectedXPosition, 0f, 0f) + transform.position, Quaternion.identity, transform);
-
-        SpawnItemCO();
+            Instantiate(itemPrefab, new Vector3(selectedXPosition, 0f, 0f) + transform.position, Quaternion.identity, transform);
+        }
     }
 }
