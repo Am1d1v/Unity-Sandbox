@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,6 +7,7 @@ public class LCCart : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float moveSpeed;
     [SerializeField] Vector2 moveDirection;
+    [SerializeField] List<LCItem> items = new List<LCItem>();
 
     [Header("Elements")]
     [SerializeField] Rigidbody rb;
