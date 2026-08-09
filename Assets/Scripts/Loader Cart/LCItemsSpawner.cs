@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class LCItemsSpawner : MonoBehaviour
@@ -12,13 +13,24 @@ public class LCItemsSpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnItem();
+        SpawnItemCO();
     }
 
-    void SpawnItem()
+    void SpawnItemCO()
     {
+        StartCoroutine(SpawnItem());
+    }
+
+    IEnumerator SpawnItem()
+    {
+        float selectedSpawnDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
+
+        yield return new WaitForSeconds(selectedSpawnDelay);
+
         float selectedXPosition = Random.Range(boxCollider.bounds.min.x, boxCollider.bounds.max.x);
 
         Instantiate(itemPrefab, new Vector3(selectedXPosition, 0f, 0f) + transform.position, Quaternion.identity, transform);
+
+        SpawnItemCO();
     }
 }
