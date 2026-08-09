@@ -9,7 +9,7 @@ public class LCItem : MonoBehaviour
     [SerializeField] float ySizeBordersmax;
     [SerializeField] float zSizeBordersmin;
     [SerializeField] float zSizeBordersmax;
-    [field: SerializeField] public float totalValue { get; private set; }
+    [field: SerializeField] public int totalValue { get; private set; }
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class LCItem : MonoBehaviour
         float selectedYSize = Random.Range(ySizeBordersmin, ySizeBordersmax);
         float selectedZSize = Random.Range(zSizeBordersmin, zSizeBordersmax);
 
-        totalValue = Mathf.Round(selectedXSize + selectedYSize + selectedZSize);
+        totalValue = Mathf.RoundToInt(selectedXSize + selectedYSize + selectedZSize);
 
         transform.localScale = new Vector3(selectedXSize, selectedYSize, selectedZSize);
     }

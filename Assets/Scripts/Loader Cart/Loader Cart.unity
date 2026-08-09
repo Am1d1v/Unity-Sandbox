@@ -129,8 +129,8 @@ GameObject:
   m_Component:
   - component: {fileID: 143530849}
   - component: {fileID: 143530851}
-  - component: {fileID: 143530850}
   - component: {fileID: 143530852}
+  - component: {fileID: 143530850}
   m_Layer: 0
   m_Name: Cart
   m_TagString: Untagged
@@ -169,6 +169,7 @@ MonoBehaviour:
   moveSpeed: 6
   moveDirection: {x: 0, y: 0}
   items: []
+  totalValue: 0
   rb: {fileID: 143530851}
   MoveInput: {fileID: -8936930777641952043, guid: 9ae30d1887eef8940b2a74f8e661e67b, type: 3}
 --- !u!54 &143530851

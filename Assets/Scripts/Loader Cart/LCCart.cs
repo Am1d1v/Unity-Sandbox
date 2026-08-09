@@ -7,7 +7,10 @@ public class LCCart : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float moveSpeed;
     [SerializeField] Vector2 moveDirection;
-    [SerializeField] List<LCItem> items = new List<LCItem>();   
+    [SerializeField] List<LCItem> items = new List<LCItem>();
+
+    [Header("Data")]
+    [SerializeField] int totalValue;
 
     [Header("Elements")]
     [SerializeField] Rigidbody rb;
@@ -18,6 +21,11 @@ public class LCCart : MonoBehaviour
     private void Update()
     {
         GetInput();
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            CalculateItemsValue();
+        }
     }
 
     private void FixedUpdate()
@@ -33,6 +41,16 @@ public class LCCart : MonoBehaviour
     void Move()
     {
         rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed, rb.linearVelocity.y, 0f);
+    }
+
+    void CalculateItemsValue()
+    {
+        foreach(LCItem item in items)
+        {
+            totalValue += item.totalValue;
+
+            Destroy(item.gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
