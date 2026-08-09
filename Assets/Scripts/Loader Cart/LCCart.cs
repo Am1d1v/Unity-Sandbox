@@ -48,9 +48,11 @@ public class LCCart : MonoBehaviour
         foreach(LCItem item in items)
         {
             totalValue += item.totalValue;
-
+         
             Destroy(item.gameObject);
         }
+
+        items.Clear();
     }
 
     private void OnTriggerEnter(Collider other)
