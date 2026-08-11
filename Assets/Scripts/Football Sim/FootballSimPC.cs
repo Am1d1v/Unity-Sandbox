@@ -41,8 +41,13 @@ public class FootballSimPC : MonoBehaviour
 
     void Rotate()
     {
-        Quaternion currentRotation = transform.rotation;
+        float rotationInput = moveInput.action.ReadValue<Vector2>().x;
 
-        transform.rotation = Quaternion.LookRotation(new Vector2(moveInput.action.ReadValue<Vector2>().x, 0f));
+        if (rotationInput == 0f) return;
+
+        Quaternion currentRotation = transform.rotation;
+        Quaternion targetRotation = Quaternion.LookRotation(rotationInput * transform.right);
+
+        transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 }
