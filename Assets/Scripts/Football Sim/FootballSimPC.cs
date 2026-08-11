@@ -6,6 +6,7 @@ public class FootballSimPC : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
+    [SerializeField] float pushStrength;
     [SerializeField] Vector3 yVelocity;
     [SerializeField] Vector3 totalMotion;
 
@@ -59,7 +60,7 @@ public class FootballSimPC : MonoBehaviour
 
             Rigidbody ballRB = collision.gameObject.GetComponent<Rigidbody>();
 
-            ballRB.linearVelocity = moveDirection;
+            ballRB.linearVelocity = moveDirection * pushStrength;
         }
     }
 }

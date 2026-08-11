@@ -728,6 +728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rotationSpeed: 1
+  pushStrength: 9
   yVelocity: {x: 0, y: 0, z: 0}
   totalMotion: {x: 0, y: 0, z: 0}
   characterController: {fileID: 1440644632}
