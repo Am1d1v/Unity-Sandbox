@@ -50,4 +50,16 @@ public class FootballSimPC : MonoBehaviour
 
         transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            Vector3 moveDirection = (collision.transform.position - transform.position).normalized;
+
+            Rigidbody ballRB = collision.gameObject.GetComponent<Rigidbody>();
+
+            ballRB.linearVelocity = moveDirection;
+        }
+    }
 }
