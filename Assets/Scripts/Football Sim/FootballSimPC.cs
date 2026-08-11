@@ -6,6 +6,7 @@ public class FootballSimPC : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
+    [SerializeField] Vector3 yVelocity;
 
     [Header("Elements")]
     [SerializeField] CharacterController characterController;
@@ -15,11 +16,27 @@ public class FootballSimPC : MonoBehaviour
 
     private void Update()
     {
+        CalculateYVelocity();
+
         Move();
     }
 
     void Move()
     {
-        characterController.Move(transform.forward * moveInput.action.ReadValue<Vector2>().y * moveSpeed * Time.deltaTime);
+        Vector3 forwardInput = transform.forward * moveInput.action.ReadValue<Vector2>().y * moveSpeed * Time.deltaTime;
+
+        characterController.Move(forwardInput);
+    }
+
+    void CalculateYVelocity()
+    {
+        if (characterController.isGrounded)
+        {
+            yVelocity = Vector3.up * Physics.gravity.y * Time.deltaTime;
+
+            return;
+        }
+
+        yVelocity += Vector3.up * Physics.gravity.y * Time.deltaTime;
     }
 }
