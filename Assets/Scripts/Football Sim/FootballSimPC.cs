@@ -41,8 +41,8 @@ public class FootballSimPC : MonoBehaviour
 
     void Rotate()
     {
-        Vector3 lookInput = transform.position + transform.right * moveInput.action.ReadValue<Vector2>().x;
+        Quaternion currentRotation = transform.rotation;
 
-        transform.LookAt(lookInput);
+        transform.rotation = Quaternion.LookRotation(new Vector2(moveInput.action.ReadValue<Vector2>().x, 0f));
     }
 }
