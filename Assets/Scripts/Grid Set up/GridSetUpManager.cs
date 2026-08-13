@@ -7,8 +7,10 @@ public class GridSetUpManager : MonoBehaviour
     [SerializeField] int length;
     [SerializeField] float xOffset;
     [SerializeField] float yOffset;
+    [SerializeField] float checkRadius;
     [SerializeField] Transform gridsHolder;
     [SerializeField] GameObject gridPrefab;
+    [SerializeField] LayerMask obstacleLayer;
 
     private void Start()
     {
@@ -23,7 +25,12 @@ public class GridSetUpManager : MonoBehaviour
             {
                 GameObject grid = Instantiate(gridPrefab, transform.position, Quaternion.identity, gridsHolder);
 
-                grid.transform.localPosition = new Vector3(x * xOffset, 0f, y * yOffset);
+                Vector3 gridPosition = new Vector3(x * xOffset, 0f, y * yOffset);
+
+                if (Physics.OverlapSphere(gridPosition, checkRadius, obstacleLayer).Length == 0)
+                {
+                    grid.transform.localPosition = gridPosition;
+                }
             }
         }
     }
