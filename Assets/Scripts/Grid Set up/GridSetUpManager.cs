@@ -5,6 +5,8 @@ public class GridSetUpManager : MonoBehaviour
     [Header("Settings")]
     [SerializeField] int width;
     [SerializeField] int length;
+    [SerializeField] float xOffset;
+    [SerializeField] float yOffset;
     [SerializeField] Transform gridsHolder;
     [SerializeField] GameObject gridPrefab;
 
@@ -21,7 +23,7 @@ public class GridSetUpManager : MonoBehaviour
             {
                 GameObject grid = Instantiate(gridPrefab, transform.position, Quaternion.identity, gridsHolder);
 
-                grid.transform.localPosition = new Vector3(x, 0f, y);
+                grid.transform.localPosition = new Vector3(x * xOffset, 0f, y * yOffset);
             }
         }
     }

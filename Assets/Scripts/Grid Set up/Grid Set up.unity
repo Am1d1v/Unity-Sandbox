@@ -477,6 +477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 3
   length: 3
+  xOffset: 1.35
+  yOffset: 1.35
   gridsHolder: {fileID: 682501094}
   gridPrefab: {fileID: 6730173123697588555, guid: 764cbc624016c6e439ccff51c9107b00, type: 3}
 --- !u!1 &2057182103
