@@ -252,8 +252,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682501093}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.5, y: 0, z: -13.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -565,7 +565,7 @@ MonoBehaviour:
   length: 21
   xOffset: 1.35
   yOffset: 1.35
-  checkRadius: 0.3
+  checkRadius: 0.6
   gridsHolder: {fileID: 682501094}
   gridPrefab: {fileID: 6730173123697588555, guid: 764cbc624016c6e439ccff51c9107b00, type: 3}
   obstacleLayer:

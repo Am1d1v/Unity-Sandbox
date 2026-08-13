@@ -29,7 +29,7 @@ public class GridSetUpManager : MonoBehaviour
 
                 if (Physics.OverlapSphere(gridPosition, checkRadius, obstacleLayer).Length == 0)
                 {
-                    grid.transform.localPosition = gridPosition;
+                    grid.transform.position = gridPosition;
                 }
             }
         }
