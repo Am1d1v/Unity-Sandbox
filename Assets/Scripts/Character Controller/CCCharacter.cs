@@ -4,6 +4,8 @@ public class CCCharacter : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] Vector3 totalMovement;
+    [SerializeField] float gravityImpact;
+    [SerializeField] float gravityGrounded = -1.5f;
 
     [Header("Elements")]
     [SerializeField] CharacterController controller;
@@ -17,20 +19,20 @@ public class CCCharacter : MonoBehaviour
 
     void CalculateYVelocity()
     {
-        Vector3 movement = new Vector3(0f, Physics.gravity.y * Time.deltaTime, 0f);
+        gravityImpact = Physics.gravity.y;
 
         if (controller.isGrounded)
         {
-            totalMovement = movement;
+            totalMovement.y = gravityGrounded;
         }
         else
         {
-            totalMovement += movement;
+            totalMovement.y += gravityImpact * Time.deltaTime;
         }
     }
 
     void Move()
     {
-        controller.Move(totalMovement);
+        controller.Move(totalMovement * Time.deltaTime);
     }
 }

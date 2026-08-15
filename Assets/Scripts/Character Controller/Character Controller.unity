@@ -534,6 +534,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7028a4f1120a7a429b4f2c5657f917f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalMovement: {x: 0, y: 0, z: 0}
+  gravityImpact: 0
+  gravityGrounded: -1.5
   controller: {fileID: 659856642}
 --- !u!1 &1273241962
 GameObject:
