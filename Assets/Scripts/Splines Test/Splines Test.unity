@@ -396,8 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splineMovementDuration: 3
   splineProgress: 0
-  splineTimer: 0
-  splineContainer: {fileID: 1609001151}
+  splineContainer: {fileID: 0}
 --- !u!1 &925317827
 GameObject:
   m_ObjectHideFlags: 0
