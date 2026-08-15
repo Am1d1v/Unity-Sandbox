@@ -3,8 +3,6 @@ using UnityEngine.Splines;
 
 public class STPC : MonoBehaviour
 {
-    public static STPC instance;
-
     [Header("Settings")]
     [SerializeField] float splineMovementDuration;
     [SerializeField] float splineProgress;
@@ -14,10 +12,12 @@ public class STPC : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-        }
+        
+    }
+
+    private void OnDestroy()
+    {
+        
     }
 
     private void Update()
@@ -43,12 +43,17 @@ public class STPC : MonoBehaviour
         }
     }
 
-    public void SetSpline(Vector3 position, SplineContainer SC, float splineDuration)
+    //public void SetSpline(Vector3 position, SplineContainer SC, float splineDuration)
+    //{
+    //    transform.position = position;
+
+    //    splineMovementDuration = splineDuration;
+
+    //    splineContainer = SC;
+    //}
+
+    void SetSplineTower()
     {
-        transform.position = position;
 
-        splineMovementDuration = splineDuration;
-
-        splineContainer = SC;
     }
 }
