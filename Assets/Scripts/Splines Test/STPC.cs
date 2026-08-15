@@ -6,12 +6,15 @@ public class STPC : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float splineMovementDuration;
     [SerializeField] float splineProgress;
+    [SerializeField] float splineTimer;
 
     [Header("Elements")]
     [SerializeField] SplineContainer splineContainer;
 
     private void Update()
     {
+        splineTimer += Time.deltaTime;
+
         SplineMove();
     }
 

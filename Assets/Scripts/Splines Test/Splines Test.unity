@@ -394,8 +394,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5b183f517dfcc40ae08bca1506db2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splineMovementDuration: 15
+  splineMovementDuration: 3
   splineProgress: 0
+  splineTimer: 0
   splineContainer: {fileID: 1609001151}
 --- !u!1 &925317827
 GameObject:
