@@ -490,7 +490,7 @@ Transform:
   m_GameObject: {fileID: 659856640}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5417104, y: 16.36654, z: -3.93}
+  m_LocalPosition: {x: -4.5417104, y: 100, z: -3.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -537,6 +537,7 @@ MonoBehaviour:
   totalMovement: {x: 0, y: 0, z: 0}
   gravityImpact: 0
   gravityGrounded: -1.5
+  moveSpeed: 3
   controller: {fileID: 659856642}
 --- !u!1 &1273241962
 GameObject:

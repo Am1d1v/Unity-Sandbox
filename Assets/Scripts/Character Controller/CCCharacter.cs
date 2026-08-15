@@ -6,6 +6,7 @@ public class CCCharacter : MonoBehaviour
     [SerializeField] Vector3 totalMovement;
     [SerializeField] float gravityImpact;
     [SerializeField] float gravityGrounded = -1.5f;
+    [SerializeField] float moveSpeed;
 
     [Header("Elements")]
     [SerializeField] CharacterController controller;
@@ -33,6 +34,8 @@ public class CCCharacter : MonoBehaviour
 
     void Move()
     {
+        totalMovement.z = Input.GetAxisRaw("Vertical") * moveSpeed;
+
         controller.Move(totalMovement * Time.deltaTime);
     }
 }
