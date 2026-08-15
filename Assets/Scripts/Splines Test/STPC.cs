@@ -4,7 +4,6 @@ using UnityEngine.Splines;
 public class STPC : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] float moveSpeed;
     [SerializeField] float splineMovementDuration;
     [SerializeField] float splineProgress;
 
@@ -18,13 +17,19 @@ public class STPC : MonoBehaviour
 
     void SplineMove()
     {
-        splineProgress += Time.deltaTime * moveSpeed / splineMovementDuration;
+        if (splineContainer == null) return;
+
+        splineProgress += Time.deltaTime / splineMovementDuration;
 
         transform.position = splineContainer.EvaluatePosition(splineProgress);
 
         if(splineProgress >= 1f)
         {
             Debug.Log("Exit spline movement state");
+
+            splineContainer = null;
+
+            splineProgress = 0f;
         }
     }
 }
