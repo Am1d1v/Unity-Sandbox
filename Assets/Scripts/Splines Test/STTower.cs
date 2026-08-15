@@ -11,8 +11,7 @@ public class STTower : MonoBehaviour
     [Header("Elements")]
     [SerializeField] SplineContainer splineContainer;
 
-    [Header("Events")]
-    public event Action<Vector3, SplineContainer, float> onSetTower;
+    public static event Action<Vector3, SplineContainer, float> onSetTower;
 
     private void OnMouseDown()
     {

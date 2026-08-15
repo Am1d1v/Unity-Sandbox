@@ -12,12 +12,12 @@ public class STPC : MonoBehaviour
 
     private void Awake()
     {
-        
+        STTower.onSetTower += SetSplineTower;
     }
 
     private void OnDestroy()
     {
-        
+        STTower.onSetTower -= SetSplineTower;
     }
 
     private void Update()
@@ -52,8 +52,12 @@ public class STPC : MonoBehaviour
     //    splineContainer = SC;
     //}
 
-    void SetSplineTower()
+    void SetSplineTower(Vector3 playerPosition, SplineContainer SC, float splineDuration)
     {
+        transform.position = playerPosition;
 
+        splineMovementDuration = splineDuration;
+
+        splineContainer = SC;
     }
 }
