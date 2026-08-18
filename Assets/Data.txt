@@ -1,1 +1,10 @@
-{}
+{
+    "rotationSpeed": 3.0,
+    "rotationInput": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "RotationInputAction": {
+        "instanceID": 44252
+    }
+}

@@ -2,10 +2,11 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[System.Serializable]
 public class CRPC : MonoBehaviour
 {
     [Header("Settings")]
-    public float rotationSpeed; 
+    [SerializeField] public float rotationSpeed; 
     [SerializeField] Vector2 rotationInput;
 
     [Header("Input Actions")]
@@ -83,7 +84,7 @@ public class CRPC : MonoBehaviour
     {
         string dataPath = Application.dataPath + "/Data.txt";
 
-        string data = JsonUtility.ToJson(rotationSpeed, true);
+        string data = JsonUtility.ToJson(this, true);
 
         File.WriteAllText(dataPath, data);
 
@@ -97,9 +98,7 @@ public class CRPC : MonoBehaviour
 
         string playerData = File.ReadAllText(dataPath);
 
-        float data = JsonUtility.FromJson<float>(playerData);
-
-        this.rotationSpeed = data;
+        JsonUtility.FromJsonOverwrite(playerData, this);
 
         Debug.Log("Loaded");
     }
