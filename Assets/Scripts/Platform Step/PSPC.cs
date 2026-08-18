@@ -5,7 +5,9 @@ public class PSPC : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float detectionRange;
     [SerializeField] Vector3 detectionOffset;
+    [SerializeField] Vector3[] platformPositions;
     [SerializeField] GameObject platformPrefab;
+    [SerializeField] LayerMask platformLayer;
 
     private void Start()
     {

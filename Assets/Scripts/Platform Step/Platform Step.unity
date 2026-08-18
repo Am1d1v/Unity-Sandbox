@@ -166,7 +166,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRange: 0.3
   detectionOffset: {x: 0, y: -0.35, z: 1}
+  platformPositions:
+  - {x: 0, y: -0.35, z: 1}
+  - {x: 0, y: -0.35, z: -1}
+  - {x: 1, y: -0.35, z: 0}
+  - {x: -1, y: -0.35, z: 0}
   platformPrefab: {fileID: 1150774095710939337, guid: 47f995fad57480a4097f2d3c03a333b1, type: 3}
+  platformLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &346767383
 GameObject:
   m_ObjectHideFlags: 0
