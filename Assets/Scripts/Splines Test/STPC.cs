@@ -43,15 +43,6 @@ public class STPC : MonoBehaviour
         }
     }
 
-    //public void SetSpline(Vector3 position, SplineContainer SC, float splineDuration)
-    //{
-    //    transform.position = position;
-
-    //    splineMovementDuration = splineDuration;
-
-    //    splineContainer = SC;
-    //}
-
     void SetSplineTower(Vector3 playerPosition, SplineContainer SC, float splineDuration)
     {
         transform.position = playerPosition;
