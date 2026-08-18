@@ -16,7 +16,9 @@ public class PSPC : MonoBehaviour
 
     void CreatePlatform()
     {
-        Instantiate(platformPrefab, transform.position + detectionOffset, Quaternion.identity);
+        int selectedPlatformSpawnPosition = Random.Range(0, platformPositions.Length);
+
+        Instantiate(platformPrefab, transform.position + platformPositions[selectedPlatformSpawnPosition], Quaternion.identity);
     }
 
     private void OnDrawGizmos()
