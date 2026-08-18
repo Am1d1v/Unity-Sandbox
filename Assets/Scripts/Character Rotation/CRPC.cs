@@ -10,6 +10,11 @@ public class CRPC : MonoBehaviour
     [Header("Input Actions")]
     [SerializeField] InputActionReference RotationInputAction;
 
+    private void Start()
+    {
+        
+    }
+
     private void Update()
     {
         //RotateMethod();
