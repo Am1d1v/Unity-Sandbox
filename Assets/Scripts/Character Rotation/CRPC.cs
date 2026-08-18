@@ -37,6 +37,10 @@ public class CRPC : MonoBehaviour
 
         if (rotationInput.x == 0) return;
 
-        Quaternion targetRotation = Quaternion.LookRotation(rotationInput.x * transform.right * Time.deltaTime);
+        Quaternion currentRotation = transform.rotation;
+
+        Quaternion targetRotation = Quaternion.LookRotation(rotationInput.x * transform.right);
+
+        transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 }
