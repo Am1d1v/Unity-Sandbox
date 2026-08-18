@@ -27,6 +27,14 @@ public class CRPC : MonoBehaviour
         {
             SaveData();
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadData();
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            rotationSpeed++;
+        }
     }
 
     void RotateMethod()
@@ -75,7 +83,7 @@ public class CRPC : MonoBehaviour
     {
         string dataPath = Application.dataPath + "/Data.txt";
 
-        string data = JsonUtility.ToJson(rotationSpeed, true);
+        string data = JsonUtility.ToJson(this, true);
 
         File.WriteAllText(dataPath, data);
 
@@ -86,5 +94,9 @@ public class CRPC : MonoBehaviour
     void LoadData()
     {
         string dataPath = Application.dataPath + "/Data.txt";
+
+        rotationSpeed = JsonUtility.FromJson<float>(dataPath);
+
+        Debug.Log("Loaded");
     }
 }
