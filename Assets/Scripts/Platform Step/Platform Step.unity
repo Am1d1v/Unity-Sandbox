@@ -165,7 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRange: 0.3
-  detectionOffset: {x: 0, y: -0.3, z: 0.9}
+  detectionOffset: {x: 0, y: -0.35, z: 1}
+  platformPrefab: {fileID: 1150774095710939337, guid: 47f995fad57480a4097f2d3c03a333b1, type: 3}
 --- !u!1 &346767383
 GameObject:
   m_ObjectHideFlags: 0
