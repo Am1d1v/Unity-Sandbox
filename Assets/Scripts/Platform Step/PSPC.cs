@@ -4,6 +4,7 @@ public class PSPC : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float detectionRange;
+    [SerializeField] int selectedPlatformSpawnPosition;
     [SerializeField] Vector3 detectionOffset;
     [SerializeField] Vector3[] platformPositions;
     [SerializeField] GameObject platformPrefab;
@@ -12,13 +13,23 @@ public class PSPC : MonoBehaviour
     private void Start()
     {
         CreatePlatform();
+
+        DetectPlatform();
     }
 
     void CreatePlatform()
     {
-        int selectedPlatformSpawnPosition = Random.Range(0, platformPositions.Length);
+        selectedPlatformSpawnPosition = Random.Range(0, platformPositions.Length);
 
         Instantiate(platformPrefab, transform.position + platformPositions[selectedPlatformSpawnPosition], Quaternion.identity);
+    }
+
+    void DetectPlatform()
+    {
+        if(Physics.CheckBox(transform.position + platformPositions[selectedPlatformSpawnPosition], Vector3.one * detectionRange, Quaternion.identity, platformLayer))
+        {
+            Debug.Log("Platform");
+        }
     }
 
     private void OnDrawGizmos()
