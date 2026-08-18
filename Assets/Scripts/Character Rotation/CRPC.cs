@@ -14,7 +14,8 @@ public class CRPC : MonoBehaviour
     {
         //RotateMethod();
         //RotateMouse();
-        RotateTransform();
+        //RotateTransform();
+        RotateTransformMouse();
     }
 
     void RotateMethod()
@@ -34,6 +35,19 @@ public class CRPC : MonoBehaviour
     void RotateTransform()
     {
         rotationInput.x = RotationInputAction.action.ReadValue<Vector2>().x;
+
+        if (rotationInput.x == 0) return;
+
+        Quaternion currentRotation = transform.rotation;
+
+        Quaternion targetRotation = Quaternion.LookRotation(rotationInput.x * transform.right);
+
+        transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
+    
+    
+    }void RotateTransformMouse()
+    {
+        rotationInput.x = Input.GetAxisRaw("Mouse X");
 
         if (rotationInput.x == 0) return;
 
