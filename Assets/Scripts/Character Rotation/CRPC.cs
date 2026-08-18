@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,6 +22,11 @@ public class CRPC : MonoBehaviour
         //RotateMouse();
         //RotateTransform();
         RotateTransformMouse();
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            SaveData();
+        }
     }
 
     void RotateMethod()
@@ -50,7 +56,9 @@ public class CRPC : MonoBehaviour
         transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
     
     
-    }void RotateTransformMouse()
+    }
+    
+    void RotateTransformMouse()
     {
         rotationInput.x = Input.GetAxisRaw("Mouse X");
 
@@ -61,5 +69,22 @@ public class CRPC : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(rotationInput.x * transform.right);
 
         transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    void SaveData()
+    {
+        string dataPath = Application.dataPath + "/Data.txt";
+
+        string data = JsonUtility.ToJson(rotationSpeed, true);
+
+        File.WriteAllText(dataPath, data);
+
+        Debug.Log("Saved");
+
+    }
+
+    void LoadData()
+    {
+        string dataPath = Application.dataPath + "/Data.txt";
     }
 }
