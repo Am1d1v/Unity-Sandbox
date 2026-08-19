@@ -598,8 +598,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a0f3cc15aecdb4180b886cbbe00db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 45
   yImpact: {x: 0, y: 0, z: 0}
+  moveImpact: {x: 0, y: 0, z: 0}
   totalImpact: {x: 0, y: 0, z: 0}
   characterController: {fileID: 1192612083}
   MoveInput: {fileID: -8936930777641952043, guid: 9ae30d1887eef8940b2a74f8e661e67b, type: 3}

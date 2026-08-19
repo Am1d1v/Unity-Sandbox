@@ -40,10 +40,12 @@ public class HTHelicopterControler : MonoBehaviour
     {
         moveImpact.x = MoveInput.action.ReadValue<Vector2>().x;
         moveImpact.z = MoveInput.action.ReadValue<Vector2>().y;
+
+        moveImpact = new Vector3(moveImpact.x, 0f, moveImpact.z) * moveSpeed * Time.deltaTime;
     }
 
     void Move()
     {
-        characterController.Move((totalImpact + yImpact) * Time.deltaTime);
+        characterController.Move((moveImpact + yImpact) * Time.deltaTime);
     }
 }
