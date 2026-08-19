@@ -7,6 +7,7 @@ public class PSPC : MonoBehaviour
     [SerializeField] float detectionRange;
     [SerializeField] float moveSpeed;
     [SerializeField] int selectedPlatformSpawnPosition;
+    [SerializeField] bool platformDetected;
     [SerializeField] Vector3 detectionOffset;
     [SerializeField] Vector3 moveInput;
     [SerializeField] Vector3 targetPosition;
@@ -38,7 +39,7 @@ public class PSPC : MonoBehaviour
             CreatePlatform();
         }
 
-        DetectPlatform();
+        
     }
 
     void CreatePlatform()
@@ -48,12 +49,11 @@ public class PSPC : MonoBehaviour
         Instantiate(platformPrefab, transform.position + platformPositions[selectedPlatformSpawnPosition], Quaternion.identity);
     }
 
-    void DetectPlatform()
+    bool DetectPlatform()
     {
-        if(Physics.CheckBox(transform.position + platformPositions[selectedPlatformSpawnPosition], Vector3.one * detectionRange, Quaternion.identity, platformLayer))
-        {
-            Debug.Log("Platform");
-        }
+        platformDetected = Physics.CheckBox(transform.position + moveInput, Vector3.one * detectionRange, Quaternion.identity, platformLayer);
+
+        return platformDetected;
     }
 
     void GetMoveInputValue()
@@ -62,6 +62,8 @@ public class PSPC : MonoBehaviour
         moveInput.z = MoveActionInput.action.ReadValue<Vector2>().y;
 
         targetPosition = transform.position + moveInput + new Vector3(0f, 0.35f, 0f);
+
+        DetectPlatform();
     }
 
     void Move()
@@ -76,6 +78,6 @@ public class PSPC : MonoBehaviour
     {
         Gizmos.color = Color.white;
 
-        Gizmos.DrawWireCube(transform.position + platformPositions[selectedPlatformSpawnPosition], Vector3.one * detectionRange);
+        Gizmos.DrawWireCube(transform.position + moveInput, Vector3.one * detectionRange);
     }
 }
