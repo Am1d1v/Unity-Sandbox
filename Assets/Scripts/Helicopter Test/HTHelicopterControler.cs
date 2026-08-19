@@ -26,14 +26,7 @@ public class HTHelicopterControler : MonoBehaviour
 
     void CalculateYVelocity()
     {
-        if (characterController.isGrounded)
-        {
-            yImpact.y = Physics.gravity.y * Time.deltaTime;
-        }
-        else
-        {
-            yImpact.y += Physics.gravity.y * Time.deltaTime;
-        }
+        yImpact.y = Physics.gravity.y * Time.deltaTime;
     }
 
     void GetMoveInput()
@@ -41,7 +34,8 @@ public class HTHelicopterControler : MonoBehaviour
         moveImpact.x = MoveInput.action.ReadValue<Vector2>().x;
         moveImpact.z = MoveInput.action.ReadValue<Vector2>().y;
 
-        moveImpact = new Vector3(moveImpact.x, 0f, moveImpact.z) * moveSpeed * Time.deltaTime;
+        //moveImpact = new Vector3(moveImpact.x, 0f, moveImpact.z) * moveSpeed * Time.deltaTime;
+        moveImpact = new Vector3(moveImpact.x, moveImpact.z, 0f) * moveSpeed * Time.deltaTime;
     }
 
     void Move()
