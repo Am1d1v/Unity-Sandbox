@@ -61,12 +61,15 @@ public class PSPC : MonoBehaviour
         moveInput.x = MoveActionInput.action.ReadValue<Vector2>().x;
         moveInput.z = MoveActionInput.action.ReadValue<Vector2>().y;
 
-        targetPosition = transform.position + moveInput;
+        targetPosition = transform.position + moveInput + new Vector3(0f, 0.35f, 0f);
     }
 
     void Move()
     {      
-        
+        if(transform.position != targetPosition)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+        }
     }
 
     private void OnDrawGizmos()
