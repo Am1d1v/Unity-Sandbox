@@ -165,8 +165,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRange: 0.3
-  moveSpeed: 1
+  moveSpeed: 9
   selectedPlatformSpawnPosition: 0
+  platformDetected: 0
   detectionOffset: {x: 0, y: -0.35, z: 1}
   moveInput: {x: 0, y: 0, z: 0}
   targetPosition: {x: 0, y: 0, z: 0}

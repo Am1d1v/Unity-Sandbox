@@ -32,7 +32,10 @@ public class PSPC : MonoBehaviour
             GetMoveInputValue();
         }
 
-        Move();
+        if (platformDetected)
+        {
+            Move();
+        }
 
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -71,6 +74,10 @@ public class PSPC : MonoBehaviour
         if(transform.position != targetPosition)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            platformDetected = false;
         }
     }
 
