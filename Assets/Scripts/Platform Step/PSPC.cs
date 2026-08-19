@@ -1,18 +1,37 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PSPC : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float detectionRange;
+    [SerializeField] float moveSpeed;
     [SerializeField] int selectedPlatformSpawnPosition;
     [SerializeField] Vector3 detectionOffset;
+    [SerializeField] Vector3 moveInput;
+    [SerializeField] Vector3 targetPosition;
     [SerializeField] Vector3[] platformPositions;
     [SerializeField] GameObject platformPrefab;
     [SerializeField] LayerMask platformLayer;
 
+    [Header("Input Actions")]
+    [SerializeField] InputActionReference MoveActionInput;
+
     private void Start()
     {
         CreatePlatform();
+
+        
+    }
+
+    private void Update()
+    {
+        GetMoveInputValue();
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            CreatePlatform();
+        }
 
         DetectPlatform();
     }
@@ -32,10 +51,21 @@ public class PSPC : MonoBehaviour
         }
     }
 
+    void GetMoveInputValue()
+    {
+        moveInput.x = MoveActionInput.action.ReadValue<Vector2>().x;
+        moveInput.z = MoveActionInput.action.ReadValue<Vector2>().y;
+    }
+
+    void Move()
+    {      
+        targetPosition = transform.position + moveInput;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
 
-        Gizmos.DrawWireCube(transform.position + detectionOffset, Vector3.one * detectionRange);
+        Gizmos.DrawWireCube(transform.position + platformPositions[selectedPlatformSpawnPosition], Vector3.one * detectionRange);
     }
 }

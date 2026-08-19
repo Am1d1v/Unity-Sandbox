@@ -167,6 +167,7 @@ MonoBehaviour:
   detectionRange: 0.3
   selectedPlatformSpawnPosition: 0
   detectionOffset: {x: 0, y: -0.35, z: 1}
+  moveInput: {x: 0, y: 0, z: 0}
   platformPositions:
   - {x: 0, y: -0.35, z: 1}
   - {x: 0, y: -0.35, z: -1}
@@ -176,6 +177,7 @@ MonoBehaviour:
   platformLayer:
     serializedVersion: 2
     m_Bits: 1024
+  MoveActionInput: {fileID: -8936930777641952043, guid: 9ae30d1887eef8940b2a74f8e661e67b, type: 3}
 --- !u!1 &346767383
 GameObject:
   m_ObjectHideFlags: 0
