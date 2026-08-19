@@ -25,8 +25,13 @@ public class PSPC : MonoBehaviour
     }
 
     private void Update()
-    {
-        GetMoveInputValue();
+    {        
+        if (MoveActionInput.action.WasPerformedThisFrame())
+        {
+            GetMoveInputValue();
+        }
+
+        Move();
 
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -55,11 +60,13 @@ public class PSPC : MonoBehaviour
     {
         moveInput.x = MoveActionInput.action.ReadValue<Vector2>().x;
         moveInput.z = MoveActionInput.action.ReadValue<Vector2>().y;
+
+        targetPosition = transform.position + moveInput;
     }
 
     void Move()
     {      
-        targetPosition = transform.position + moveInput;
+        
     }
 
     private void OnDrawGizmos()
