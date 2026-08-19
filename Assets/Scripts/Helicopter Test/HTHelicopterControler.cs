@@ -6,6 +6,7 @@ public class HTHelicopterControler : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float moveSpeed;
     [SerializeField] Vector3 yImpact;
+    [SerializeField] Vector3 moveImpact;
     [SerializeField] Vector3 totalImpact;
 
     [Header("Elements")]
@@ -16,6 +17,8 @@ public class HTHelicopterControler : MonoBehaviour
 
     private void Update()
     {
+        GetMoveInput();
+
         CalculateYVelocity();
 
         Move();
@@ -31,6 +34,12 @@ public class HTHelicopterControler : MonoBehaviour
         {
             yImpact.y += Physics.gravity.y * Time.deltaTime;
         }
+    }
+
+    void GetMoveInput()
+    {
+        moveImpact.x = MoveInput.action.ReadValue<Vector2>().x;
+        moveImpact.z = MoveInput.action.ReadValue<Vector2>().y;
     }
 
     void Move()
