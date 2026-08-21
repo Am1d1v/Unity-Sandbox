@@ -6806,6 +6806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionParticles: {fileID: 69837359}
+  collided: []
 --- !u!1 &1458717775
 GameObject:
   m_ObjectHideFlags: 0
