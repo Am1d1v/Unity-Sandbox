@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 69837358}
   - component: {fileID: 69837360}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Collision Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,7 +247,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5263,7 +5263,7 @@ GameObject:
   - component: {fileID: 1441148321}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5351,6 +5351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdfde7dba7be8d46814b5655ae319bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionParticles: {fileID: 69837359}
 --- !u!1 &1458717775
 GameObject:
   m_ObjectHideFlags: 0
