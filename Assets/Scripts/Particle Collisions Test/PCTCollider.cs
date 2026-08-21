@@ -6,7 +6,7 @@ public class PCTCollider : MonoBehaviour
     {
         if (other.CompareTag("Obstacle"))
         {
-            Debug.Log("A");
+            Destroy(other.gameObject);
         }
     }
 }
