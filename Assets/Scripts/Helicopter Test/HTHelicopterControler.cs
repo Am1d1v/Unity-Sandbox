@@ -26,7 +26,7 @@ public class HTHelicopterControler : MonoBehaviour
 
     void CalculateYVelocity()
     {
-        yImpact.y = Physics.gravity.y * Time.deltaTime;
+        yImpact.y = Physics.gravity.y * Time.deltaTime; 
     }
 
     void GetMoveInput()
