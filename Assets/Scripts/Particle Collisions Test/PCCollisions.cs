@@ -29,4 +29,12 @@ public class PCCollisions : MonoBehaviour
             collisionParticles.Play();
         }
     }
+
+    public void AddCollidedObejct(GameObject collidedGO)
+    {
+        if(collided.Contains(collidedGO) == false)
+        {
+            collided.Add(collidedGO);
+        }
+    }
 }
